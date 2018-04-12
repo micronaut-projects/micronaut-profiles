@@ -1,0 +1,23 @@
+description: The base profile
+features:
+    defaults:
+        - http-server
+    required:
+        - java
+skeleton:
+    executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
+    binaryExtensions: ['png','gif','jpg','jpeg','ico','icns','pdf','zip','jar','class']
+repositories:
+    - "mavenLocal()"
+    - "https://repo.micronaut.io/artifactory"
+build:
+    repositories:
+        - "mavenCentral()"
+    plugins:
+        - io.spring.dependency-management
+        - application
+dependencies:
+    build:
+        - io.spring.gradle:dependency-management-plugin:1.0.5.RELEASE
+    runtime:
+        - ch.qos.logback:logback-classic:1.2.3

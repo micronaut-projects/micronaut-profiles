@@ -1,0 +1,9 @@
+description: Adds support for Java in the application
+build:
+    plugins:
+        - java
+dependencies:
+    compileOnly:
+        - io.micronaut:inject-java
+    compile:
+        - io.micronaut:inject
