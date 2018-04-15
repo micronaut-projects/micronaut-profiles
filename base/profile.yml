@@ -1,15 +1,14 @@
 description: The base profile
 features:
-    defaults:
-        - http-server
     required:
         - java
+        - http-server
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
     binaryExtensions: ['png','gif','jpg','jpeg','ico','icns','pdf','zip','jar','class']
 repositories:
     - "mavenLocal()"
-    - "https://repo.micronaut.io/artifactory"
+    - "mavenCentral()"
 build:
     repositories:
         - "mavenCentral()"
