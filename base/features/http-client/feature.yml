@@ -1,0 +1,5 @@
+description: Adds support for creating HTTP clients
+dependencies:
+    compile:
+        - io.micronaut:http-client
+
