@@ -6,8 +6,6 @@ build:
 dependencies:
     build:
         - org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.30
-    compileOnly:
-        - io.micronaut:inject-groovy
     compile:
         - org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.30
         - org.jetbrains.kotlin:kotlin-reflect:1.2.30
