@@ -21,3 +21,4 @@ dependencies:
         - io.spring.gradle:dependency-management-plugin:1.0.5.RELEASE
     runtime:
         - ch.qos.logback:logback-classic:1.2.3
+        - org.yaml:snakeyaml:1.19

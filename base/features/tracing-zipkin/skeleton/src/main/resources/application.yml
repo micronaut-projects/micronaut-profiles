@@ -1,3 +1,4 @@
+micronaut.application.name: @defaultPackage@
 tracing.zipkin.enabled: true
 tracing.zipkin.http.url: http://localhost:9411
 tracing.zipkin.sampler.probability: 1
