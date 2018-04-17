@@ -1,0 +1,2 @@
+tracing.jaeger.enabled: true
+tracing.jaeger.sampler.probability: 1
