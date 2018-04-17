@@ -2,6 +2,14 @@ buildscript {
     repositories {
         jcenter()
         mavenLocal()
+
+        maven {
+            credentials {
+                username micronautRepoUsername
+                password micronautRepoPassword
+            }
+            url 'https://repo.micronaut.io/artifactory/libs-snapshots-local'
+        }
     }
     dependencies {
         classpath "io.micronaut:gradle-plugins:1.0.0-SNAPSHOT"
