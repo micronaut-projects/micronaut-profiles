@@ -1,0 +1,11 @@
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile "io.micronaut:cli:1.0.0-SNAPSHOT"
+    compile "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.0"
+    compile "org.yaml:snakeyaml:1.14"
+}
