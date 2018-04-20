@@ -8,8 +8,7 @@ description("Creates a controller") {
     flag name: 'kotlin', description: "Create a Kotlin controller"
 }
 
-def scriptName = NameUtils.getClassNameForLowerCaseHyphenSeparatedName(args[0])
-def model = model(scriptName)
+def model = model(args[0])
 boolean overwrite = flag('force')
 
 if (flag('groovy')) {
@@ -28,6 +27,3 @@ if (flag('groovy')) {
             model: model,
             overwrite: overwrite
 }
-
-
-
