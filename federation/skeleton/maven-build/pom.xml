@@ -5,32 +5,8 @@
     <artifactId>@app.name@</artifactId>
     <version>0.1</version>
 
-    <properties>
-        <exec.mainClass>@defaultPackage@.Application</exec.mainClass>
-    </properties>
-
-    <repositories>
-@repositories@
-    </repositories>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>io.micronaut</groupId>
-                <artifactId>bom</artifactId>
-                <version>@version@</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-    <dependencies>
-@dependencies@
-    </dependencies>
-
-    <build>
-        <plugins></plugins>
-    </build>
+    <modules>
+        @services@
+    </modules>
 
 </project>
