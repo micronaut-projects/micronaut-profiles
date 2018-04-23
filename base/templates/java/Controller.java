@@ -5,10 +5,10 @@ import io.micronaut.http.annotation.Get
 import io.micronaut.http.HttpStatus
 
 @Controller("/${propertyName}")
-class ${className}Controller {
+public class ${className}Controller {
 
     @Get("/")
-    HttpStatus index() {
+    public HttpStatus index() {
         return HttpStatus.OK
     }
 }
