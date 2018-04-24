@@ -1,4 +1,4 @@
-@apackageNamee@
+package ${packageName}
 
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
@@ -6,7 +6,7 @@ import io.micronaut.http.HttpStatus
 
 
 @Controller("/${propertyName}")
-class @artifact.name@Controller {
+class ${className} {
 
     @Get("/")
     def index() {
