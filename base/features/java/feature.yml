@@ -7,3 +7,5 @@ dependencies:
         - io.micronaut:inject-java
     compile:
         - io.micronaut:inject
+    testCompile:
+        - junit:junit:4.12

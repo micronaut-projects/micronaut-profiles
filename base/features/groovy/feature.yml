@@ -9,3 +9,4 @@ dependencies:
         - io.micronaut:runtime-groovy
     testCompile:
         - io.micronaut:inject-groovy
+        - org.spockframework:spock-core:1.1-groovy-2.4

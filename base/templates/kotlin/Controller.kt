@@ -1,4 +1,4 @@
-package ${packageName}
+${packageName ? 'package ' + packageName : '' }
 
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
