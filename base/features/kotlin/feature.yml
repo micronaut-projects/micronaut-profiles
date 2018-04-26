@@ -1,0 +1,22 @@
+description: Adds support for Kotlin in the application
+build:
+    plugins:
+        - kotlin
+        - kotlin-kapt
+dependencies:
+    build:
+        - org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.30
+    compile:
+        - org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.30
+        - org.jetbrains.kotlin:kotlin-reflect:1.2.30
+        - io.micronaut:runtime
+    kapt:
+        - io.micronaut:inject-java
+    kaptTest:
+        - io.micronaut:inject-java
+    testCompile:
+        - org.junit.jupiter:junit-jupiter-api:5.1.0
+        - org.jetbrains.spek:spek-api:1.1.5
+    testRuntime:
+        - org.junit.jupiter:junit-jupiter-engine:5.1.0
+        - org.jetbrains.spek:spek-junit-platform-engine:1.1.5

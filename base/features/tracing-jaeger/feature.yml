@@ -1,0 +1,6 @@
+description: Adds support for distributed tracing with Jaeger (https://www.jaegertracing.io)
+dependencies:
+    compile:
+        - io.micronaut:tracing
+    runtime:
+        - io.jaegertracing:jaeger-core:0.27.0-RC1
