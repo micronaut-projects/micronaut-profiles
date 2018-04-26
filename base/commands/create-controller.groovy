@@ -7,37 +7,34 @@ description("Creates a controller and associated test") {
 }
 
 def model = model(args[0]).forConvention("Controller")
-
 boolean overwrite = flag('force')
+String artifactPath = "${model.packagePath}/${model.className}"
+def controllerDestination, controllerTemplate, testDestination, testTemplate
 
 if (flag('groovy')) {
-    render template: template('groovy/Controller.groovy'),
-            destination: file("src/main/groovy/${model.packagePath}/${model.className}.groovy"),
-            model: model,
-            overwrite: overwrite
-
-    render template: template('groovy/ControllerSpec.groovy'),
-            destination: file("src/test/groovy/${model.packagePath}/${model.className}Spec.groovy"),
-            model: model,
-            overwrite: overwrite
+    controllerTemplate = template('groovy/Controller.groovy')
+    controllerDestination = file("src/main/groovy/${artifactPath}.groovy")
+    testTemplate = template('groovy/ControllerSpec.groovy')
+    testDestination = file("src/test/groovy/${artifactPath}Spec.groovy")
 } else if (flag('kotlin')) {
-    render template: template('kotlin/Controller.kt'),
-            destination: file("src/main/kotlin/${model.packagePath}/${model.className}.kt"),
-            model: model,
-            overwrite: overwrite
-
-    render template: template('kotlin/ControllerTest.kt'),
-            destination: file("src/test/kotlin/${model.packagePath}/${model.className}Test.kt"),
-            model: model,
-            overwrite: overwrite
+    controllerTemplate = template('kotlin/Controller.kt')
+    controllerDestination = file("src/main/kotlin/${artifactPath}.kt")
+    testTemplate = template('kotlin/ControllerTest.kt')
+    testDestination = file("src/test/kotlin/${artifactPath}Test.kt")
 } else {
-    render template: template('java/Controller.java'),
-            destination: file("src/main/java/${model.packagePath}/${model.className}.java"),
-            model: model,
-            overwrite: overwrite
-
-    render template: template('java/ControllerTest.java'),
-            destination: file("src/test/java/${model.packagePath}/${model.className}Test.java"),
-            model: model,
-            overwrite: overwrite
+    controllerTemplate = template('java/Controller.java')
+    controllerDestination = file("src/main/java/${artifactPath}.java")
+    testTemplate = template('java/ControllerTest.java')
+    testDestination = file("src/test/java/${artifactPath}Test.java")
 }
+
+render template: controllerTemplate,
+        destination: controllerDestination,
+        model: model,
+        overwrite: overwrite
+
+render template: testTemplate,
+        destination: testDestination,
+        model: model,
+        overwrite: overwrite
+
