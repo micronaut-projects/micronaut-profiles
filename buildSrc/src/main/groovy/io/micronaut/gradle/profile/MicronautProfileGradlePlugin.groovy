@@ -40,7 +40,6 @@ import javax.inject.Inject
  * @author Graeme Rocher
  * @since 1.0
  */
-@CompileStatic
 class MicronautProfileGradlePlugin extends BasePlugin {
 
     public static final String RUNTIME_CONFIGURATION = "runtime"
@@ -109,61 +108,66 @@ class MicronautProfileGradlePlugin extends BasePlugin {
         }
 
         def classsesDir = new File(project.buildDir, "classes/profile")
-        def compileTask = project.tasks.create("compileProfile", ProfileCompilerTask) { ProfileCompilerTask task ->
-            task.destinationDir = classsesDir
-            task.source = commandsDir
-            task.config = profileYml
-            if(templatesDir.exists()) {
-                task.templatesDir = templatesDir
+
+        project.afterEvaluate {
+
+            def compileTask = project.tasks.create("compileProfile", ProfileCompilerTask) { ProfileCompilerTask task ->
+                task.destinationDir = classsesDir
+                task.source = commandsDir
+                task.config = profileYml
+                if(templatesDir.exists()) {
+                    task.templatesDir = templatesDir
+                }
+                URL resource = GroovyScriptCommand.getResource('/' + "io.micronaut.cli.profile.commands.script.GroovyScriptCommand".replace(".", "/") + ".class")
+                File scriptCommand = IOUtils.findJarFile(resource)
+                task.classpath = project.files(project.configurations.getByName(RUNTIME_CONFIGURATION) + scriptCommand)
             }
-            URL resource = GroovyScriptCommand.getResource('/' + "io.micronaut.cli.profile.commands.script.GroovyScriptCommand".replace(".", "/") + ".class")
-            File scriptCommand = IOUtils.findJarFile(resource)
-            task.classpath = project.files(project.configurations.getByName(RUNTIME_CONFIGURATION) + scriptCommand)
+
+            def jarTask = project.tasks.create("jar", Jar) { Jar jar ->
+                jar.dependsOn(processResources, compileTask)
+                jar.from(resourcesDir)
+                jar.from(classsesDir)
+                jar.destinationDir = new File(project.buildDir, "libs")
+                jar.setDescription("Assembles a jar archive containing the profile classes.")
+                jar.setGroup(BUILD_GROUP)
+
+                ArchivePublishArtifact jarArtifact = new ArchivePublishArtifact(jar)
+                project.getComponents().add(new JavaLibrary(jarArtifact, profileConfiguration.getAllDependencies()));
+
+                jar.doFirst {
+                    DirectoryScanner.defaultExcludes.each { String file -> DirectoryScanner.removeDefaultExclude(file) }
+                }
+                jar.doLast {
+                    DirectoryScanner.resetDefaultExcludes()
+                }
+            }
+
+            project.tasks.create("sourcesJar", Jar) { Jar jar ->
+                jar.from(commandsDir)
+                if(profileYml.exists()) {
+                    jar.from(profileYml)
+                }
+                jar.from(templatesDir) { CopySpec spec ->
+                    spec.into("templates")
+                }
+                jar.from(skeletonsDir) { CopySpec spec ->
+                    spec.into("skeleton")
+                }
+                jar.classifier = "sources"
+                jar.destinationDir = new File(project.buildDir, "libs")
+                jar.setDescription("Assembles a jar archive containing the profile sources.")
+                jar.setGroup(BUILD_GROUP)
+
+                jar.doFirst {
+                    DirectoryScanner.defaultExcludes.each { String file -> DirectoryScanner.removeDefaultExclude(file) }
+                }
+                jar.doLast {
+                    DirectoryScanner.resetDefaultExcludes()
+                }
+            }
+            project.tasks.findByName("assemble").dependsOn jarTask
         }
 
-        def jarTask = project.tasks.create("jar", Jar) { Jar jar ->
-            jar.dependsOn(processResources, compileTask)
-            jar.from(resourcesDir)
-            jar.from(classsesDir)
-            jar.destinationDir = new File(project.buildDir, "libs")
-            jar.setDescription("Assembles a jar archive containing the profile classes.")
-            jar.setGroup(BUILD_GROUP)
-
-            ArchivePublishArtifact jarArtifact = new ArchivePublishArtifact(jar)
-            project.getComponents().add(new JavaLibrary(jarArtifact, profileConfiguration.getAllDependencies()));
-
-            jar.doFirst {
-                DirectoryScanner.defaultExcludes.each { String file -> DirectoryScanner.removeDefaultExclude(file) }
-            }
-            jar.doLast {
-                DirectoryScanner.resetDefaultExcludes()
-            }
-        }
-
-        project.tasks.create("sourcesJar", Jar) { Jar jar ->
-            jar.from(commandsDir)
-            if(profileYml.exists()) {
-                jar.from(profileYml)
-            }
-            jar.from(templatesDir) { CopySpec spec ->
-                spec.into("templates")
-            }
-            jar.from(skeletonsDir) { CopySpec spec ->
-                spec.into("skeleton")
-            }
-            jar.classifier = "sources"
-            jar.destinationDir = new File(project.buildDir, "libs")
-            jar.setDescription("Assembles a jar archive containing the profile sources.")
-            jar.setGroup(BUILD_GROUP)
-
-            jar.doFirst {
-                DirectoryScanner.defaultExcludes.each { String file -> DirectoryScanner.removeDefaultExclude(file) }
-            }
-            jar.doLast {
-                DirectoryScanner.resetDefaultExcludes()
-            }
-        }
-        project.tasks.findByName("assemble").dependsOn jarTask
 
     }
 }
