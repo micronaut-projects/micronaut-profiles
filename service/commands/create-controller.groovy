@@ -2,39 +2,47 @@ description("Creates a controller and associated test") {
     usage "mn create-controller [CONTROLLER NAME]"
     argument name: 'Controller Name', description: "The name of the controller to create", required: true
     flag name: 'force', description: "Whether to overwrite existing files"
-    flag name: 'groovy', description: "Create a Groovy controller"
-    flag name: 'kotlin', description: "Create a Kotlin controller"
+    flag name: 'lang', description: "The language used for the controller (options: groovy, kotlin, java)"
 }
 
 def model = model(args[0]).forConvention("Controller")
-boolean overwrite = flag('force')
-String artifactPath = "${model.packagePath}/${model.className}"
-def controllerDestination, controllerTemplate, testDestination, testTemplate
 
-if (flag('groovy')) {
-    controllerTemplate = template('groovy/Controller.groovy')
-    controllerDestination = file("src/main/groovy/${artifactPath}.groovy")
-    testTemplate = template('groovy/ControllerSpec.groovy')
-    testDestination = file("src/test/groovy/${artifactPath}Spec.groovy")
-} else if (flag('kotlin')) {
-    controllerTemplate = template('kotlin/Controller.kt')
-    controllerDestination = file("src/main/kotlin/${artifactPath}.kt")
-    testTemplate = template('kotlin/ControllerTest.kt')
-    testDestination = file("src/test/kotlin/${artifactPath}Test.kt")
-} else {
-    controllerTemplate = template('java/Controller.java')
-    controllerDestination = file("src/main/java/${artifactPath}.java")
-    testTemplate = template('java/ControllerTest.java')
-    testDestination = file("src/test/java/${artifactPath}Test.java")
+String lang = flag('lang')
+String artifactPath = "${model.packagePath}/${model.className}"
+
+boolean overwrite = flag('force')
+
+if (!lang) {
+    if (file("src/main/groovy").exists()) {
+        lang = "groovy"
+    } else if (file("src/main/kotlin").exists()) {
+        lang = "kotlin"
+    } else {
+        lang = "java"
+    }
 }
 
-render template: controllerTemplate,
-        destination: controllerDestination,
+Map<String, String> langExtensions = ["groovy": "groovy", "java": "java", "kotlin": "kt"]
+
+if (!langExtensions.containsKey(lang)) {
+    error("Invalid language selection: ${lang}. Valid selections are ${langExtensions.keySet().join(', ')}")
+    return
+}
+
+String extension = langExtensions.get(lang)
+
+render template: template("${lang}/Controller.${extension}"),
+        destination: file("src/main/${lang}/${artifactPath}.${extension}"),
         model: model,
         overwrite: overwrite
 
-render template: testTemplate,
-        destination: testDestination,
+String testConvention = "Test"
+if (lang == "groovy") {
+    testConvention = "Spec"
+}
+
+render template: template("${lang}/Controller${testConvention}.${extension}"),
+        destination: file("src/test/${lang}/${artifactPath}${testConvention}.${extension}"),
         model: model,
         overwrite: overwrite
 
