@@ -1,9 +1,4 @@
 description: The base profile
-features:
-    required:
-        - java
-        - http-server
-        - http-client
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
     binaryExtensions: ['png','gif','jpg','jpeg','ico','icns','pdf','zip','jar','class']
