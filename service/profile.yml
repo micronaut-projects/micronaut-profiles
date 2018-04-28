@@ -4,3 +4,5 @@ features:
         - java
         - http-server
         - http-client
+skeleton:
+    executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
