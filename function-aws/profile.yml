@@ -8,6 +8,7 @@ skeleton:
 build:
     repositories:
         - "https://plugins.gradle.org/m2/"
+        - "mavenCentral()"
         - "mavenLocal()"
     plugins:
         - com.github.johnrengelman.shadow
