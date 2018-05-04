@@ -9,7 +9,7 @@ import io.micronaut.http.HttpStatus
 class ${className} {
 
     @Get("/")
-    def index() {
+    HttpStatus index() {
         return HttpStatus.OK
     }
 }

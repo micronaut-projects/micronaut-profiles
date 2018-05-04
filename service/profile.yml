@@ -1,6 +1,7 @@
 description: The service profile
 features:
     required:
+        - java
         - http-server
         - http-client
 skeleton:
