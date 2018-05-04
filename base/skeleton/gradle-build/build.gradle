@@ -27,3 +27,7 @@ dependencyManagement {
 dependencies {
 @dependencies@
 }
+
+shadowJar {
+    mergeServiceFiles()
+}
