@@ -1,3 +1,4 @@
 include 'base'
+include 'service'
 include 'federation'
 

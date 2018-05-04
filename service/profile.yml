@@ -1,0 +1,7 @@
+description: The service profile
+features:
+    required:
+        - http-server
+        - http-client
+skeleton:
+    executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
