@@ -2,7 +2,13 @@ description: Adds support for Java in the application
 build:
     plugins:
         - java
+        - net.ltgt.apt-eclipse
+        - net.ltgt.apt-idea
 dependencies:
+    build:
+        - net.ltgt.gradle:gradle-apt-plugin:0.15
+    annotationProcessor:
+        - io.micronaut:inject-java
     compileOnly:
         - io.micronaut:inject-java
     compile:
