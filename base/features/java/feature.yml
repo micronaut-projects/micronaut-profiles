@@ -9,6 +9,8 @@ dependencies:
         - net.ltgt.gradle:gradle-apt-plugin:0.15
     annotationProcessor:
         - io.micronaut:inject-java
+    compileOnly:
+        - io.micronaut:inject-java
     compile:
         - io.micronaut:inject
         - io.micronaut:runtime
