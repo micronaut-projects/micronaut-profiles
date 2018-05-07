@@ -11,11 +11,14 @@ repositories:
 build:
     repositories:
         - "mavenCentral()"
+        - "https://plugins.gradle.org/m2/"
     plugins:
         - io.spring.dependency-management
+        - com.github.johnrengelman.shadow
         - application
 dependencies:
     build:
+        - com.github.jengelman.gradle.plugins:shadow:2.0.4
         - io.spring.gradle:dependency-management-plugin:1.0.5.RELEASE
     runtime:
         - ch.qos.logback:logback-classic:1.2.3
