@@ -11,10 +11,6 @@ jar {
     }
 }
 
-shadowJar {
-    mergeServiceFiles()
-}
-
 task deploy(type: AWSLambdaMigrateFunctionTask, dependsOn: shadowJar) {
     functionName = "@project.name@"
     handler = "@defaultPackage@.@project.className@Function::index"
