@@ -8,7 +8,7 @@
     <properties>
         <exec.mainClass>@defaultPackage@.Application</exec.mainClass>
         <micronaut.version>@version@</micronaut.version>
-        <java.version>1.8</java.version>
+        <jdk.version>1.8</jdk.version>
     </properties>
 
     <repositories>
@@ -39,8 +39,8 @@
                 <version>3.7.0</version>
 
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>io.micronaut</groupId>
