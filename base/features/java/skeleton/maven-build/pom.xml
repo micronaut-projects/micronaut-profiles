@@ -1,14 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <dependencies>
-    <dependency>
-        <groupId>io.micronaut</groupId>
-        <artifactId>inject-java</artifactId>
-        <scope>compile</scope>
-    </dependency>
-    </dependencies>
-
     <build>
         <pluginManagement>
             <plugins>
@@ -16,13 +8,16 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.7.0</version>
+
                     <configuration>
+                        <source>${jdk.version}</source>
+                        <target>${jdk.version}</target>
                         <annotationProcessorPaths>
-                            <annotationProcessorPath>
+                            <path>
                                 <groupId>io.micronaut</groupId>
                                 <artifactId>inject-java</artifactId>
-                                <version>@version@</version>
-                            </annotationProcessorPath>
+                                <version>${micronaut.version}</version>
+                            </path>
                         </annotationProcessorPaths>
                     </configuration>
                 </plugin>
