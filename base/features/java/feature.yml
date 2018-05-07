@@ -3,8 +3,6 @@ build:
     plugins:
         - java
 dependencies:
-    compileOnly:
-        - io.micronaut:inject-java
     compile:
         - io.micronaut:inject
         - io.micronaut:runtime
