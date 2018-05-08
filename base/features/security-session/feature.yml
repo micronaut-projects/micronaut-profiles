@@ -1,0 +1,4 @@
+description: Adds support for Session based Authentication
+dependencies:
+    compile:
+        - io.micronaut:security-session
