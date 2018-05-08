@@ -1,8 +1,8 @@
 package @defaultPackage@
 
-class @project.className@Function {
+public class @project.className@Function {
 
-    fun index(): String {
+    public fun index(): String {
         return "index"
     }
 }
