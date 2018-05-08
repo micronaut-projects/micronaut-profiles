@@ -22,3 +22,9 @@ dependencies:
     runtime:
         - com.amazonaws:aws-lambda-java-log4j2:1.0.0
         - org.apache.logging.log4j:log4j-slf4j-impl:2.9.1
+#    testCompile:
+#        - io.micronaut:function-client
+#    testRuntime:
+#        - io.micronaut:http-server-netty
+#        - io.micronaut:function-web
+#        - com.amazonaws:aws-java-sdk-lambda:1.11.285

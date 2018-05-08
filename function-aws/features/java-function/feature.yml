@@ -1,10 +1,3 @@
 description: Creates initial function using Java
 dependentFeatures:
     - java
-#dependencies:
-#    compile:
-#        - io.micronaut.configuration:hibernate-validator:1.0.0-SNAPSHOT #TODO
-#        - io.micronaut.configuration:hibernate-gorm:1.0.0-SNAPSHOT #TODO
-#    runtime:
-#        - com.h2database:h2:1.4.196
-#        - org.apache.tomcat:tomcat-jdbc:8.0.44
