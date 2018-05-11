@@ -1,4 +1,6 @@
 micronaut:
+  application:
+        name: @app.name@
   config-client:
     enabled: true
 consul:
