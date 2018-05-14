@@ -1,3 +1,0 @@
-hibernate:
-    hbm2ddl:
-        hbm2ddl: create-drop
