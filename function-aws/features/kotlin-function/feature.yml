@@ -1,3 +1,6 @@
 description: Creates initial function using Kotlin
 dependentFeatures:
     - kotlin
+dependencies:
+    compile:
+        - io.micronaut:function-aws

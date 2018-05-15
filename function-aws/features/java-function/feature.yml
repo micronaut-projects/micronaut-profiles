@@ -1,3 +1,6 @@
 description: Creates initial function using Java
 dependentFeatures:
     - java
+dependencies:
+    compile:
+        - io.micronaut:function-aws

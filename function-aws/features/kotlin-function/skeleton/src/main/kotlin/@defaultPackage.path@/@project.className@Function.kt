@@ -1,9 +1,12 @@
 package @defaultPackage@
 
-public class @project.className@Function {
+import io.micronaut.function.FunctionBean
+import java.util.function.Supplier
 
-    public fun index(): String {
-        return "index"
+@FunctionBean("@project.name@")
+class TestAwsFunctionKotlinFunction : Supplier<String> {
+
+    override fun get(): String {
+        return "@project.name@"
     }
 }
-

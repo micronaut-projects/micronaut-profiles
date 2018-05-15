@@ -1,5 +1,5 @@
 package @defaultPackage@
 
 String index() {
-    "index"
+    "@project-name@"
 }
