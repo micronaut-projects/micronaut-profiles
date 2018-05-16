@@ -1,4 +1,6 @@
 include 'base'
 include 'service'
 include 'federation'
+include 'function'
+include 'function-aws'
 

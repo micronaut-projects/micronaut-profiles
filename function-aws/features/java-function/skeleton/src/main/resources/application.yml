@@ -1,0 +1,3 @@
+micronaut:
+    function:
+        name: @project.name@

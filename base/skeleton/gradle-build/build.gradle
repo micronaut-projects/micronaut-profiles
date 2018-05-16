@@ -12,7 +12,6 @@ group "@app.group@"
 
 @buildPlugins@
 
-mainClassName = "@defaultPackage@.Application"
 
 repositories {
 @repositories@
