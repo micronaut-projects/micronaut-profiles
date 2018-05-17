@@ -1,0 +1,4 @@
+description: Adds support for Service Discovery with Eureka
+dependencies:
+    compile:
+        - io.micronaut:discovery-client
