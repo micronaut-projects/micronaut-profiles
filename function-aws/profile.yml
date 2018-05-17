@@ -1,0 +1,24 @@
+description: The function profile for AWS Lambda
+features:
+    defaults:
+        - groovy-function
+skeleton:
+    executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
+
+build:
+    repositories:
+        - "https://plugins.gradle.org/m2/"
+        - "mavenCentral()"
+        - "mavenLocal()"
+    plugins:
+        - com.github.johnrengelman.shadow
+        - de.sebastianboegl.shadow.transformer.log4j
+        - jp.classmethod.aws.lambda
+dependencies:
+    build:
+        - com.github.jengelman.gradle.plugins:shadow:2.0.4
+        - de.sebastianboegl.gradle.plugins:shadow-log4j-transformer:2.1.1
+        - jp.classmethod.aws:gradle-aws-plugin:0.38
+    runtime:
+        - com.amazonaws:aws-lambda-java-log4j2:1.0.0
+        - org.apache.logging.log4j:log4j-slf4j-impl:2.9.1
