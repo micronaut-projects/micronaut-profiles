@@ -1,4 +1,6 @@
 description: Adds support for Kotlin in the application
+dependentFeatures:
+    - spek
 build:
     plugins:
         - kotlin
@@ -12,11 +14,3 @@ dependencies:
         - io.micronaut:runtime
     kapt:
         - io.micronaut:inject-java
-    kaptTest:
-        - io.micronaut:inject-java
-    testCompile:
-        - org.junit.jupiter:junit-jupiter-api:5.1.0
-        - org.jetbrains.spek:spek-api:1.1.5
-    testRuntime:
-        - org.junit.jupiter:junit-jupiter-engine:5.1.0
-        - org.jetbrains.spek:spek-junit-platform-engine:1.1.5

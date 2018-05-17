@@ -7,10 +7,17 @@ description("Creates a controller and associated test") {
 
 def model = model(args[0]).forConvention("Controller")
 
+def testFramework = config.testFramework
+def sourceLanguage = config.sourceLanguage
+
 String lang = flag('lang')
 String artifactPath = "${model.packagePath}/${model.className}"
 
 boolean overwrite = flag('force')
+
+if(!lang && sourceLanguage) {
+    lang = sourceLanguage
+}
 
 if (!lang) {
     if (file("src/main/groovy").exists()) {
@@ -37,9 +44,19 @@ render template: template("${lang}/Controller.${extension}"),
         overwrite: overwrite
 
 String testConvention = "Test"
-if (lang == "groovy") {
+
+if(testFramework == "spock") {
+    testConvention = "Spec"
+    lang = "groovy"
+} else if(testFramework == "junit") {
+    lang = "java"
+} else if(testFramework == "spek") {
+    lang = "kotlin"
+} else if(lang == "groovy") {
     testConvention = "Spec"
 }
+
+extension = langExtensions.get(lang)
 
 render template: template("${lang}/Controller${testConvention}.${extension}"),
         destination: file("src/test/${lang}/${artifactPath}${testConvention}.${extension}"),

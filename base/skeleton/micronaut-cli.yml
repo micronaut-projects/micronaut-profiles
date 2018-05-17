@@ -1,2 +1,5 @@
 profile: @profile@
 defaultPackage: @defaultPackage@
+---
+testFramework: @testFramework@
+sourceLanguage: @sourceLanguage@
