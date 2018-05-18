@@ -1,0 +1,6 @@
+description: Configures SQL DataSource instances using Tomcat Connection Pool
+dependencies:
+    compile:
+        - io.micronaut.configuration:jdbc-tomcat
+    runtime:
+        - com.h2database:h2:1.4.196

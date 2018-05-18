@@ -1,0 +1,6 @@
+description: Configures SQL DataSource instances using Commons DBCP
+dependencies:
+    compile:
+        - io.micronaut.configuration:jdbc-dbcp
+    runtime:
+        - com.h2database:h2:1.4.196
