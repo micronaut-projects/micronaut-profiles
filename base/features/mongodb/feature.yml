@@ -1,0 +1,8 @@
+description: Adds support for the Mongo Reactive Streams Driver
+dependencies:
+    compile:        
+        - io.micronaut.configuration:mongo-reactive
+    testCompile:
+        - de.flapdoodle.embed:de.flapdoodle.embed.mongo:2.0.1
+
+        
