@@ -1,7 +1,7 @@
 description: The function profile for AWS Lambda
 features:
     defaults:
-        - groovy-function
+        - function-aws-java
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
 
