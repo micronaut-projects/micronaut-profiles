@@ -1,4 +1,6 @@
 description: Adds support for the Spek testing framewokr
+dependentFeatures:
+    - kotlin
 dependencies:
     kaptTest:
         - io.micronaut:inject-java

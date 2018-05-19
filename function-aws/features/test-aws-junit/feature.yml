@@ -3,7 +3,6 @@ dependentFeatures:
     - junit
 dependencies:
     testCompile:
-        - io.micronaut:inject-java
         - io.micronaut:function-client
     testRuntime:
         - io.micronaut:http-server-netty

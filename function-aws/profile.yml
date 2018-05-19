@@ -2,6 +2,7 @@ description: The function profile for AWS Lambda
 features:
     defaults:
         - function-aws-java
+        - test-aws-junit
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
 
