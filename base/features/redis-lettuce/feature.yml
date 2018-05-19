@@ -1,0 +1,6 @@
+description: Configures the Lettuce driver for Redis
+dependencies:
+    compile:        
+        - io.micronaut.configuration:redis-lettuce
+
+        
