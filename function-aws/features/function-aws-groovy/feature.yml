@@ -1,6 +1,7 @@
 description: Creates initial function using Groovy
 dependentFeatures:
     - groovy
+    - test-aws-spock
 dependencies:
     compile:
         - io.micronaut:function-groovy

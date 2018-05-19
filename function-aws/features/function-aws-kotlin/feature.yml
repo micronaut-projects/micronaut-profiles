@@ -1,6 +1,7 @@
 description: Creates initial function using Kotlin
 dependentFeatures:
     - kotlin
+    - test-aws-spek
 dependencies:
     compile:
         - io.micronaut:function-aws
