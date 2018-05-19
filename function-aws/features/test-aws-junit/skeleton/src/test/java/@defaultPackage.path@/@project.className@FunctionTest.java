@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 public class @project.className@FunctionTest {
 
     @Test
-    public void testIndex() throws Exception {
+    public void testFunction() throws Exception {
         EmbeddedServer server = ApplicationContext.run(EmbeddedServer.class);
 
         @project.className@Client client = server.getApplicationContext().getBean(@project.className@Client.class);

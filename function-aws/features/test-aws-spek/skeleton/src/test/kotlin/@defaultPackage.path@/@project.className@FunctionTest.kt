@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 
 class @project.className@FunctionTest: Spek({
 
-    describe("@project.name@ index") {
+    describe("@project.name@ function") {
         val server = ApplicationContext.run(EmbeddedServer::class.java)
         val client = server.applicationContext.getBean(@project.className@Client::class.java)
 

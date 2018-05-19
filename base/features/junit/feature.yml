@@ -2,3 +2,4 @@ description: Adds support for the JUnit testing framework
 dependencies:
     testCompile:
         - junit:junit:4.12
+        - io.micronaut:inject-java
