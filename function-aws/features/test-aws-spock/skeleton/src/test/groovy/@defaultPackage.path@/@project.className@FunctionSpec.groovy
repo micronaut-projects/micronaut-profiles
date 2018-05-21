@@ -12,7 +12,7 @@ class @project.className@FunctionSpec extends Specification {
         @project.className@Client client = server.getApplicationContext().getBean(@project.className@Client)
 
         expect:
-        client.index().blockingGet() == "@project.name@"
+        client.@project.propertyName@().blockingGet() == "@project.name@"
 
         cleanup:
         if(server != null) server.stop()

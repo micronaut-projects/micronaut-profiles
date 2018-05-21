@@ -1,5 +1,5 @@
 package @defaultPackage@
 
-String index() {
+String @project.propertyName@() {
     "@project.name@"
 }

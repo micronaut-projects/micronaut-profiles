@@ -9,5 +9,5 @@ import javax.inject.Named
 interface @project.className@Client {
 
     @Named("@project.name@")
-    Single<String> index()
+    Single<String> @project.propertyName@()
 }
