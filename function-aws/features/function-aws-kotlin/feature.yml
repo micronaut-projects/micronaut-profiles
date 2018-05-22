@@ -1,4 +1,4 @@
-description: Creates initial function using Kotlin
+description: Creates AWS Lambda function using Kotlin
 dependentFeatures:
     - kotlin
 dependencies:

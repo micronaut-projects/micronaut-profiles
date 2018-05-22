@@ -1,4 +1,4 @@
-description: Creates initial function using Groovy
+description: Creates an AWS Lambda function using Groovy
 dependentFeatures:
     - groovy
 dependencies:

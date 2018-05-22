@@ -1,4 +1,4 @@
-description: Creates initial function using Java
+description: Creates an AWS Lambda function using Java
 dependentFeatures:
     - java
 dependencies:
