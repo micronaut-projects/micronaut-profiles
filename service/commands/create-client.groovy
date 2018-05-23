@@ -6,11 +6,16 @@ description("Creates a client interface") {
 }
 
 def model = model(args[0]).forConvention("Client")
+def sourceLanguage = config.sourceLanguage
 
 String lang = flag('lang')
 String artifactPath = "${model.packagePath}/${model.className}"
 
 boolean overwrite = flag('force')
+
+if(!lang && sourceLanguage) {
+    lang = sourceLanguage
+}
 
 if (!lang) {
     if (file("src/main/groovy").exists()) {

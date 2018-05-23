@@ -6,11 +6,16 @@ description("Creates a job with scheduled method") {
 }
 
 def model = model(args[0]).forConvention("Job")
+def sourceLanguage = config.sourceLanguage
 
 String lang = flag('lang')
 String artifactPath = "${model.packagePath}/${model.className}"
 
 boolean overwrite = flag('force')
+
+if(!lang && sourceLanguage) {
+    lang = sourceLanguage
+}
 
 if (!lang) {
     if (file("src/main/groovy").exists()) {
