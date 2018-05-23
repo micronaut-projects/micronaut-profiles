@@ -1,0 +1,8 @@
+description: Creates initial Alexa function using Java
+dependentFeatures:
+    - java
+dependencies:
+    compile:
+        - io.micronaut:function-alexa-lambda
+    testCompile:
+        - io.micronaut:inject-java
