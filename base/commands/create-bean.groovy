@@ -2,7 +2,7 @@ description("Creates a singleton bean") {
     usage "mn create-bean [BEAN NAME]"
     argument name: 'Bean Name', description: "The name of the bean class to create", required: true
     flag name: 'force', description: "Whether to overwrite existing files"
-    flag name: 'lang', description: "The language used for the job (options: groovy, kotlin, java)"
+    flag name: 'lang', description: "The language used for the bean class (options: groovy, kotlin, java)"
 }
 
 def model = model(args[0])
