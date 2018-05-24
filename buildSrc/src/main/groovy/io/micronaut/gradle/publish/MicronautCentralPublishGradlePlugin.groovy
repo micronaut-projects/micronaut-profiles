@@ -176,8 +176,8 @@ BINTRAY_KEY=key
             }
         }
 
-        def username = System.getenv('MICRONAUT_CENTRAL_USERNAME') ?: project.hasProperty('micronautCentralUsername') ? project.micronautCentralUsername : ''
-        def password = System.getenv("MICRONAUT_CENTRAL_PASSWORD") ?: project.hasProperty('micronautCentralPassword') ? project.micronautCentralPassword : ''
+        def username = System.getenv('PUBLISHING_USERNAME') ?: project.hasProperty('publishingUsername') ? project.publishingUsername : ''
+        def password = System.getenv("PUBLISHING_PASSWORD") ?: project.hasProperty('publishingPassword') ? project.publishingPassword : ''
 
         project.plugins.apply(BintrayPlugin)
 
