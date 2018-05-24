@@ -203,8 +203,6 @@ BINTRAY_KEY=key
 
                                 def websiteUrl = gpe.websiteUrl ?: gpe.githubSlug ? "https://github.com/$gpe.githubSlug" : ''
 
-                                println "websiteUrl= " + websiteUrl
-                                println "centralPublisEnabled= " + centralPublishEnabled
                                 if(!websiteUrl && centralPublishEnabled) {
                                     throw new RuntimeException(getErrorMessage('websiteUrl'))
                                 }
@@ -357,7 +355,7 @@ BINTRAY_KEY=key
                 vcsUrl = bintrayVcsUrl
 
                 licenses = bintrayLicense
-                publicDownloadNumbers = true
+                publicDownloadNumbers = false
                 version {
                     def artifactType = getDefaultArtifactType()
                     attributes = [(artifactType): "$project.group:$project.name"]
@@ -391,7 +389,7 @@ BINTRAY_KEY=key
     }
 
     protected String getDefaultSnapshotRepo() {
-        "https://repo.micronaut.io/artifactory/configurations-snapshots"
+        "https://oss.sonatype.org/content/repositories/snapshots"
     }
 
     protected Map<String, String> getDefaultExtraArtifact(Project project) {

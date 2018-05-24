@@ -4,4 +4,17 @@ subprojects {
 
     group 'io.micronaut.profiles'
     version project.micronautVersion
+
+    micronautPublish {
+        user = sonatypeOssUsername
+        key = sonatypeOssPassword
+        githubSlug = 'micronaut-projects/micronaut-profiles'
+        license {
+            name = 'Apache-2.0'
+        }
+        title = "Micronaut ${project.displayName} Profile"
+        desc = "Micronaut ${project.displayName} Profile"
+        developers = [jameskleeh:"James Kleeh", zachklein: "Zachary Klein"]
+    }
 }
+
