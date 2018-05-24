@@ -16,8 +16,6 @@ env:
 install: "/bin/true"
 script:
 - "./travis-build.sh"
-after_deploy:
-- "./gradlew sdkMajorRelease"
 cache:
   directories:
   - "$HOME/.gradle"

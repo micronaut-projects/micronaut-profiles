@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-./gradlew clean 
+./gradlew clean assemble
 EXIT_STATUS=0
 echo "Publishing archives for branch $TRAVIS_BRANCH"
 if [[ $TRAVIS_PULL_REQUEST == 'false' ]] || [[ $TRAVIS_BRANCH =~ ^master$ && $TRAVIS_PULL_REQUEST == 'false' ]]; then
