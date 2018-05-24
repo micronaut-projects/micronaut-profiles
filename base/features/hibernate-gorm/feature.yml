@@ -2,9 +2,11 @@ description: Adds support for GORM persistence framework
 dependentFeatures:
     - groovy
 dependencies:
-    compile:
-        - io.micronaut.configuration:hibernate-validator
-        - io.micronaut.configuration:hibernate-gorm
-    runtime:
-        - com.h2database:h2:1.4.196
-        - org.apache.tomcat:tomcat-jdbc:8.0.44
+  - scope: compile
+    coords: io.micronaut.configuration:hibernate-validator
+  - scope: compile
+    coords: io.micronaut.configuration:hibernate-gorm
+  - scope: runtime
+    coords: com.h2database:h2:1.4.196
+  - scope: runtime
+    coords: org.apache.tomcat:tomcat-jdbc:8.0.44

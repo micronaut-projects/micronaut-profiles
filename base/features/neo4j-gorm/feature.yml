@@ -3,7 +3,7 @@ dependentFeatures:
     - groovy
     - neo4j-bolt
 dependencies:
-    compile:        
-        - io.micronaut.configuration:neo4j-gorm
+  - scope: compile
+    coords: io.micronaut.configuration:neo4j-gorm
 
         

@@ -2,9 +2,11 @@ description: Creates Spek test for AWS function
 dependentFeatures:
     - spek
 dependencies:
-    testCompile:
-        - io.micronaut:function-client
-        - io.micronaut:http-client
-    testRuntime:
-        - io.micronaut:http-server-netty
-        - io.micronaut:function-web
+  - scope: testCompile
+    coords: io.micronaut:function-client
+  - scope: testCompile
+    coords: io.micronaut:http-client
+  - scope: testRuntime
+    coords: io.micronaut:http-server-netty
+  - scope: testRuntime
+    coords: io.micronaut:function-web

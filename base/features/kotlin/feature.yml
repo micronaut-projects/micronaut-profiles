@@ -4,11 +4,13 @@ build:
         - kotlin
         - kotlin-kapt
 dependencies:
-    build:
-        - org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.30
-    compile:
-        - org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.30
-        - org.jetbrains.kotlin:kotlin-reflect:1.2.30
-        - io.micronaut:runtime
-    kapt:
-        - io.micronaut:inject-java
+  - scope: build
+    coords: org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.30
+  - scope: compile
+    coords: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.30
+  - scope: compile
+    coords: org.jetbrains.kotlin:kotlin-reflect:1.2.30
+  - scope: compile
+    coords: io.micronaut:runtime
+  - scope: kapt
+    coords: io.micronaut:inject-java

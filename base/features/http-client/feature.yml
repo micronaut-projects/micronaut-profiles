@@ -1,5 +1,5 @@
 description: Adds support for creating HTTP clients
 dependencies:
-    compile:
-        - io.micronaut:http-client
+  - scope: compile
+    coords: io.micronaut:http-client
 

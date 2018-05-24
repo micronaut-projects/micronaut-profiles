@@ -1,4 +1,4 @@
 description: Adds support for Distributed Configuration with Consul (https://www.consul.io)
 dependencies:
-    compile:
-        - io.micronaut:discovery-client
+  - scope: compile
+    coords: io.micronaut:discovery-client

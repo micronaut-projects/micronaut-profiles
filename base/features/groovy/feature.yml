@@ -5,9 +5,9 @@ build:
     plugins:
         - groovy
 dependencies:
-    compileOnly:
-        - io.micronaut:inject-groovy
-    compile:
-        - io.micronaut:runtime-groovy
-    testCompile:
-        - io.micronaut:inject-groovy
+  - scope: compileOnly
+    coords: io.micronaut:inject-groovy
+  - scope: compile
+    coords: io.micronaut:runtime-groovy
+  - scope: testCompile
+    coords: io.micronaut:inject-groovy

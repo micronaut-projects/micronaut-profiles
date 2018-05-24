@@ -3,7 +3,7 @@ dependentFeatures:
     - groovy
     - mongo-reactive
 dependencies:
-    compile:        
-        - io.micronaut.configuration:mongo-gorm
+  - scope: compile
+    coords: io.micronaut.configuration:mongo-gorm
 
         

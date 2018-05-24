@@ -1,5 +1,6 @@
 description: Adds support for the JUnit testing framework
 dependencies:
-    testCompile:
-        - junit:junit:4.12
-        - io.micronaut:inject-java
+  - scope: testCompile
+    coords: junit:junit:4.12
+  - scope: testCompile
+    coords: io.micronaut:inject-java

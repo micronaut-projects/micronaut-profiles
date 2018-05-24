@@ -2,8 +2,9 @@ description: Creates JUnit test for AWS function
 dependentFeatures:
     - junit
 dependencies:
-    testCompile:
-        - io.micronaut:function-client
-    testRuntime:
-        - io.micronaut:http-server-netty
-        - io.micronaut:function-web
+  - scope: testCompile
+    coords: io.micronaut:function-client
+  - scope: testRuntime
+    coords: io.micronaut:http-server-netty
+  - scope: testRuntime
+    coords: io.micronaut:function-web

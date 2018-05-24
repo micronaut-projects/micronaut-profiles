@@ -2,7 +2,7 @@ description: Creates an AWS Lambda function using Java
 dependentFeatures:
     - java
 dependencies:
-    compile:
-        - io.micronaut:function-aws
-    testCompile:
-        - io.micronaut:inject-java
+  - scope: compile
+    coords: io.micronaut:function-aws
+  - scope: testCompile
+    coords: io.micronaut:inject-java

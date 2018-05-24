@@ -2,5 +2,5 @@ description: Creates AWS Lambda function using Kotlin
 dependentFeatures:
     - kotlin
 dependencies:
-    compile:
-        - io.micronaut:function-aws
+  - scope: compile
+    coords: io.micronaut:function-aws
