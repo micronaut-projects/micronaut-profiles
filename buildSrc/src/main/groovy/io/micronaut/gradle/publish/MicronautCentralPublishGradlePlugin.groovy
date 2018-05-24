@@ -176,8 +176,8 @@ BINTRAY_KEY=key
             }
         }
 
-        def username = System.getenv('PUBLISHING_USERNAME') ?: project.hasProperty('publishingUsername') ? project.publishingUsername : ''
-        def password = System.getenv("PUBLISHING_PASSWORD") ?: project.hasProperty('publishingPassword') ? project.publishingPassword : ''
+        def publishUsername = System.getenv('PUBLISHING_USERNAME') ?: project.hasProperty('publishingUsername') ? project.publishingUsername : ''
+        def publishPassword = System.getenv("PUBLISHING_PASSWORD") ?: project.hasProperty('publishingPassword') ? project.publishingPassword : ''
 
         project.plugins.apply(BintrayPlugin)
 
@@ -318,13 +318,13 @@ BINTRAY_KEY=key
             }
 
 
-            if(username && password) {
+            if(publishUsername && publishPassword) {
 
                 repositories {
                     maven {
                         credentials {
-                            username username
-                            password password
+                            username = publishUsername
+                            password = publishPassword
                         }
 
                         if(project.version.toString().endsWith('-SNAPSHOT')) {
