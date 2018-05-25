@@ -8,7 +8,6 @@ skeleton:
 repositories:
     - "mavenLocal()"
     - "mavenCentral()"
-    - "https://oss.sonatype.org/content/repositories/snapshots"
 build:
     repositories:
         - "mavenCentral()"
