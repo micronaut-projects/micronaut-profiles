@@ -113,6 +113,9 @@ BINTRAY_KEY=key
             if(publishExtension.user) {
                 bintrayExtension.user = publishExtension.user
             }
+
+            bintrayExtension.publish = publishExtension.publish
+
             if(publishExtension.repo) {
                 bintrayExtension.pkg.repo = publishExtension.repo
             }

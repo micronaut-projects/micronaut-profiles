@@ -91,6 +91,10 @@ class PublishExtension {
     boolean mavenCentralSync = false
 
     /**
+     * Whether to publish the releases or merely stage them
+     */
+    boolean publish = true
+    /**
      * Username for maven central
      */
     String sonatypeOssUsername

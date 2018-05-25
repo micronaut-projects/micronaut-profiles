@@ -6,6 +6,9 @@ subprojects {
     version project.micronautVersion
 
     micronautPublish {
+        userOrg = "micronaut"
+        repo = "profiles"
+        publish = false
         user = sonatypeOssUsername
         key = sonatypeOssPassword
         githubSlug = 'micronaut-projects/micronaut-profiles'
