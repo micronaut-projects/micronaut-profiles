@@ -5,11 +5,11 @@ build:
         - kotlin-kapt
 dependencies:
   - scope: build
-    coords: org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.30
+    coords: org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.31
   - scope: compile
-    coords: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.30
+    coords: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.31
   - scope: compile
-    coords: org.jetbrains.kotlin:kotlin-reflect:1.2.30
+    coords: org.jetbrains.kotlin:kotlin-reflect:1.2.31
   - scope: compile
     coords: io.micronaut:runtime
   - scope: kapt
