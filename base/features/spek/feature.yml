@@ -2,8 +2,6 @@ description: Adds support for the Spek testing framewokr
 dependentFeatures:
     - kotlin
 dependencies:
-  - scope: kaptTest
-    coords: io.micronaut:inject-java
   - scope: testCompile
     coords: org.junit.jupiter:junit-jupiter-api:5.1.0
   - scope: testCompile

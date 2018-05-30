@@ -1,4 +1,6 @@
 description: Adds support for Kotlin in the application
+dependantFeatures:
+  - spek
 build:
     plugins:
         - kotlin
@@ -13,4 +15,6 @@ dependencies:
   - scope: compile
     coords: io.micronaut:runtime
   - scope: kapt
+    coords: io.micronaut:inject-java
+  - scope: kaptTest
     coords: io.micronaut:inject-java
