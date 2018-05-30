@@ -15,7 +15,6 @@
  */
 package io.micronaut.gradle.profile
 
-import groovy.transform.CompileStatic
 import io.micronaut.cli.io.IOUtils
 import io.micronaut.cli.profile.commands.script.GroovyScriptCommand
 import io.micronaut.gradle.profile.task.ProfileCompilerTask
@@ -64,6 +63,13 @@ class MicronautProfileGradlePlugin extends BasePlugin {
             if(!group || !version) {
                 group = group ?: "io.micronaut.profiles"
                 version = version ?: getClass().package.implementationVersion
+
+                if(!version) {
+                    Properties prop = new Properties()
+                    prop.load(getClass().getClassLoader().getResourceAsStream("META-INF/MANIFEST.MF"))
+                    version = prop.getProperty("Implementation-Version")
+                }
+
 
                 details.useTarget(group: group, name: requested.name, version:version)
             }
