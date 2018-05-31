@@ -1,0 +1,4 @@
+description: Creates a Java application
+dependentFeatures:
+    - java
+    - junit

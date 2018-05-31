@@ -1,7 +1,11 @@
 description: The service profile
 features:
+    defaultOneOf: application-java
+    oneOf:
+        - application-java
+        - application-groovy
+        - application-kotlin
     required:
-        - java
         - http-server
         - http-client
 skeleton:

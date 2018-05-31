@@ -1,0 +1,4 @@
+description: Creates a Groovy application
+dependentFeatures:
+    - groovy
+    - spock

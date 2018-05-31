@@ -1,6 +1,4 @@
 description: Adds support for Java in the application
-dependentFeatures:
-    - junit
 build:
     plugins:
         - java
