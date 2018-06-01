@@ -1,10 +1,12 @@
 description: The service profile
 features:
-    defaultOneOf: application-java
     oneOf:
-        - application-java
-        - application-groovy
-        - application-kotlin
+        - feature: application-groovy
+          priority: 0
+        - feature: application-kotlin
+          priority: 1
+        - feature: application-kotlin
+          priority: 2
     required:
         - http-server
         - http-client

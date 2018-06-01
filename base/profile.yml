@@ -1,11 +1,7 @@
 description: The base profile
 features:
-    defaultOneOf:
-        - java
-    oneOf:
+    defaults:
       - java
-      - groovy
-      - kotlin
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
     binaryExtensions: ['png','gif','jpg','jpeg','ico','icns','pdf','zip','jar','class']
