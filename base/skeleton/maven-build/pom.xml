@@ -8,7 +8,7 @@
     <properties>
         <exec.mainClass>@defaultPackage@.Application</exec.mainClass>
         <micronaut.version>@version@</micronaut.version>
-        <jdk.version>1.8</jdk.version>
+        <jdk.version>@jdkversion@</jdk.version>
     </properties>
 
     <repositories>

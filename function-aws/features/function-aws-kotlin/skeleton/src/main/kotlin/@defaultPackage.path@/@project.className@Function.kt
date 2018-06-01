@@ -4,7 +4,7 @@ import io.micronaut.function.FunctionBean
 import java.util.function.Supplier
 
 @FunctionBean("@project.name@")
-class TestAwsFunctionKotlinFunction : Supplier<String> {
+class @project.className@Function : Supplier<String> {
 
     override fun get(): String {
         return "@project.name@"
