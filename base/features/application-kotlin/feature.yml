@@ -1,4 +1,0 @@
-description: Creates a Kotlin application
-dependentFeatures:
-    - kotlin
-    - spek

@@ -1,11 +1,11 @@
 description: The service profile
 features:
     oneOf:
-        - feature: application-groovy
+        - feature: groovy
           priority: 0
-        - feature: application-kotlin
+        - feature: kotlin
           priority: 1
-        - feature: application-kotlin
+        - feature: java
           priority: 2
     required:
         - http-server
