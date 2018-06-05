@@ -1,6 +1,6 @@
-description: Adds support for Kotlin in the application
-dependantFeatures:
-  - spek
+description: Creates a Kotlin application
+dependentFeatures:
+    - spek
 build:
     plugins:
         - kotlin

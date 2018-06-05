@@ -1,4 +1,4 @@
-description: Adds support for Groovy in the application
+description: Creates a Groovy application
 dependentFeatures:
     - spock
 build:
