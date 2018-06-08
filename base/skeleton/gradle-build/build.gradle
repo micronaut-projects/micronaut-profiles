@@ -30,3 +30,5 @@ dependencies {
 shadowJar {
     mergeServiceFiles()
 }
+
+run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1')
