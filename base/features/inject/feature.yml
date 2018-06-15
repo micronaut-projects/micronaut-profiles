@@ -1,0 +1,6 @@
+description: Adds Java annotation API
+java:
+  min: 9
+dependencies:
+  - scope: compile
+    coords: javax.annotation:javax.annotation-api:1.3.2

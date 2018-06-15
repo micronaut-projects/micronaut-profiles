@@ -2,6 +2,8 @@ description: The base profile
 features:
     defaults:
       - java
+    required:
+      - inject
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
     binaryExtensions: ['png','gif','jpg','jpeg','ico','icns','pdf','zip','jar','class']
