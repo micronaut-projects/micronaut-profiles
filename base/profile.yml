@@ -3,7 +3,7 @@ features:
     defaults:
       - java
     required:
-      - inject
+      - annotation-api
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
     binaryExtensions: ['png','gif','jpg','jpeg','ico','icns','pdf','zip','jar','class']

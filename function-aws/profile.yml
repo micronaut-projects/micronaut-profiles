@@ -1,7 +1,7 @@
 description: The function profile for AWS Lambda
 features:
     required:
-      - inject
+      - annotation-api
     defaults:
         - function-aws-java
         - test-aws-junit

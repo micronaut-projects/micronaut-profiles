@@ -1,4 +1,4 @@
 description: The function profile
 features:
     required:
-      - inject
+      - annotation-api
