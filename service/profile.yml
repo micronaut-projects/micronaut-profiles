@@ -8,6 +8,7 @@ features:
         - feature: java
           priority: 2
     required:
+        - annotation-api
         - http-server
         - http-client
 skeleton:
