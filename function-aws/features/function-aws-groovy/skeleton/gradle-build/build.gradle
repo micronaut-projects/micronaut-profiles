@@ -11,12 +11,15 @@ jar {
     }
 }
 
-task deploy(type: AWSLambdaMigrateFunctionTask, dependsOn: shadowJar) {
-    functionName = "@project.name@"
-    handler = "@defaultPackage@.@project.className@Function::@project.propertyName@"
-    role = "arn:aws:iam::${aws.accountId}:role/lambda_basic_execution"
-    runtime = Runtime.Java8
-    zipFile = shadowJar.archivePath
-    memorySize = 256
-    timeout = 60
+if(new File("${System.getProperty("user.home")}/.aws/credentials").exists()) {
+    task deploy(type: AWSLambdaMigrateFunctionTask, dependsOn: shadowJar) {
+        functionName = "@project.name@"
+        handler = "@defaultPackage@.@project.className@Function::@project.propertyName@"
+        role = "arn:aws:iam::${aws.accountId}:role/lambda_basic_execution"
+        runtime = Runtime.Java8
+        zipFile = shadowJar.archivePath
+        memorySize = 256
+        timeout = 60
+    }
+
 }
