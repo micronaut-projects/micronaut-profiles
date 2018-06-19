@@ -17,7 +17,7 @@ public class ${className}Test {
 
         RxHttpClient client = server.getApplicationContext().createBean(RxHttpClient.class, server.getURL());
 
-        assertEquals(client.toBlocking().exchange("/${propertyName}").status(), HttpStatus.OK);
+        assertEquals(HttpStatus.OK, client.toBlocking().exchange("/${propertyName}").status());
         server.stop();
     }
 }
