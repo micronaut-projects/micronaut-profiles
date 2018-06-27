@@ -19,7 +19,7 @@
                                 <annotationProcessorPath>
                                     <groupId>io.micronaut</groupId>
                                     <artifactId>inject-java</artifactId>
-                                    <version>1.0.0-SNAPSHOT</version>
+                                    <version>${micronaut.version}</version>
                                 </annotationProcessorPath>
                             </annotationProcessorPaths>
                         </configuration>
@@ -49,7 +49,7 @@
                                 <annotationProcessorPath>
                                     <groupId>io.micronaut</groupId>
                                     <artifactId>inject-java</artifactId>
-                                    <version>1.0.0-SNAPSHOT</version>
+                                    <version>${micronaut.version}</version>
                                 </annotationProcessorPath>
                             </annotationProcessorPaths>
                         </configuration>
