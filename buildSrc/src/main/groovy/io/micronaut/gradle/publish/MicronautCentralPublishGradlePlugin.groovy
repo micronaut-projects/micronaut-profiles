@@ -358,7 +358,7 @@ BINTRAY_KEY=key
                 vcsUrl = bintrayVcsUrl
 
                 licenses = bintrayLicense
-                publicDownloadNumbers = false
+                publicDownloadNumbers = true
                 version {
                     def artifactType = getDefaultArtifactType()
                     attributes = [(artifactType): "$project.group:$project.name"]
