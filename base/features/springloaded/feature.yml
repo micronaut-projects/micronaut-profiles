@@ -1,0 +1,16 @@
+description: Adds support class reloading with Spring-Loaded
+
+
+build:
+  repositories:
+  - "mavenCentral()"
+  - "https://plugins.gradle.org/m2/"
+  plugins:
+  - io.spring.dependency-management
+  - com.github.johnrengelman.shadow
+  - application
+  - eclipse
+dependencies:
+- scope: provided
+  coords: org.springframework:springloaded:1.2.8.RELEASE
+

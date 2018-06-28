@@ -1,0 +1,3 @@
+
+run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1', "-javaagent:agent/springloaded-1.2.8.RELEASE.jar")
+
