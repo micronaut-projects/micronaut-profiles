@@ -61,6 +61,7 @@
                 <configuration>
                     <executable>java</executable>
                     <arguments>
+@arguments@
                         <argument>-classpath</argument>
                         <classpath />
                         <argument>${exec.mainClass}</argument>

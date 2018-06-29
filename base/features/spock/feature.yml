@@ -1,5 +1,6 @@
 description: Adds support for the Spock testing framework
-dependentFeatures:
+build:
+    plugins:
     - groovy
 dependencies:
   - scope: testCompile
@@ -7,3 +8,5 @@ dependencies:
     excludes:
       - group: org.codehaus.groovy
         module: groovy-all
+  - scope: testCompile
+    coords: io.micronaut:inject-groovy

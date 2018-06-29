@@ -10,6 +10,9 @@ skeleton:
 repositories:
     - "mavenLocal()"
     - "mavenCentral()"
+jvmArgs:
+    - noverify
+    - XX:TieredStopAtLevel=1
 build:
     repositories:
         - "mavenCentral()"
