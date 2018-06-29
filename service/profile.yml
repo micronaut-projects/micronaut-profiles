@@ -13,3 +13,6 @@ features:
         - http-client
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
+jvmArgs:
+    - noverify
+    - XX:TieredStopAtLevel=1

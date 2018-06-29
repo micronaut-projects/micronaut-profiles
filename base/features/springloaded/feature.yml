@@ -1,6 +1,6 @@
 description: Adds support class reloading with Spring-Loaded
-
-
+jvmArgs:
+  - javaagent:agent/springloaded-1.2.8.RELEASE.jar
 build:
   repositories:
   - "mavenCentral()"
