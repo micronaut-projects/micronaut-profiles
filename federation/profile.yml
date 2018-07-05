@@ -1,6 +1,3 @@
 description: The federation profile
-features:
-    required:
-      - annotation-api
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
