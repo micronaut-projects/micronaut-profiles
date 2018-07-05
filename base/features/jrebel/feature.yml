@@ -1,0 +1,11 @@
+description: Adds support class reloading with Spring-Loaded
+build:
+  repositories:
+  - "https://plugins.gradle.org/m2/"
+  plugins:
+  - org.zeroturnaround.gradle.jrebel
+dependencies:
+  - scope: build
+    coords: gradle.plugin.org.zeroturnaround:gradle-jrebel-plugin:1.1.8
+jvmArgs:
+  - -agentpath:/jr-ide-idea/lib/jrebel6/lib/libjrebel64.dylib'

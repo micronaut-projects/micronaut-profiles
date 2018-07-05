@@ -1,0 +1,3 @@
+if (project.hasProperty('springloadedAgent')) {
+    run.jvmArgs += springloadedAgent
+}
