@@ -18,4 +18,29 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>jrebel</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.6.0</version>
+                        <configuration>
+                            <executable>java</executable>
+                            <arguments>
+@arguments@
+            <!-- TODO: Replace with agent path from JRebel installation; see documentation -->
+            <argument>-agentpath:~/jr-ide-idea/lib/jrebel6/lib/libjrebel64.dylib</argument>
+                                <argument>-classpath</argument>
+                                <classpath />
+                                <argument>${exec.mainClass}</argument>
+                            </arguments>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
