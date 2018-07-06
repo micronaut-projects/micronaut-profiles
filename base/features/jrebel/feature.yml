@@ -1,4 +1,4 @@
-description: Adds support class reloading with Spring-Loaded
+description: Adds support for class reloading with JRebel (requires separate JRebel installation)
 build:
   repositories:
   - "https://plugins.gradle.org/m2/"
