@@ -1,3 +1,5 @@
 description: Adds support for class reloading with Spring-Loaded
+java:
+  max: 8
 jvmArgs:
   - -javaagent:agent/springloaded-1.2.8.RELEASE.jar
