@@ -1,43 +1,31 @@
-description("Creates a singleton bean") {
-    usage "mn create-bean [BEAN NAME]"
-    argument name: 'Bean Name', description: "The name of the bean class to create", required: true
-    flag name: 'force', description: "Whether to overwrite existing files"
-    flag name: 'lang', description: "The language used for the bean class (options: groovy, kotlin, java)"
-}
+@Command(name = 'create-bean', description = 'Creates a singleton bean')
+@PicocliScript GroovyScriptCommand me
 
-def model = model(args[0])
-def sourceLanguage = config.sourceLanguage
+@Parameters(paramLabel = "BEAN-NAME", description = 'The name of the bean class to create')
+@Field String beanName
 
-String lang = flag('lang')
-String artifactPath = "${model.packagePath}/${model.className}"
+@Option(names = '-force', description = 'Whether to overwrite existing files')
+@Field boolean overwrite
 
-boolean overwrite = flag('force')
+@Option(names = '-lang', description = 'The language used for the bean class (options: ${COMPLETION-CANDIDATES})')
+@Field SupportedLanguage lang
 
-if(!lang && sourceLanguage) {
-    lang = sourceLanguage
-}
-
-if (!lang) {
+private SupportedLanguage sniffProjectLanguage() {
     if (file("src/main/groovy").exists()) {
-        lang = "groovy"
+        SupportedLanguage.groovy
     } else if (file("src/main/kotlin").exists()) {
-        lang = "kotlin"
+        SupportedLanguage.kotlin
     } else {
-        lang = "java"
+        SupportedLanguage.java
     }
 }
 
-Map<String, String> langExtensions = ["groovy": "groovy", "java": "java", "kotlin": "kt"]
+def model = model(beanName)
+String artifactPath = "${model.packagePath}/${model.className}"
+lang = lang ?: SupportedLanguage.findValue(config.sourceLanguage).orElse(sniffProjectLanguage())
 
-if (!langExtensions.containsKey(lang)) {
-    error("Invalid language selection: ${lang}. Valid selections are ${langExtensions.keySet().join(', ')}")
-    return
-}
-
-String extension = langExtensions.get(lang)
-
-render template: template("${lang}/Bean.${extension}"),
-        destination: file("src/main/${lang}/${artifactPath}.${extension}"),
+render template: template("${lang}/Bean.${lang.extension}"),
+        destination: file("src/main/${lang}/${artifactPath}.${lang.extension}"),
         model: model,
         overwrite: overwrite
 
