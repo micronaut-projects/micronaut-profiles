@@ -31,4 +31,4 @@ shadowJar {
     mergeServiceFiles()
 }
 
-run.jvmArgs(@jvmArgs@)
+run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1')

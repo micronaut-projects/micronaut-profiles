@@ -1,0 +1,4 @@
+run.dependsOn(generateRebel)
+if (project.hasProperty('rebelAgent')) {
+    run.jvmArgs += rebelAgent
+}

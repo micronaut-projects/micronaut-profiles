@@ -1,0 +1,9 @@
+description: Adds support for class reloading with JRebel (requires separate JRebel installation)
+build:
+  repositories:
+  - "https://plugins.gradle.org/m2/"
+  plugins:
+  - org.zeroturnaround.gradle.jrebel
+dependencies:
+  - scope: build
+    coords: gradle.plugin.org.zeroturnaround:gradle-jrebel-plugin:1.1.8
