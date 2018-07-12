@@ -4,11 +4,14 @@
 @Parameters(paramLabel = "CLIENT-NAME", description = 'The name of the client to create')
 @Field String clientName
 
-@Option(names = '-force', description = 'Whether to overwrite existing files')
+@Option(names = ['-f', '--force'], description = 'Whether to overwrite existing files')
 @Field boolean overwrite
 
-@Option(names = '-lang', description = 'The language used for the client (options: ${COMPLETION-CANDIDATES})')
+@Option(names = ['-l', '--lang'], description = 'The language used for the client (options: ${COMPLETION-CANDIDATES})')
 @Field SupportedLanguage lang
+
+@Mixin
+@Field CommonOptionsMixin autoHelp // adds help, version and other common options to the command
 
 private SupportedLanguage sniffProjectLanguage() {
     if (file("src/main/groovy").exists()) {
