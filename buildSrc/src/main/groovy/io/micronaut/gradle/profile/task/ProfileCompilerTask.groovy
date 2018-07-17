@@ -17,7 +17,6 @@
 package io.micronaut.gradle.profile.task
 
 import groovy.transform.CompileStatic
-import io.micronaut.cli.profile.commands.script.GroovyScriptCommandTransform
 import org.codehaus.groovy.control.CompilationUnit
 import org.codehaus.groovy.control.CompilerConfiguration
 import org.codehaus.groovy.control.customizers.ASTTransformationCustomizer
@@ -30,6 +29,7 @@ import org.gradle.api.tasks.compile.AbstractCompile
 import org.gradle.api.tasks.incremental.IncrementalTaskInputs
 import org.yaml.snakeyaml.DumperOptions
 import org.yaml.snakeyaml.Yaml
+import picocli.groovy.PicocliScriptASTTransformation
 
 /**
  * Compiles the classes for a profile
@@ -178,13 +178,27 @@ class ProfileCompilerTask extends AbstractCompile {
             importCustomizer.addStarImports("io.micronaut.cli.interactive.completers")
             importCustomizer.addStarImports("io.micronaut.cli.util")
             importCustomizer.addStarImports("io.micronaut.cli.codegen.model")
-            configuration.addCompilationCustomizers(importCustomizer,new ASTTransformationCustomizer(new GroovyScriptCommandTransform()))
+            importCustomizer.addStarImports("io.micronaut.cli.profile.commands")
+            importCustomizer.addStarImports("io.micronaut.cli.profile.commands.script")
+            importCustomizer.addImports("groovy.transform.Field")
+            importCustomizer.addImports("picocli.groovy.PicocliScript")
+            importCustomizer.addImports("picocli.CommandLine.Command")
+            importCustomizer.addImports("picocli.CommandLine.Mixin")
+            importCustomizer.addImports("picocli.CommandLine.Option")
+            importCustomizer.addImports("picocli.CommandLine.Parameters")
+            importCustomizer.addImports("picocli.CommandLine.ParentCommand")
+            importCustomizer.addImports("picocli.CommandLine.Spec")
+            importCustomizer.addImports("picocli.CommandLine.Unmatched")
+
+            //configuration.addCompilationCustomizers(importCustomizer,new ASTTransformationCustomizer(new GroovyScriptCommandTransform()))
+            configuration.addCompilationCustomizers(importCustomizer)
 
             for(source in groovySourceFiles) {
 
                 CompilationUnit compilationUnit = new CompilationUnit(configuration)
                 configuration.compilationCustomizers.clear()
-                configuration.compilationCustomizers.addAll(importCustomizer, new ASTTransformationCustomizer(new GroovyScriptCommandTransform()))
+                //configuration.compilationCustomizers.addAll(importCustomizer, new ASTTransformationCustomizer(new GroovyScriptCommandTransform()))
+                configuration.compilationCustomizers.addAll(importCustomizer)
                 compilationUnit.addSource(source)
                 compilationUnit.compile()
             }

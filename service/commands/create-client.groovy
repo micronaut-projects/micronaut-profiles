@@ -1,43 +1,33 @@
-description("Creates a client interface") {
-    usage "mn create-client [CLIENT NAME]"
-    argument name: 'Client Name', description: "The name of the client to create", required: true
-    flag name: 'force', description: "Whether to overwrite existing files"
-    flag name: 'lang', description: "The language used for the client (options: groovy, kotlin, java)"
-}
+@Command(name = 'create-client', description = 'Creates a client interface')
+@PicocliScript GroovyScriptCommand me
 
-def model = model(args[0]).forConvention("Client")
-def sourceLanguage = config.sourceLanguage
+@Parameters(paramLabel = "CLIENT-NAME", description = 'The name of the client to create')
+@Field String clientName
 
-String lang = flag('lang')
-String artifactPath = "${model.packagePath}/${model.className}"
+@Option(names = ['-f', '--force'], description = 'Whether to overwrite existing files')
+@Field boolean overwrite
 
-boolean overwrite = flag('force')
+@Option(names = ['-l', '--lang'], description = 'The language used for the client (options: ${COMPLETION-CANDIDATES})')
+@Field SupportedLanguage lang
 
-if(!lang && sourceLanguage) {
-    lang = sourceLanguage
-}
+@Mixin
+@Field CommonOptionsMixin autoHelp // adds help, version and other common options to the command
 
-if (!lang) {
+private SupportedLanguage sniffProjectLanguage() {
     if (file("src/main/groovy").exists()) {
-        lang = "groovy"
+        SupportedLanguage.groovy
     } else if (file("src/main/kotlin").exists()) {
-        lang = "kotlin"
+        SupportedLanguage.kotlin
     } else {
-        lang = "java"
+        SupportedLanguage.java
     }
 }
 
-Map<String, String> langExtensions = ["groovy": "groovy", "java": "java", "kotlin": "kt"]
+def model = model(clientName).forConvention("Client")
+String artifactPath = "${model.packagePath}/${model.className}"
+lang = lang ?: SupportedLanguage.findValue(config.sourceLanguage).orElse(sniffProjectLanguage())
 
-if (!langExtensions.containsKey(lang)) {
-    error("Invalid language selection: ${lang}. Valid selections are ${langExtensions.keySet().join(', ')}")
-    return
-}
-
-String extension = langExtensions.get(lang)
-
-render template: template("${lang}/Client.${extension}"),
-        destination: file("src/main/${lang}/${artifactPath}.${extension}"),
+render template: template("${lang}/Client.${lang.extension}"),
+        destination: file("src/main/${lang}/${artifactPath}.${lang.extension}"),
         model: model,
         overwrite: overwrite
-

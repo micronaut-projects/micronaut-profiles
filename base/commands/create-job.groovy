@@ -1,43 +1,33 @@
-description("Creates a job with scheduled method") {
-    usage "mn create-job [JOB NAME]"
-    argument name: 'Job Name', description: "The name of the job class to create", required: true
-    flag name: 'force', description: "Whether to overwrite existing files"
-    flag name: 'lang', description: "The language used for the job (options: groovy, kotlin, java)"
-}
+@Command(name = 'create-job', description = 'Creates a job with scheduled method')
+@PicocliScript GroovyScriptCommand me
 
-def model = model(args[0]).forConvention("Job")
-def sourceLanguage = config.sourceLanguage
+@Parameters(paramLabel = "JOB-NAME", description = 'The name of the job class to create')
+@Field String jobName
 
-String lang = flag('lang')
-String artifactPath = "${model.packagePath}/${model.className}"
+@Option(names = ['-f', '--force'], description = 'Whether to overwrite existing files')
+@Field boolean overwrite
 
-boolean overwrite = flag('force')
+@Option(names = ['-l', '--lang'], description = 'The language used for the job (options: ${COMPLETION-CANDIDATES})')
+@Field SupportedLanguage lang
 
-if(!lang && sourceLanguage) {
-    lang = sourceLanguage
-}
+@Mixin
+@Field CommonOptionsMixin autoHelp // adds help, version and other common options to the command
 
-if (!lang) {
+private SupportedLanguage sniffProjectLanguage() {
     if (file("src/main/groovy").exists()) {
-        lang = "groovy"
+        SupportedLanguage.groovy
     } else if (file("src/main/kotlin").exists()) {
-        lang = "kotlin"
+        SupportedLanguage.kotlin
     } else {
-        lang = "java"
+        SupportedLanguage.java
     }
 }
 
-Map<String, String> langExtensions = ["groovy": "groovy", "java": "java", "kotlin": "kt"]
+def model = model(jobName).forConvention("Job")
+String artifactPath = "${model.packagePath}/${model.className}"
+lang = lang ?: SupportedLanguage.findValue(config.sourceLanguage).orElse(sniffProjectLanguage())
 
-if (!langExtensions.containsKey(lang)) {
-    error("Invalid language selection: ${lang}. Valid selections are ${langExtensions.keySet().join(', ')}")
-    return
-}
-
-String extension = langExtensions.get(lang)
-
-render template: template("${lang}/Job.${extension}"),
-        destination: file("src/main/${lang}/${artifactPath}.${extension}"),
+render template: template("${lang}/Job.${lang.extension}"),
+        destination: file("src/main/${lang}/${artifactPath}.${lang.extension}"),
         model: model,
         overwrite: overwrite
-

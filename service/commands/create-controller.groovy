@@ -1,65 +1,53 @@
-description("Creates a controller and associated test") {
-    usage "mn create-controller [CONTROLLER NAME]"
-    argument name: 'Controller Name', description: "The name of the controller to create", required: true
-    flag name: 'force', description: "Whether to overwrite existing files"
-    flag name: 'lang', description: "The language used for the controller (options: groovy, kotlin, java)"
-}
+@Command(name = 'create-controller', description = 'Creates a controller and associated test')
+@PicocliScript GroovyScriptCommand me
 
-def model = model(args[0]).forConvention("Controller")
+@Parameters(paramLabel = "CONTROLLER-NAME", description = 'The name of the controller to create')
+@Field String controllerName
 
-def testFramework = config.testFramework
-def sourceLanguage = config.sourceLanguage
+@Option(names = ['-f', '--force'], description = 'Whether to overwrite existing files')
+@Field boolean overwrite
 
-String lang = flag('lang')
-String artifactPath = "${model.packagePath}/${model.className}"
+@Option(names = ['-l', '--lang'], description = 'The language used for the controller (options: ${COMPLETION-CANDIDATES})')
+@Field SupportedLanguage lang
 
-boolean overwrite = flag('force')
+@Mixin
+@Field CommonOptionsMixin autoHelp // adds help, version and other common options to the command
 
-if(!lang && sourceLanguage) {
-    lang = sourceLanguage
-}
-
-if (!lang) {
+private SupportedLanguage sniffProjectLanguage() {
     if (file("src/main/groovy").exists()) {
-        lang = "groovy"
+        SupportedLanguage.groovy
     } else if (file("src/main/kotlin").exists()) {
-        lang = "kotlin"
+        SupportedLanguage.kotlin
     } else {
-        lang = "java"
+        SupportedLanguage.java
     }
 }
 
-Map<String, String> langExtensions = ["groovy": "groovy", "java": "java", "kotlin": "kt"]
+def model = model(controllerName).forConvention("Controller")
+String artifactPath = "${model.packagePath}/${model.className}"
+lang = lang ?: SupportedLanguage.findValue(config.sourceLanguage).orElse(sniffProjectLanguage())
 
-if (!langExtensions.containsKey(lang)) {
-    error("Invalid language selection: ${lang}. Valid selections are ${langExtensions.keySet().join(', ')}")
-    return
-}
-
-String extension = langExtensions.get(lang)
-
-render template: template("${lang}/Controller.${extension}"),
-        destination: file("src/main/${lang}/${artifactPath}.${extension}"),
+render template: template("${lang}/Controller.${lang.extension}"),
+        destination: file("src/main/${lang}/${artifactPath}.${lang.extension}"),
         model: model,
         overwrite: overwrite
 
+def testFramework = config.testFramework
 String testConvention = "Test"
 
-if(testFramework == "spock") {
+if (testFramework == "spock") {
     testConvention = "Spec"
-    lang = "groovy"
-} else if(testFramework == "junit") {
-    lang = "java"
-} else if(testFramework == "spek") {
-    lang = "kotlin"
-} else if(lang == "groovy") {
+    lang = SupportedLanguage.groovy
+} else if (testFramework == "junit") {
+    lang = SupportedLanguage.java
+} else if (testFramework == "spek") {
+    lang = SupportedLanguage.kotlin
+} else if (lang == SupportedLanguage.groovy) {
     testConvention = "Spec"
 }
 
-extension = langExtensions.get(lang)
-
-render template: template("${lang}/Controller${testConvention}.${extension}"),
-        destination: file("src/test/${lang}/${artifactPath}${testConvention}.${extension}"),
+render template: template("${lang}/Controller${testConvention}.${lang.extension}"),
+        destination: file("src/test/${lang}/${artifactPath}${testConvention}.${lang.extension}"),
         model: model,
         overwrite: overwrite
 
