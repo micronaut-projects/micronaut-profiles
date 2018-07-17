@@ -4,4 +4,5 @@ include 'service'
 include 'federation'
 include 'function'
 include 'function-aws'
+include 'kafka'
 
