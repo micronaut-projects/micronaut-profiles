@@ -1,44 +1,34 @@
-description("Creates a producer class for Kafka") {
-    usage "mn create-kafka-listener [PRODUCER NAME]"
-    argument name: 'Producer Name', description: "The name of the producer to create", required: true
-    flag name: 'force', description: "Whether to overwrite existing files"
-    flag name: 'lang', description: "The language used for the producer (options: groovy, kotlin, java)"
-}
+@Command(name = 'create-kafka-producer', description = 'Creates a producer class for Kafka')
+@PicocliScript GroovyScriptCommand me
 
-def model = model(args[0]).forConvention("Producer")
+@Parameters(paramLabel = "PRODUCER", description = 'The name of the producer to create')
+@Field String producerName
 
-def testFramework = config.testFramework
-def sourceLanguage = config.sourceLanguage
 
-String lang = flag('lang')
-String artifactPath = "${model.packagePath}/${model.className}"
+@Option(names = ['-f', '--force'], description = 'Whether to overwrite existing files')
+@Field boolean overwrite
 
-boolean overwrite = flag('force')
+@Option(names = ['-l', '--lang'], description = 'The language used for the producer (options: ${COMPLETION-CANDIDATES})')
+@Field SupportedLanguage lang
 
-if(!lang && sourceLanguage) {
-    lang = sourceLanguage
-}
+@Mixin
+@Field CommonOptionsMixin autoHelp // adds help, version and other common options to the command
 
-if (!lang) {
+private SupportedLanguage sniffProjectLanguage() {
     if (file("src/main/groovy").exists()) {
-        lang = "groovy"
+        SupportedLanguage.groovy
     } else if (file("src/main/kotlin").exists()) {
-        lang = "kotlin"
+        SupportedLanguage.kotlin
     } else {
-        lang = "java"
+        SupportedLanguage.java
     }
 }
 
-Map<String, String> langExtensions = ["groovy": "groovy", "java": "java", "kotlin": "kt"]
+def model = model(producerName).forConvention("Producer")
+String artifactPath = "${model.packagePath}/${model.className}"
+lang = lang ?: SupportedLanguage.findValue(config.sourceLanguage).orElse(sniffProjectLanguage())
 
-if (!langExtensions.containsKey(lang)) {
-    error("Invalid language selection: ${lang}. Valid selections are ${langExtensions.keySet().join(', ')}")
-    return
-}
-
-String extension = langExtensions.get(lang)
-
-render template: template("${lang}/Producer.${extension}"),
-        destination: file("src/main/${lang}/${artifactPath}.${extension}"),
+render template: template("${lang}/Producer.${lang.extension}"),
+        destination: file("src/main/${lang}/${artifactPath}.${lang.extension}"),
         model: model,
         overwrite: overwrite
