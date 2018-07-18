@@ -9,6 +9,9 @@ features:
           priority: 2
     required:
       - picocli
+dependencies:
+- scope: compile
+  coords: io.micronaut:runtime
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
 jvmArgs:
