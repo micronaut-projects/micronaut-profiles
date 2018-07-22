@@ -1,8 +1,8 @@
 ${packageName ? 'package ' + packageName + ';' : ''}
 
-import io.micronaut.configuration.picocli.MicronautFactory;
-import io.micronaut.context.*;
-import picocli.CommandLine.IFactory;
+import io.micronaut.configuration.picocli.PicocliRunner;
+import io.micronaut.context.ApplicationContext;
+import io.micronaut.context.env.Environment;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -17,8 +17,10 @@ public class ${className}Test {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(baos));
 
-        try (ApplicationContext ctx = ApplicationContext.run("cli", "test")) {
-            ${className}.run(ctx, new String[] { "-v" });
+        try (ApplicationContext ctx = ApplicationContext.run(Environment.CLI, Environment.TEST)) {
+            String[] args = new String[] { "-v" };
+            PicocliRunner.run(${className}.class, ctx, args);
+
             assertTrue(baos.toString(), baos.toString().contains("Hi!"));
         }
     }
