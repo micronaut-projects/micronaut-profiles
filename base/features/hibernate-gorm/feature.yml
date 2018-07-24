@@ -1,6 +1,5 @@
 description: Adds support for GORM persistence framework
-build:
-    plugins:
+dependentFeatures:
     - groovy
 dependencies:
   - scope: compile

@@ -1,8 +1,6 @@
 description: Configures GORM for MongoDB for Groovy applications
-build:
-    plugins:
-    - groovy
 dependentFeatures:
+    - groovy
     - mongo-reactive
 dependencies:
   - scope: compile
