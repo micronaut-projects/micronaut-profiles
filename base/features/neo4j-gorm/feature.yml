@@ -1,6 +1,8 @@
 description: Configures GORM for Neo4j for Groovy applications
-dependentFeatures:
+build:
+    plugins:
     - groovy
+dependentFeatures:
     - neo4j-bolt
 dependencies:
   - scope: compile
