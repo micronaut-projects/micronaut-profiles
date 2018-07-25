@@ -1,0 +1,4 @@
+description: Adds support for Netflix Ribbon in the application
+dependencies:
+- scope: compile
+  coords: io.micronaut.configuration:netflix-ribbon

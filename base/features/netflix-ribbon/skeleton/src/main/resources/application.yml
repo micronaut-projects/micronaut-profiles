@@ -1,0 +1,3 @@
+ribbon:
+    VipAddress: test
+    ServerListRefreshInterval: 2000
