@@ -1,23 +1,25 @@
 subprojects {
-    apply plugin: 'io.micronaut.profile'
-    apply plugin: 'io.micronaut.profile-publish'
+    if(project.name != 'frontend') {
+        apply plugin: 'io.micronaut.profile'
+        apply plugin: 'io.micronaut.profile-publish'
 
-    group 'io.micronaut.profiles'
-    version project.micronautVersion
+        group 'io.micronaut.profiles'
+        version project.micronautVersion
 
-    micronautPublish {
-        userOrg = "micronaut"
-        repo = "profiles"
-        publish = false
-        user = sonatypeOssUsername
-        key = sonatypeOssPassword
-        githubSlug = 'micronaut-projects/micronaut-profiles'
-        license {
-            name = 'Apache-2.0'
+        micronautPublish {
+            userOrg = "micronaut"
+            repo = "profiles"
+            publish = false
+            user = sonatypeOssUsername
+            key = sonatypeOssPassword
+            githubSlug = 'micronaut-projects/micronaut-profiles'
+            license {
+                name = 'Apache-2.0'
+            }
+            title = "Micronaut ${project.displayName} Profile"
+            desc = "Micronaut ${project.displayName} Profile"
+            developers = [jameskleeh:"James Kleeh", zachklein: "Zachary Klein"]
         }
-        title = "Micronaut ${project.displayName} Profile"
-        desc = "Micronaut ${project.displayName} Profile"
-        developers = [jameskleeh:"James Kleeh", zachklein: "Zachary Klein"]
     }
 }
 
