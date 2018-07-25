@@ -6,4 +6,4 @@ include 'federation'
 include 'function'
 include 'function-aws'
 include 'kafka'
-
+include 'frontend:vue'
