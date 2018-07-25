@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <img src="./assets/mn-logo.png">
+    <span style="font-size:6em">+</span>
     <img src="./assets/logo.png">
     <HelloWorld />
   </div>
