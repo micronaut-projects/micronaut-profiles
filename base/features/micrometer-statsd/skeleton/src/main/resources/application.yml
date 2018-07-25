@@ -1,0 +1,10 @@
+micronaut:
+    metrics:
+        enabled: true
+        export:
+            statsd:
+                enabled: true
+                flavor: datadog
+                step: PT1M
+                host: localhost
+                port: 8125

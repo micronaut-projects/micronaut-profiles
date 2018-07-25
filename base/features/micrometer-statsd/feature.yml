@@ -1,0 +1,8 @@
+description: Adds support for Micrometer metrics (w/ Statsd reporter)
+dependentFeatures:
+    - management
+dependencies:
+    - scope: compile
+      coords: io.micronaut.configuration:micrometer-core
+    - scope: compile
+      coords: io.micronaut.configuration:micrometer-registry-statsd

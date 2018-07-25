@@ -1,0 +1,3 @@
+micronaut:
+    metrics:
+        enabled: true

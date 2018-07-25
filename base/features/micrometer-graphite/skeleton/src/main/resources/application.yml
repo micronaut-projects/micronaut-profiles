@@ -1,0 +1,9 @@
+micronaut:
+    metrics:
+        enabled: true
+        export:
+            graphite:
+                enabled: true
+                step: PT1M
+                host: localhost
+                port: 2004
