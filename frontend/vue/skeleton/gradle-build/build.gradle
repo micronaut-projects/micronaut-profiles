@@ -1,0 +1,16 @@
+task copyClientResources(dependsOn: ':client:build') {
+    group = 'build'
+    description = 'Copy client resources into server'
+}
+
+copyClientResources.doFirst {
+    copy {
+        from "${project(':client').projectDir}/dist"
+        into "${project(':server').buildDir}/resources/main/public/"
+    }
+}
+
+task assembleServerAndClient(dependsOn: ['copyClientResources', ':server:shadowJar']) {
+    group = 'build'
+    description = 'Build combined server & client JAR'
+}
