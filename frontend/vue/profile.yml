@@ -1,0 +1,16 @@
+description: A profile for creating Micronaut applications with a Vue.js frontend
+instructions: |
+  This profile provides a client/server multi-project build structure. The server Micronaut app is using the service profile.
+
+  The Vue client app has been built via the Vue CLI (https://github.com/vuejs/vue-cli), using the webpack template.
+
+  For support, please use the Micronaut Gitter Channel (https://gitter.im/micronautfw/) or open an issue on Github: https://github.com/micronaut-projects/micronaut-profiles/issues
+
+skeleton:
+    excludes:
+        - gradlew
+        - gradlew.bat
+        - gradle/
+    executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
+    parent:
+         target: server
