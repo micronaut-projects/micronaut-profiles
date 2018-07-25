@@ -1,0 +1,4 @@
+description: Adds support for the Reactive Postgres driver in the application
+dependencies:
+    - scope: compile
+      coords: io.micronaut.configuration:postgres-reactive
