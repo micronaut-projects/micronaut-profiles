@@ -6,6 +6,12 @@
       check out the
       <a href="https://cli.vuejs.org" target="_blank">vue-cli documentation</a>.
     </p>
+    <h3>Micronaut App Info</h3>
+    <ul v-if="serverInfo">
+      <li>App Name: {{serverInfo.name}}</li>
+      <li>Micronaut: {{serverInfo.version}}</li>
+    </ul>
+
     <h3>Installed CLI Plugins</h3>
     <ul>
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank">babel</a></li>
@@ -32,8 +38,17 @@
 <script>
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
+  data () {
+      return {
+        msg: 'Welcome to Your Micronaut & Vue.js App',
+        serverInfo: null
+    }},
+  created: function () {
+    fetch(`http://localhost:8080/application`)
+          .then(response => response.json())
+    .then(json => {
+        this.serverInfo = json
+    })
   }
 }
 </script>

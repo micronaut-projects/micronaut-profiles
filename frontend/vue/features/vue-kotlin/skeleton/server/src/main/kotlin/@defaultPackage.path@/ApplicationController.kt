@@ -1,4 +1,4 @@
-@defaultPackage@
+package @defaultPackage@
 
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
@@ -8,6 +8,6 @@ class ApplicationController {
 
     @Get("/")
     fun index(): Map {
-        return [version: '0.1', name: '@appName@']
+        return [micronautVersion: '@version@', name: '@app.name@']
     }
 }
