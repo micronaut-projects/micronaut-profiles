@@ -1,0 +1,4 @@
+description: Configures the Vue profile with a Kotlin controller
+dependentFeatures:
+    - kotlin
+

@@ -1,0 +1,4 @@
+description: Configures the Vue profile with a Groovy controller
+dependentFeatures:
+    - groovy
+
