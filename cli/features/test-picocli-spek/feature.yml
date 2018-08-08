@@ -1,0 +1,13 @@
+description: Creates Spek test for a picocli-based command line application
+dependentFeatures:
+    - spek
+    - picocli
+#dependencies:
+#  - scope: testCompile
+#    coords: io.micronaut:function-client
+#  - scope: testCompile
+#    coords: io.micronaut:http-client
+#  - scope: testRuntime
+#    coords: io.micronaut:http-server-netty
+#  - scope: testRuntime
+#    coords: io.micronaut:function-web
