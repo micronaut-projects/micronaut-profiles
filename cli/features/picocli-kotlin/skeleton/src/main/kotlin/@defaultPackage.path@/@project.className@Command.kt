@@ -1,4 +1,4 @@
-${packageName ? 'package ' + packageName : '' }
+package @defaultPackage@
 
 import io.micronaut.configuration.picocli.PicocliRunner
 import io.micronaut.context.ApplicationContext
@@ -8,9 +8,9 @@ import picocli.CommandLine.Command
 import picocli.CommandLine.Option
 import picocli.CommandLine.Parameters
 
-@Command(name = "${propertyName}", description = ["..."],
+@Command(name = "@project.name@", description = ["..."],
         mixinStandardHelpOptions = true)
-class ${className} : Runnable {
+class @project.className@Command : Runnable {
 
     @Option(names = ["-v", "--verbose"], description = ["..."])
     private var verbose : Boolean = false
@@ -24,7 +24,7 @@ class ${className} : Runnable {
 
     companion object {
         @JvmStatic fun main(args: Array<String>) {
-            PicocliRunner.run(${className}::class.java, *args)
+            PicocliRunner.run(@project.className@Command::class.java, *args)
         }
     }
 }
