@@ -18,3 +18,5 @@ dependencies:
     coords: io.micronaut:inject-java
   - scope: kaptTest
     coords: io.micronaut:inject-java
+  - scope: runtime
+    coords: com.fasterxml.jackson.module:jackson-module-kotlin:2.9.4.1
