@@ -17,6 +17,7 @@
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -25,6 +26,9 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.7.0</version>
+                <configuration>
+                    <compilerId>groovy-eclipse-compiler</compilerId>
+                </configuration>
                 <executions>
                     <execution>
                         <id>test-compile</id>
