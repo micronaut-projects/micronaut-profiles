@@ -1,0 +1,9 @@
+description: Adds support for Jib builds
+build:
+    repositories:
+        - "https://plugins.gradle.org/m2/"
+    plugins:
+        - com.google.cloud.tools.jib
+dependencies:
+    - scope: build
+      coords: gradle.plugin.com.google.cloud.tools:jib-gradle-plugin:0.9.8
