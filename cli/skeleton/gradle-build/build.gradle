@@ -1,5 +1,4 @@
 mainClassName = "@defaultPackage@.@project.className@Command"
-applicationDefaultJvmArgs = [""]
 
 jar {
     manifest {
