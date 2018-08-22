@@ -1,0 +1,9 @@
+repositories {
+    maven { url "https://dl.bintray.com/spekframework/spek-dev" }
+}
+
+test {
+    useJUnitPlatform {
+        includeEngines 'spek2'
+    }
+}

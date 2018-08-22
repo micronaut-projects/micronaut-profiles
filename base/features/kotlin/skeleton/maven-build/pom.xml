@@ -1,6 +1,7 @@
 <project>
     <properties>
         <kotlinVersion>1.2.61</kotlinVersion>
+        <spekVersion>2.0.0-alpha.1</spekVersion>
     </properties>
     <build>
         <plugins>

@@ -1,12 +1,10 @@
-description: Adds support for the Spek testing framewokr
+description: Adds support for the Spek testing framework
 dependentFeatures:
     - kotlin
 dependencies:
   - scope: testCompile
-    coords: org.junit.jupiter:junit-jupiter-api:5.1.0
+    coords: org.jetbrains.kotlin:kotlin-test::${kotlinVersion}
   - scope: testCompile
-    coords: org.jetbrains.spek:spek-api:1.1.5
+    coords: org.spekframework.spek2:spek-dsl-jvm:${spekVersion}
   - scope: testRuntime
-    coords: org.junit.jupiter:junit-jupiter-engine:5.1.0
-  - scope: testRuntime
-    coords: org.jetbrains.spek:spek-junit-platform-engine:1.1.5
+    coords: org.spekframework.spek2:spek-runner-junit5:${spekVersion}
