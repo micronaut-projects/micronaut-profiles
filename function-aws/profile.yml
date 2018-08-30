@@ -9,21 +9,11 @@ skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
 
 build:
-    repositories:
-        - "https://plugins.gradle.org/m2/"
-        - "mavenCentral()"
-        - "mavenLocal()"
     plugins:
-        - com.github.johnrengelman.shadow
-        - de.sebastianboegl.shadow.transformer.log4j
-        - jp.classmethod.aws.lambda
+        - com.github.johnrengelman.shadow:2.0.4
+        - de.sebastianboegl.shadow.transformer.log4j:2.1.1
+        - jp.classmethod.aws.lambda:0.38
 dependencies:
-  - scope: build
-    coords: com.github.jengelman.gradle.plugins:shadow:2.0.4
-  - scope: build
-    coords: de.sebastianboegl.gradle.plugins:shadow-log4j-transformer:2.1.1
-  - scope: build
-    coords: jp.classmethod.aws:gradle-aws-plugin:0.38
   - scope: runtime
     coords: com.amazonaws:aws-lambda-java-log4j2:1.0.0
   - scope: runtime

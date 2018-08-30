@@ -14,17 +14,10 @@ jvmArgs:
     - -noverify
     - -XX:TieredStopAtLevel=1
 build:
-    repositories:
-        - "mavenCentral()"
-        - "https://plugins.gradle.org/m2/"
     plugins:
-        - io.spring.dependency-management
-        - com.github.johnrengelman.shadow
+        - io.spring.dependency-management:1.0.5.RELEASE
+        - com.github.johnrengelman.shadow:2.0.4
         - application
 dependencies:
-  - scope: build
-    coords: com.github.jengelman.gradle.plugins:shadow:2.0.4
-  - scope: build
-    coords: io.spring.gradle:dependency-management-plugin:1.0.5.RELEASE
   - scope: runtime
     coords: ch.qos.logback:logback-classic:1.2.3

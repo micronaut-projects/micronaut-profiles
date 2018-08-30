@@ -3,14 +3,10 @@ dependentFeatures:
     - spek
 build:
     plugins:
-        - kotlin
-        - kotlin-kapt
-        - kotlin-allopen
+        - org.jetbrains.kotlin.jvm:1.2.61
+        - org.jetbrains.kotlin.kapt:1.2.61
+        - org.jetbrains.kotlin.plugin.allopen:1.2.61
 dependencies:
-  - scope: build
-    coords: org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}
-  - scope: build
-    coords: org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}
   - scope: compile
     coords: org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}
   - scope: compile
