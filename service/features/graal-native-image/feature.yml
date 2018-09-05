@@ -1,0 +1,6 @@
+description: Allows Building a Native Image
+dependencies:
+  - scope: runtime
+    coords: io.micronaut:graal
+  - scope: compileOnly
+    coords: com.oracle.substratevm:svm:GraalVM-1.0.0-rc6
