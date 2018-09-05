@@ -1,4 +1,4 @@
-native-image --class-path target/@app.name@-@app.version@-all.jar \
+native-image --class-path target/@app.name@-0.1.jar \
 			 -H:ReflectionConfigurationFiles=target/reflect.json \
 			 -H:EnableURLProtocols=http \
 			 -H:IncludeResources="logback.xml|application.yml|META-INF/services/*.*" \
