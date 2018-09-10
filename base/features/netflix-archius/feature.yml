@@ -1,4 +1,0 @@
-description: Adds support for Netflix Archius in the application
-dependencies:
-    - scope: compile
-      coords: io.micronaut.configuration:netflix-archius
