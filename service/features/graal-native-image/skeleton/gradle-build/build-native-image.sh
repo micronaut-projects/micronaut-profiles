@@ -6,4 +6,4 @@ native-image --class-path build/libs/@app.name@-0.1-all.jar \
 			 -H:Class=@defaultPackage@.Application \
 			 -H:+ReportUnsupportedElementsAtRuntime \
 			 -H:+AllowVMInspection \
-			 --delay-class-initialization-to-runtime=io.netty.handler.codec.http.HttpObjectEncoder
+			 --delay-class-initialization-to-runtime=io.netty.handler.codec.http.HttpObjectEncoder,io.netty.handler.codec.http.websocketx.WebSocket00FrameEncoder
