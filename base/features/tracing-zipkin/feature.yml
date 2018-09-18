@@ -2,7 +2,7 @@ description: Adds support for distributed tracing with Zipkin (https://zipkin.io
 dependencies:
   - scope: compile
     coords: io.opentracing.brave:brave-opentracing:0.30.0
-  - scope: runtime
+  - scope: compile
     coords: io.micronaut:tracing
   - scope: runtime
     coords: io.zipkin.brave:brave-instrumentation-http:4.19.0
