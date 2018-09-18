@@ -4,8 +4,8 @@ dependentFeatures:
 build:
     plugins:
         - java
-        - net.ltgt.apt-eclipse
-        - net.ltgt.apt-idea
+        - net.ltgt.apt-eclipse:0.18
+        - net.ltgt.apt-idea:0.18
 dependencies:
   - scope: build
     coords: net.ltgt.gradle:gradle-apt-plugin:0.15

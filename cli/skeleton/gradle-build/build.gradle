@@ -1,2 +1,7 @@
+mainClassName = "@defaultPackage@.@project.className@Command"
 
-mainClassName = "@defaultPackage@.Application"
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}

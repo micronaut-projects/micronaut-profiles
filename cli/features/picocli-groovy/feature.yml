@@ -1,0 +1,7 @@
+description: Creates a picocli-based command line application using Groovy
+dependentFeatures:
+    - groovy
+    - picocli
+dependencies:
+  - scope: compile
+    coords: io.micronaut:runtime

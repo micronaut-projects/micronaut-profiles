@@ -1,17 +1,11 @@
-buildscript {
-    repositories {
-@buildRepositories@
-    }
-    dependencies {
-@buildDependencies@
-    }
+plugins {
+@buildDependencies@	
 }
-
-version "0.1"
-group "@app.group@"
 
 @buildPlugins@
 
+version "0.1"
+group "@app.group@"
 
 repositories {
 @repositories@

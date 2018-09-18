@@ -3,18 +3,19 @@ dependentFeatures:
     - spek
 build:
     plugins:
-        - kotlin
-        - kotlin-kapt
+        - org.jetbrains.kotlin.jvm:1.2.61
+        - org.jetbrains.kotlin.kapt:1.2.61
+        - org.jetbrains.kotlin.plugin.allopen:1.2.61
 dependencies:
-  - scope: build
-    coords: org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.31
   - scope: compile
-    coords: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.31
+    coords: org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}
   - scope: compile
-    coords: org.jetbrains.kotlin:kotlin-reflect:1.2.31
+    coords: org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}
   - scope: compile
     coords: io.micronaut:runtime
   - scope: kapt
     coords: io.micronaut:inject-java
   - scope: kaptTest
     coords: io.micronaut:inject-java
+  - scope: runtime
+    coords: com.fasterxml.jackson.module:jackson-module-kotlin:2.9.4.1

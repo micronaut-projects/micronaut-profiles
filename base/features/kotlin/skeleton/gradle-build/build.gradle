@@ -3,6 +3,10 @@ test {
     useJUnitPlatform()
 }
 
+allOpen {
+	annotation("io.micronaut.aop.Around")
+}
+
 compileKotlin {
 	kotlinOptions {
 	    jvmTarget = '1.8' 

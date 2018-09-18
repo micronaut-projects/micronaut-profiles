@@ -1,10 +1,21 @@
 <project>
+    <properties>
+        <kotlinVersion>1.2.61</kotlinVersion>
+    </properties>
     <build>
         <plugins>
             <plugin>
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <groupId>org.jetbrains.kotlin</groupId>
-                <version>1.2.31</version>
+                <version>${kotlinVersion}</version>
+                <configuration>
+                    <compilerPlugins>
+                        <plugin>all-open</plugin>
+                    </compilerPlugins>
+                    <pluginOptions>
+                        <option>all-open:annotation=io.micronaut.aop.Around</option>
+                    </pluginOptions>
+                </configuration>
                 <executions>
                     <execution>
                         <id>kapt</id>
@@ -67,6 +78,13 @@
                         </configuration>
                     </execution>
                 </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.jetbrains.kotlin</groupId>
+                        <artifactId>kotlin-maven-allopen</artifactId>
+                        <version>${kotlinVersion}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

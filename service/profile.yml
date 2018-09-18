@@ -12,7 +12,7 @@ features:
         - http-server
         - http-client
 skeleton:
-    executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
+    executable: ["**/gradlew*", "**/mnw*", "**/mvnw*", "**/build-native-image*"]
 jvmArgs:
     - -noverify
     - -XX:TieredStopAtLevel=1

@@ -21,5 +21,10 @@ class ${className} : Runnable {
             println("Hi!")
         }
     }
+
+    companion object {
+        @JvmStatic fun main(args: Array<String>) {
+            PicocliRunner.run(${className}::class.java, *args)
+        }
+    }
 }
-fun main(args: Array<String>) = PicocliRunner.run(${className}::class.java, *args)
