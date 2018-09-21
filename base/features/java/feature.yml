@@ -11,6 +11,8 @@ dependencies:
     coords: net.ltgt.gradle:gradle-apt-plugin:0.15
   - scope: annotationProcessor
     coords: io.micronaut:inject-java
+  - scope: annotationProcessor
+    coords: io.micronaut:validation
   - scope: compileOnly
     coords: io.micronaut:inject-java
   - scope: compile
