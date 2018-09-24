@@ -18,4 +18,6 @@ dependencies:
   - scope: compile
     coords: io.micronaut:inject
   - scope: compile
+    coords: io.micronaut:validation    
+  - scope: compile
     coords: io.micronaut:runtime
