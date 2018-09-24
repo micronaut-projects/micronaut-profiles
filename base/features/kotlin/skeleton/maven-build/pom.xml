@@ -27,11 +27,7 @@
                                 <sourceDir>src/main/kotlin</sourceDir>
                             </sourceDirs>
                             <annotationProcessorPaths>
-                                <annotationProcessorPath>
-                                    <groupId>io.micronaut</groupId>
-                                    <artifactId>inject-java</artifactId>
-                                    <version>${micronaut.version}</version>
-                                </annotationProcessorPath>
+@annotationProcessorPaths@
                             </annotationProcessorPaths>
                         </configuration>
                     </execution>
@@ -57,12 +53,7 @@
                                 <sourceDir>src/test/kotlin</sourceDir>
                             </sourceDirs>
                             <annotationProcessorPaths>
-                                <annotationProcessorPath>
-                                    <groupId>io.micronaut</groupId>
-                                    <artifactId>inject-java</artifactId>
-                                    <version>${micronaut.version}</version>
-                                </annotationProcessorPath>
-                            </annotationProcessorPaths>
+@annotationProcessorPaths@</annotationProcessorPaths>
                         </configuration>
                     </execution>
                     <execution>
