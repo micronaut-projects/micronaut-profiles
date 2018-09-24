@@ -9,5 +9,7 @@ dependencies:
     coords: io.micronaut:inject-groovy
   - scope: compile
     coords: io.micronaut:runtime-groovy
+  - scope: compile
+    coords: io.micronaut:validation    
   - scope: testCompile
     coords: io.micronaut:inject-groovy
