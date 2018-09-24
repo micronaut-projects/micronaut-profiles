@@ -16,12 +16,8 @@
                             <arg>-parameters</arg>
                         </compilerArgs>
                         <annotationProcessorPaths>
-                            <path>
-                                <groupId>io.micronaut</groupId>
-                                <artifactId>inject-java</artifactId>
-                                <version>${micronaut.version}</version>
-                            </path>
-                        </annotationProcessorPaths>
+@annotationProcessorPaths@
+</annotationProcessorPaths>
                     </configuration>
                 </plugin>
             </plugins>
