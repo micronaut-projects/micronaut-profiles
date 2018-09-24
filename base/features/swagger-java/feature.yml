@@ -1,0 +1,8 @@
+description: Configures Swagger (OpenAPI) Integration for Java
+dependentFeatures:
+    - java
+dependencies:
+  - scope: annotationProcessor
+    coords: io.micronaut.configuration:openapi
+  - scope: compile
+    coords: io.swagger.core.v3:swagger-annotations
