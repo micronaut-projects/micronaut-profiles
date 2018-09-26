@@ -1,4 +1,4 @@
-${packageName ? 'package ' + packageName + ';' : '' }
+${packageName ? 'package ' + packageName + ';' : ''}
 
 import io.micronaut.http.client.annotation.Client;
 import io.micronaut.http.annotation.Get;

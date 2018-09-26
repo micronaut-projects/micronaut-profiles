@@ -1,4 +1,4 @@
-${packageName ? 'package ' + packageName + ';' : ''}
+${packageName ? 'package ' + packageName : '' }
 
 import io.micronaut.context.ApplicationContext
 import io.micronaut.runtime.server.EmbeddedServer
