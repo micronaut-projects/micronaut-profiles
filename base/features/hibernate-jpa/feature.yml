@@ -1,5 +1,7 @@
 description: Adds support for Hibernate/JPA
 dependencies:
+  - scope: annotationProcessor
+    coords: javax.persistence:javax.persistence-api:2.2  
   - scope: compile
     coords: io.micronaut.configuration:hibernate-jpa
   - scope: runtime
