@@ -1,3 +1,15 @@
+buildscript {
+    repositories {
+        maven { url "https://repo.grails.org/grails/core" }
+    }
+    dependencies {
+        classpath "org.codehaus.groovy.modules.http-builder:http-builder:0.7.1"
+    }
+}
+
+import groovyx.net.http.RESTClient
+import static groovyx.net.http.ContentType.*
+
 subprojects {
     apply plugin: 'io.micronaut.profile'
     apply plugin: 'io.micronaut.profile-publish'
@@ -19,5 +31,33 @@ subprojects {
         desc = "Micronaut ${project.displayName} Profile"
         developers = [jameskleeh:"James Kleeh", zachklein: "Zachary Klein"]
     }
+
+    task gpgSign() {
+        description = "Syncs with Maven Central/Sonatype"
+        doLast {
+    //         println """
+    // Synchronizing with Maven central. This may take a few minutes ...
+    // If this fails, log on to http://oss.sonatype.org/ using the centralUser credentials
+    // and progress through process manually -> Close -> Publish ... under staging repositories
+    // """
+            try {
+                def client = new RESTClient('https://api.bintray.com/')
+                client.headers['Authorization'] = 'Basic ' + "$bintray.user:$bintray.key".getBytes('iso-8859-1').encodeBase64()
+                def body = /{}/
+                def resp = client.post(
+                        path: "gpg/micronaut/profiles/$bintray.pkg.name/versions/$micronautVersion",
+                        body: body,
+                        requestContentType: JSON
+                )
+                assert resp.status == 200
+            } catch (groovyx.net.http.HttpResponseException e) {
+                println "Error: $e"
+                println "Message: $e.message"
+                println "Body: $e.response.data"
+                throw e
+            }
+        }
+    }
+  
 }
 
