@@ -1,6 +1,7 @@
 description: Adds support for the Spek testing framewokr
-dependentFeatures:
-    - kotlin
+features:
+    dependent:
+      - kotlin
 dependencies:
   - scope: testCompile
     coords: org.junit.jupiter:junit-jupiter-api:5.1.0

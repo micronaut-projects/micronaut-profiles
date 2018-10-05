@@ -1,6 +1,7 @@
 description: Adds support for Kafka Streams
-dependentFeatures:
-    - kafka
+features:
+    dependent:
+      - kafka
 dependencies:
     - scope: compile
       coords: io.micronaut.configuration:kafka-streams

@@ -1,7 +1,8 @@
 description: Configures GORM for MongoDB for Groovy applications
-dependentFeatures:
-    - groovy
-    - mongo-reactive
+features:
+    dependent:
+      - groovy
+      - mongo-reactive
 dependencies:
   - scope: compile
     coords: io.micronaut.configuration:mongo-gorm

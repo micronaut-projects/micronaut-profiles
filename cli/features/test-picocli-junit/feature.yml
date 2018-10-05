@@ -1,7 +1,8 @@
 description: Creates JUnit test for a picocli-based command line application
-dependentFeatures:
-    - junit
-    - picocli
+features:
+    dependent:
+      - junit
+      - picocli
 #dependencies:
 #  - scope: testCompile
 #    coords: io.micronaut:function-client

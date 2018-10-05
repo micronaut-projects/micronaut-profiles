@@ -1,12 +1,20 @@
 description: The service profile
 features:
     oneOf:
-        - feature: groovy
-          priority: 0
-        - feature: kotlin
-          priority: 1
-        - feature: java
-          priority: 2
+        languages:
+            - feature: groovy
+              priority: 0
+            - feature: kotlin
+              priority: 1
+            - feature: java
+              priority: 2
+        jdbc:
+            - feature: jdbc-hikari
+              priority: 0
+            - feature: jdbc-tomcat
+              priority: 1
+            - feature: jdbc-dbcp
+              priority: 2
     required:
         - annotation-api
         - http-server

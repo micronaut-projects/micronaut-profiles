@@ -1,6 +1,7 @@
 description: Creates Spock test for AWS function
-dependentFeatures:
-    - spock
+features:
+    dependent:
+      - spock
 dependencies:
   - scope: testCompile
     coords: io.micronaut:function-client

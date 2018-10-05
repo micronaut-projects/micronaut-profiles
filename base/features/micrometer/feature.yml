@@ -1,6 +1,7 @@
 description: Adds support for Micrometer metrics
-dependentFeatures:
-    - management
+features:
+    dependent:
+      - management
 dependencies:
     - scope: compile
       coords: io.micronaut.configuration:micrometer-core

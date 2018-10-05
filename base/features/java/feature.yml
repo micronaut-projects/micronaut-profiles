@@ -1,6 +1,7 @@
 description: Creates a Java application
-dependentFeatures:
-    - junit
+features:
+    dependent:
+      - junit
 build:
     plugins:
         - java

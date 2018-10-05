@@ -1,6 +1,7 @@
 description: Creates a Groovy application
-dependentFeatures:
-    - spock
+features:
+    dependent:
+      - spock
 build:
     plugins:
         - groovy

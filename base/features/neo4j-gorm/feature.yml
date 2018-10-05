@@ -1,7 +1,8 @@
 description: Configures GORM for Neo4j for Groovy applications
-dependentFeatures:
-    - groovy
-    - neo4j-bolt
+features:
+    dependent:
+      - groovy
+      - neo4j-bolt
 dependencies:
   - scope: compile
     coords: io.micronaut.configuration:neo4j-gorm

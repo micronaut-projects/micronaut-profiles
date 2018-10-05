@@ -1,6 +1,7 @@
 description: Adds support for Micrometer metrics (w/ Prometheus reporter)
-dependentFeatures:
-    - management
+features:
+    dependent:
+      - management
 dependencies:
     - scope: compile
       coords: io.micronaut.configuration:micrometer-core

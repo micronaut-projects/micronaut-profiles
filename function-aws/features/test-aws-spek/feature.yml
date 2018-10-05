@@ -1,6 +1,7 @@
 description: Creates Spek test for AWS function
-dependentFeatures:
-    - spek
+features:
+    dependent:
+      - spek
 dependencies:
   - scope: testCompile
     coords: io.micronaut:function-client

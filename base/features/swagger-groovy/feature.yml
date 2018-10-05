@@ -1,6 +1,7 @@
 description: Configures Swagger (OpenAPI) Integration for Groovy
-dependentFeatures:
-    - groovy
+features:
+    dependent:
+      - groovy
 dependencies:
   - scope: compileOnly
     coords: io.micronaut.configuration:openapi

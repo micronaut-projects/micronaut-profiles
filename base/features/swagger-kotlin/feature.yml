@@ -1,6 +1,7 @@
 description: Configures Swagger (OpenAPI) Integration for Kotlin
-dependentFeatures:
-    - kotlin
+features:
+    dependent:
+      - kotlin
 dependencies:
   - scope: kapt
     coords: io.micronaut.configuration:openapi

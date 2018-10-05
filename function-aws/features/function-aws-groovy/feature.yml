@@ -1,6 +1,7 @@
 description: Creates an AWS Lambda function using Groovy
-dependentFeatures:
-    - groovy
+features:
+    dependent:
+      - groovy
 dependencies:
   - scope: compile
     coords: io.micronaut:function-groovy

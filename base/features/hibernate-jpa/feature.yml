@@ -1,9 +1,8 @@
 description: Adds support for Hibernate/JPA
+features:
+    default:
+      - jdbc-tomcat
 dependencies:
   - scope: compile
     coords: io.micronaut.configuration:hibernate-jpa
-  - scope: runtime
-    coords: com.h2database:h2:1.4.196
-  - scope: runtime
-    coords: io.micronaut.configuration:jdbc-tomcat
         

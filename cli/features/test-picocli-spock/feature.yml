@@ -1,7 +1,8 @@
 description: Creates Spock test for a picocli-based command line application
-dependentFeatures:
-    - spock
-    - picocli
+features:
+    dependent:
+      - spock
+      - picocli
 #dependencies:
 #  - scope: testCompile
 #    coords: io.micronaut:function-client

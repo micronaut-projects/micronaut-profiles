@@ -1,7 +1,8 @@
 description: Creates a picocli-based command line application using Kotlin
-dependentFeatures:
-    - kotlin
-    - picocli
+features:
+    dependent:
+      - kotlin
+      - picocli
 dependencies:
   - scope: compile
     coords: io.micronaut:runtime

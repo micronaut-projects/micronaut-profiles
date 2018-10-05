@@ -1,6 +1,7 @@
 description: Creates a Kotlin application
-dependentFeatures:
-    - spek
+features:
+    dependent:
+      - spek
 build:
     plugins:
         - org.jetbrains.kotlin.jvm:1.2.61

@@ -1,12 +1,13 @@
 description: The cli profile
 features:
     oneOf:
-        - feature: groovy
-          priority: 0
-        - feature: kotlin
-          priority: 1
-        - feature: java
-          priority: 2
+        languages:
+            - feature: groovy
+              priority: 0
+            - feature: kotlin
+              priority: 1
+            - feature: java
+              priority: 2
     required:
       - picocli
 dependencies:

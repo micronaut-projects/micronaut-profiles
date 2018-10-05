@@ -1,6 +1,7 @@
 description: Adds support for GORM persistence framework
-dependentFeatures:
-    - groovy
+features:
+    dependent:
+      - groovy
 dependencies:
   - scope: compile
     coords: io.micronaut.configuration:hibernate-validator

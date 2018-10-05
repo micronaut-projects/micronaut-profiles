@@ -1,17 +1,18 @@
 description: The Kafka messaging profile
 features:
-  oneOf:
-  - feature: groovy
-    priority: 0
-  - feature: kotlin
-    priority: 1
-  - feature: java
-    priority: 2
-  required:
-  - annotation-api
-  - kafka
+    oneOf:
+        languages:
+            - feature: groovy
+              priority: 0
+            - feature: kotlin
+              priority: 1
+            - feature: java
+              priority: 2
+    required:
+      - annotation-api
+      - kafka
 skeleton:
-  executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
+    executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
 jvmArgs:
-- -noverify
-- -XX:TieredStopAtLevel=1
+  - -noverify
+  - -XX:TieredStopAtLevel=1

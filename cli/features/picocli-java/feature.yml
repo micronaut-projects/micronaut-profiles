@@ -1,7 +1,8 @@
 description: Creates a picocli-based command line application using Java
-dependentFeatures:
-    - java
-    - picocli
+features:
+    dependent:
+      - java
+      - picocli
 dependencies:
   - scope: compile
     coords: io.micronaut:runtime
