@@ -1,6 +1,7 @@
 ./gradlew assemble
 java -cp build/libs/@app.name@-0.1-all.jar io.micronaut.graal.reflect.GraalClassLoadingAnalyzer 
-native-image --class-path build/libs/@app.name@-0.1-all.jar \
+native-image --no-server \
+                         --class-path build/libs/@app.name@-0.1-all.jar \
 			 -H:ReflectionConfigurationFiles=build/reflect.json \
 			 -H:EnableURLProtocols=http \
 			 -H:IncludeResources="logback.xml|application.yml|META-INF/services/*.*" \
