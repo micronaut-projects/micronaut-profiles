@@ -1,7 +1,3 @@
 micronaut:
     application:
         name: @app.name@
-                
-#Uncomment to set server port
-#    server:
-#        port: 8080
