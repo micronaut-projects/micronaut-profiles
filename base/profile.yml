@@ -1,3 +1,4 @@
+abstract: true
 description: The base profile
 features:
     defaults:

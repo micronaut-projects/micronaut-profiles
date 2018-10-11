@@ -1,3 +1,4 @@
+abstract: true
 description: The function profile
 features:
     required:
