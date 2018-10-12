@@ -5,4 +5,4 @@ features:
       - picocli
 dependencies:
   - scope: compile
-    coords: io.micronaut:runtime
+    coords: io.micronaut:micronaut-runtime

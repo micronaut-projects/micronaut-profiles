@@ -3,6 +3,6 @@ dependencies:
   - scope: testCompile
     coords: junit:junit:4.12
   - scope: testCompile
-    coords: io.micronaut:inject-java
+    coords: io.micronaut:micronaut-inject-java
   - scope: testCompile
     coords: org.hamcrest:hamcrest-all:1.3

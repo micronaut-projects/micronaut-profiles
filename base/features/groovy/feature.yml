@@ -7,10 +7,10 @@ build:
         - groovy
 dependencies:
   - scope: compileOnly
-    coords: io.micronaut:inject-groovy
+    coords: io.micronaut:micronaut-inject-groovy
   - scope: compile
-    coords: io.micronaut:runtime-groovy
+    coords: io.micronaut:micronaut-runtime-groovy
   - scope: compile
-    coords: io.micronaut:validation    
+    coords: io.micronaut:micronaut-validation    
   - scope: testCompile
-    coords: io.micronaut:inject-groovy
+    coords: io.micronaut:micronaut-inject-groovy

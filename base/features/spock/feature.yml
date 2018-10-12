@@ -9,4 +9,4 @@ dependencies:
       - group: org.codehaus.groovy
         module: groovy-all
   - scope: testCompile
-    coords: io.micronaut:inject-groovy
+    coords: io.micronaut:micronaut-inject-groovy

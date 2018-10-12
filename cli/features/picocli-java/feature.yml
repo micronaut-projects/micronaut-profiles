@@ -5,6 +5,6 @@ features:
       - picocli
 dependencies:
   - scope: compile
-    coords: io.micronaut:runtime
+    coords: io.micronaut:micronaut-runtime
   - scope: testCompile
-    coords: io.micronaut:inject-java
+    coords: io.micronaut:micronaut-inject-java

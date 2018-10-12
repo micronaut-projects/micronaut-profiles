@@ -12,7 +12,7 @@ features:
       - picocli
 dependencies:
 - scope: compile
-  coords: io.micronaut:runtime
+  coords: io.micronaut:micronaut-runtime
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
 jvmArgs:
