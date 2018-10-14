@@ -4,9 +4,9 @@ features:
       - groovy
 dependencies:
   - scope: compile
-    coords: io.micronaut.configuration:hibernate-validator
+    coords: io.micronaut.configuration:micronaut-hibernate-validator
   - scope: compile
-    coords: io.micronaut.configuration:hibernate-gorm
+    coords: io.micronaut.configuration:micronaut-hibernate-gorm
   - scope: runtime
     coords: com.h2database:h2:1.4.196
   - scope: runtime

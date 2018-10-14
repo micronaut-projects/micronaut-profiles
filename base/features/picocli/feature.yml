@@ -3,4 +3,4 @@ dependencies:
   - scope: compile
     coords: info.picocli:picocli
   - scope: compile
-    coords: io.micronaut.configuration:picocli
+    coords: io.micronaut.configuration:micronaut-picocli

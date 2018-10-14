@@ -4,6 +4,6 @@ features:
       - management
 dependencies:
     - scope: compile
-      coords: io.micronaut.configuration:micrometer-core
+      coords: io.micronaut.configuration:micronaut-micrometer-core
     - scope: compile
-      coords: io.micronaut.configuration:micrometer-registry-graphite
+      coords: io.micronaut.configuration:micronaut-micrometer-registry-graphite

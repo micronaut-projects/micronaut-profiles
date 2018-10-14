@@ -4,6 +4,6 @@ features:
       - kotlin
 dependencies:
   - scope: kapt
-    coords: io.micronaut.configuration:openapi
+    coords: io.micronaut.configuration:micronaut-openapi
   - scope: compile
     coords: io.swagger.core.v3:swagger-annotations

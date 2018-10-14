@@ -1,6 +1,6 @@
 description: Configures SQL DataSource instances using Hikari Connection Pool
 dependencies:
   - scope: compile
-    coords: io.micronaut.configuration:jdbc-hikari
+    coords: io.micronaut.configuration:micronaut-jdbc-hikari
   - scope: runtime
     coords: com.h2database:h2:1.4.196
