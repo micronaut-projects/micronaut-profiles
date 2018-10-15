@@ -1,4 +1,4 @@
 description: Adds support for Netflix Hystrix in the application
 dependencies:
     - scope: compile
-      coords: io.micronaut.configuration:netflix-hystrix
+      coords: io.micronaut.configuration:micronaut-netflix-hystrix

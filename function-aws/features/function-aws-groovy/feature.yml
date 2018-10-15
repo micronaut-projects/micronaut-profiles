@@ -4,4 +4,4 @@ features:
       - groovy
 dependencies:
   - scope: compile
-    coords: io.micronaut:function-groovy
+    coords: io.micronaut:micronaut-function-groovy

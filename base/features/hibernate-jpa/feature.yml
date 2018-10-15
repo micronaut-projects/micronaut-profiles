@@ -4,5 +4,5 @@ features:
       - jdbc-tomcat
 dependencies:
   - scope: compile
-    coords: io.micronaut.configuration:hibernate-jpa
+    coords: io.micronaut.configuration:micronaut-hibernate-jpa
         

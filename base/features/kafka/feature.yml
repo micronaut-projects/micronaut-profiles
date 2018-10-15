@@ -1,4 +1,4 @@
 description: Adds support for Kafka
 dependencies:
     - scope: compile
-      coords: io.micronaut.configuration:kafka
+      coords: io.micronaut.configuration:micronaut-kafka

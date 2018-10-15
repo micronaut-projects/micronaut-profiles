@@ -5,6 +5,6 @@ features:
       - mongo-reactive
 dependencies:
   - scope: compile
-    coords: io.micronaut.configuration:mongo-gorm
+    coords: io.micronaut.configuration:micronaut-mongo-gorm
 
         

@@ -4,4 +4,4 @@ features:
       - kafka
 dependencies:
     - scope: compile
-      coords: io.micronaut.configuration:kafka-streams
+      coords: io.micronaut.configuration:micronaut-kafka-streams

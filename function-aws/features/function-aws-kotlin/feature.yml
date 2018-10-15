@@ -4,4 +4,4 @@ features:
       - kotlin
 dependencies:
   - scope: compile
-    coords: io.micronaut:function-aws
+    coords: io.micronaut:micronaut-function-aws

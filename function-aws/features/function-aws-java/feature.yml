@@ -4,6 +4,6 @@ features:
       - java
 dependencies:
   - scope: compile
-    coords: io.micronaut:function-aws
+    coords: io.micronaut:micronaut-function-aws
   - scope: testCompile
-    coords: io.micronaut:inject-java
+    coords: io.micronaut:micronaut-inject-java

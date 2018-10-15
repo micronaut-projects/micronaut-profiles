@@ -4,4 +4,4 @@ features:
       - management
 dependencies:
     - scope: compile
-      coords: io.micronaut.configuration:micrometer-core
+      coords: io.micronaut.configuration:micronaut-micrometer-core

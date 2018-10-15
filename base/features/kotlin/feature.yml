@@ -13,12 +13,12 @@ dependencies:
   - scope: compile
     coords: org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}
   - scope: compile
-    coords: io.micronaut:runtime
+    coords: io.micronaut:micronaut-runtime
   - scope: kapt
-    coords: io.micronaut:inject-java
+    coords: io.micronaut:micronaut-inject-java
   - scope: kapt
-    coords: io.micronaut:validation    
+    coords: io.micronaut:micronaut-validation    
   - scope: kaptTest
-    coords: io.micronaut:inject-java
+    coords: io.micronaut:micronaut-inject-java
   - scope: runtime
     coords: com.fasterxml.jackson.module:jackson-module-kotlin:2.9.4.1

@@ -1,4 +1,4 @@
 description: Adds support for Session based Authentication
 dependencies:
   - scope: compile
-    coords: io.micronaut:security-session
+    coords: io.micronaut:micronaut-security-session

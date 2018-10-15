@@ -11,14 +11,14 @@ dependencies:
   - scope: build
     coords: net.ltgt.gradle:gradle-apt-plugin:0.15
   - scope: annotationProcessor
-    coords: io.micronaut:inject-java
+    coords: io.micronaut:micronaut-inject-java
   - scope: annotationProcessor
-    coords: io.micronaut:validation
+    coords: io.micronaut:micronaut-validation
   - scope: compileOnly
-    coords: io.micronaut:inject-java
+    coords: io.micronaut:micronaut-inject-java
   - scope: compile
-    coords: io.micronaut:inject
+    coords: io.micronaut:micronaut-inject
   - scope: compile
-    coords: io.micronaut:validation    
+    coords: io.micronaut:micronaut-validation    
   - scope: compile
-    coords: io.micronaut:runtime
+    coords: io.micronaut:micronaut-runtime
