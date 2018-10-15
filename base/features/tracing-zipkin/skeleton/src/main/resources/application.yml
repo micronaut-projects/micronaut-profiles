@@ -3,5 +3,5 @@ tracing:
     enabled: true
     http:
       url: http://localhost:9411
-      sampler:
-        probability: 0.1
+    sampler:
+      probability: 0.1
