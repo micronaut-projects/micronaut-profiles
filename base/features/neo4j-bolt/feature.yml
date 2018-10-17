@@ -3,6 +3,4 @@ dependencies:
   - scope: compile        
     coords: io.micronaut.configuration:micronaut-neo4j-bolt
   - scope: testRuntime
-    coords: org.neo4j.test:neo4j-harness:3.3.3
-
-        
+    coords: org.neo4j.test:neo4j-harness
