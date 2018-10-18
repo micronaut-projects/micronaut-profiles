@@ -8,6 +8,6 @@ dependencies:
   - scope: compile
     coords: io.micronaut.configuration:micronaut-hibernate-gorm
   - scope: runtime
-    coords: com.h2database:h2:1.4.196
+    coords: com.h2database:h2
   - scope: runtime
-    coords: org.apache.tomcat:tomcat-jdbc:8.0.44
+    coords: org.apache.tomcat:tomcat-jdbc
