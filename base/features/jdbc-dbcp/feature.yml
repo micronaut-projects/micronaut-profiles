@@ -3,4 +3,4 @@ dependencies:
   - scope: compile
     coords: io.micronaut.configuration:micronaut-jdbc-dbcp
   - scope: runtime
-    coords: com.h2database:h2:1.4.196
+    coords: com.h2database:h2

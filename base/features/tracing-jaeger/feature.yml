@@ -3,4 +3,4 @@ dependencies:
   - scope: compile
     coords: io.micronaut:micronaut-tracing
   - scope: runtime
-    coords: io.jaegertracing:jaeger-thrift:0.31.0
+    coords: io.jaegertracing:jaeger-thrift

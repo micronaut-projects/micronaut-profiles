@@ -2,13 +2,10 @@ repositories {
     mavenLocal()
     mavenCentral()
     jcenter()
-    maven {
-        url "https://oss.sonatype.org/content/repositories/snapshots"
-    }
 }
 
 dependencies {
-    compile "io.micronaut:micronaut-cli:1.0.0.BUILD-SNAPSHOT"
+    compile "io.micronaut:micronaut-cli:1.0.0.RC3"
     compile "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.0"
     compile "org.yaml:snakeyaml:1.14"
     compile "info.picocli:picocli:3.3.0"
