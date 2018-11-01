@@ -5,7 +5,7 @@ repositories {
 }
 
 dependencies {
-    compile "io.micronaut:micronaut-cli:1.0.0.RC3"
+    compile "io.micronaut:micronaut-cli:1.0.0"
     compile "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.0"
     compile "org.yaml:snakeyaml:1.14"
     compile "info.picocli:picocli:3.3.0"
