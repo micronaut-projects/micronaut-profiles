@@ -10,7 +10,7 @@ skeleton:
 
 build:
     plugins:
-        - com.github.johnrengelman.shadow:4.0.0
+        - com.github.johnrengelman.shadow:4.0.2
         - de.sebastianboegl.shadow.transformer.log4j:2.1.1
         - jp.classmethod.aws.lambda:0.38
 dependencies:
