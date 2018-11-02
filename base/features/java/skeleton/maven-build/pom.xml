@@ -17,10 +17,27 @@
                         </compilerArgs>
                         <annotationProcessorPaths>
 @annotationProcessorPaths@
-</annotationProcessorPaths>
+        </annotationProcessorPaths>
                     </configuration>
+                    <executions>
+                        <execution>
+                          <id>test-compile</id>
+                          <goals>
+                            <goal>testCompile</goal>
+                          </goals>
+                          <configuration>
+                            <compilerArgs>
+                              <arg>-parameters</arg>
+                            </compilerArgs>
+                            <annotationProcessorPaths>
+        @annotationProcessorPaths@
+            </annotationProcessorPaths>             
+                          </configuration>
+                        </execution>
+                    </executions>                      
                 </plugin>
             </plugins>
+           
         </pluginManagement>
     </build>
 
