@@ -74,6 +74,10 @@
                   <name>groovy.target.directory</name>
                   <value>${project.build.directory}/classes</value>
                 </property>
+                <property>
+                  <name>groovy.parameters</name>
+                  <value>true</value>
+                </property>
               </properties>
             </configuration>
           </execution>
