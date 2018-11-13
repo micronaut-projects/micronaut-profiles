@@ -23,7 +23,7 @@ RUN native-image --no-server \
     			 -H:Class=@defaultPackage@.Application
 
 
-FROM oracle/graalvm-ce:1.0.0-rc8
+FROM frolvlad/alpine-glibc
 EXPOSE 8080
 COPY --from=graalvm /home/gradle/@app.name@/@app.name@ .
 ENTRYPOINT ["./@app.name@"]

@@ -19,12 +19,12 @@ RUN native-image --no-server \
     			 --rerun-class-initialization-at-runtime='sun.security.jca.JCAUtil$CachedSecureRandomHolder',javax.net.ssl.SSLContext \
     			 --delay-class-initialization-to-runtime=io.netty.handler.codec.http.HttpObjectEncoder,io.netty.handler.codec.http.websocketx.WebSocket00FrameEncoder,io.netty.handler.ssl.util.ThreadLocalInsecureRandom \
     			 -H:-UseServiceLoaderFeature \
-    			 -H:Name=theApp \
+    			 -H:Name=@app.name@ \
     			 -H:Class=@defaultPackage@.Application
 
 
-FROM oracle/graalvm-ce:1.0.0-rc8
+FROM frolvlad/alpine-glibc
 EXPOSE 8080
-COPY --from=graalvm /home/app/theApp .
-ENTRYPOINT ["./theApp"]
+COPY --from=graalvm /home/app/@app.name@ .
+ENTRYPOINT ["./@app.name@"]
 
