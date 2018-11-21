@@ -1,0 +1,17 @@
+description: The profile for creating the configuration
+features:
+    oneOf:
+      languages:
+        - feature: groovy
+          priority: 0
+        - feature: kotlin
+          priority: 1
+        - feature: java
+          priority: 2
+    required:
+      - annotation-api
+skeleton:
+    executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
+jvmArgs:
+    - -noverify
+    - -XX:TieredStopAtLevel=1
