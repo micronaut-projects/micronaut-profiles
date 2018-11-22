@@ -1,0 +1,4 @@
+description: Adds support for Flyway database migrations (https://flywaydb.org/)
+dependencies:
+  - scope: compile
+    coords: io.micronaut.configuration:micronaut-flyway
