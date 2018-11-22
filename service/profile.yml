@@ -20,7 +20,7 @@ features:
         - http-server
         - http-client
 skeleton:
-    executable: ["**/gradlew*", "**/mnw*", "**/mvnw*", "**/build-native-image*"]
+    executable: ["**/gradlew*", "**/mnw*", "**/mvnw*", "**/*.sh"]
 jvmArgs:
     - -noverify
     - -XX:TieredStopAtLevel=1
