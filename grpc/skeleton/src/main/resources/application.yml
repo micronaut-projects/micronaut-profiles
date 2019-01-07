@@ -1,0 +1,4 @@
+micronaut:
+  application:
+    name: @app.name@
+    

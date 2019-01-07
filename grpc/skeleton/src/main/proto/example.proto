@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "@defaultPackage@";
+option java_outer_classname = "Example";
+option objc_class_prefix = "HLW";
+
+package @defaultPackage@;
+
+service ExampleService {
+  rpc send (ExampleRequest) returns (ExampleReply) {}
+}
+
+message ExampleRequest {
+  string name = 1;
+}
+
+message ExampleReply {
+  string message = 1;
+}
