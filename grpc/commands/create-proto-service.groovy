@@ -1,14 +1,13 @@
-@Command(name = 'create-kafka-producer', description = 'Creates a producer class for Kafka')
+@Command(name = 'create-proto-service', description = 'Creates a protobuf file for the given ame')
 @PicocliScript GroovyScriptCommand me
 
-@Parameters(paramLabel = "PRODUCER", description = 'The name of the producer to create')
-@Field String producerName
-
+@Parameters(paramLabel = "SERVICE", description = 'The name of the service to create')
+@Field String serviceName
 
 @Option(names = ['-f', '--force'], description = 'Whether to overwrite existing files')
 @Field boolean overwrite
 
-@Option(names = ['-l', '--lang'], description = 'The language used for the producer (options: ${COMPLETION-CANDIDATES})')
+@Option(names = ['-l', '--lang'], description = 'The language used for the interface (options: ${COMPLETION-CANDIDATES})')
 @Field SupportedLanguage lang
 
 @Mixin
@@ -24,11 +23,11 @@ private SupportedLanguage sniffProjectLanguage() {
     }
 }
 
-def model = model(producerName).forConvention("Producer")
+def model = model(serviceName)
 String artifactPath = "${model.packagePath}/${model.className}"
 lang = lang ?: SupportedLanguage.findValue(config.sourceLanguage).orElse(sniffProjectLanguage())
 
-render template: template("${lang}/Producer.${lang.extension}"),
-        destination: file("src/main/${lang}/${artifactPath}.${lang.extension}"),
+render template: template("service.proto"),
+        destination: file("src/main/proto/${model.propertyName}.proto"),
         model: model,
         overwrite: overwrite
