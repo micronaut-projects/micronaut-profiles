@@ -20,4 +20,4 @@ jvmArgs:
   - -XX:TieredStopAtLevel=1
 dependencies:
   - scope: compile
-    coords: io.micronaut.grpc:micronaut-grpc-runtime:1.0.0.BUILD-SNAPSHOT
+    coords: io.micronaut.grpc:micronaut-grpc-runtime
