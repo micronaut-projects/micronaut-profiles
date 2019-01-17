@@ -1,22 +1,25 @@
 ${packageName ? 'package ' + packageName : ''}
 
+import io.micronaut.context.ApplicationContext
+import io.micronaut.context.env.Environment
 import io.micronaut.runtime.server.EmbeddedServer
-import io.micronaut.test.annotation.MicronautTest
-import org.junit.jupiter.api.Test
+import org.jetbrains.spek.api.Spek
+import org.jetbrains.spek.api.dsl.given
+import org.jetbrains.spek.api.dsl.it
+import org.jetbrains.spek.api.dsl.on
+import org.junit.jupiter.api.Assertions.assertTrue
 
-import javax.inject.Inject
+object ${className}Test : Spek({
 
-import static org.junit.jupiter.api.Assertions.assertTrue
+    given("an application context") {
+        val ctx = ApplicationContext.run(Environment.TEST)
 
-@MicronautTest
-class ${className}Test {
+        on("embedded server retrieval") {
+            val embeddedServer = ctx.getBean(EmbeddedServer::class.java)
 
-    @Inject
-    lateinit var embeddedServer: EmbeddedServer
-
-    @Test
-    fun testItWorks() {
-        assertTrue(embeddedServer.isRunning())
+            it("should be running") {
+                assertTrue(embeddedServer.isRunning())
+            }
+        }
     }
-
-}
+})

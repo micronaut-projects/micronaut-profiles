@@ -11,4 +11,4 @@ dependencies:
   - scope: testCompile
     coords: io.micronaut:micronaut-inject-groovy
   - scope: testCompile
-    coords: io.micronaut.test:micronaut-test-spock:1.0.0.RC2
+    coords: io.micronaut.test:micronaut-test-spock:1.0.1

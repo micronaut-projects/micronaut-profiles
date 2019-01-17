@@ -1,4 +1,4 @@
-@Command(name = 'create-test', description = 'Creates a JUnit 5 test')
+@Command(name = 'create-test', description = "Creates a simple test for the project's testing framework")
 @PicocliScript GroovyScriptCommand me
 
 @Parameters(paramLabel = "TEST-NAME", description = 'The name of the test class to create')
@@ -27,8 +27,22 @@ def model = model(testName)
 String artifactPath = "${model.packagePath}/${model.className}"
 lang = lang ?: SupportedLanguage.findValue(config.sourceLanguage).orElse(sniffProjectLanguage())
 
-render template: template("${lang}/Test.${lang.extension}"),
-        destination: file("src/test/${lang}/${artifactPath}Test.${lang.extension}"),
+def testFramework = config.testFramework
+String testConvention = "Test"
+
+if (testFramework == "spock") {
+    testConvention = "Spec"
+    lang = SupportedLanguage.groovy
+} else if (testFramework == "junit") {
+    lang = SupportedLanguage.java
+} else if (testFramework == "spek") {
+    lang = SupportedLanguage.kotlin
+} else if (lang == SupportedLanguage.groovy) {
+    testConvention = "Spec"
+}
+
+render template: template("${lang}/${testConvention}.${lang.extension}"),
+        destination: file("src/test/${lang}/${artifactPath}${testConvention}.${lang.extension}"),
         model: model,
         overwrite: overwrite
 
