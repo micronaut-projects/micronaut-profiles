@@ -22,7 +22,7 @@ public class @project.className@CommandTest {
             PicocliRunner.run(@project.className@Command.class, ctx, args);
 
             // @project.name@
-            assertTrue(baos.toString(), baos.toString().contains("Hi!"));
+            assertTrue(baos.toString().contains("Hi!"));
         }
     }
 }
