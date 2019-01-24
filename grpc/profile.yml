@@ -1,4 +1,4 @@
-description: The Kafka messaging profile
+description: Profile for Creating GRPC Services
 features:
     oneOf:
         languages:
