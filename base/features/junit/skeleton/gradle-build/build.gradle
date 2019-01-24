@@ -1,0 +1,4 @@
+// use JUnit 5 platform
+test {
+    useJUnitPlatform()
+}
