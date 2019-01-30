@@ -1,7 +1,7 @@
 ./mvnw package
-java -cp target/@app.name@-0.1.jar io.micronaut.graal.reflect.GraalClassLoadingAnalyzer
+java -cp target/@app.name@-*.jar io.micronaut.graal.reflect.GraalClassLoadingAnalyzer
 native-image --no-server \
-             --class-path target/@app.name@-0.1.jar \
+             --class-path target/@app.name@-*.jar \
              -H:ReflectionConfigurationFiles=target/reflect.json \
              -H:EnableURLProtocols=http \
              -H:IncludeResources="logback.xml|application.yml|META-INF/services/*.*" \

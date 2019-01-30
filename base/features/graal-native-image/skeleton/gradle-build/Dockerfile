@@ -1,17 +1,17 @@
 FROM gradle:jdk8 as builder
-COPY --chown=gradle:gradle . /home/gradle/@app.name@
-WORKDIR /home/gradle/@app.name@
+COPY --chown=gradle:gradle . /home/app
+WORKDIR /home/app
 RUN ./gradlew build
 
 FROM oracle/graalvm-ce:1.0.0-rc11 as graalvm
-COPY --from=builder /home/gradle/@app.name@/ /home/gradle/@app.name@/
-WORKDIR /home/gradle/@app.name@
-RUN java -cp build/libs/*-all.jar \
+COPY --from=builder /home/app/ /home/app/
+WORKDIR /home/app
+RUN java -cp build/libs/@app.name@-*.jar \
             io.micronaut.graal.reflect.GraalClassLoadingAnalyzer \
             reflect.json
 RUN native-image --no-server \
-                 --class-path /home/gradle/@app.name@/build/libs/*-all.jar \
-                 -H:ReflectionConfigurationFiles=/home/gradle/@app.name@/reflect.json \
+                 --class-path /home/app/build/libs/@app.name@-*.jar \
+                 -H:ReflectionConfigurationFiles=/home/app/reflect.json \
                  -H:EnableURLProtocols=http \
                  -H:IncludeResources='logback.xml|application.yml|META-INF/services/*.*' \
                  -H:+ReportUnsupportedElementsAtRuntime \
@@ -26,5 +26,5 @@ RUN native-image --no-server \
 
 FROM frolvlad/alpine-glibc
 EXPOSE 8080
-COPY --from=graalvm /home/gradle/@app.name@/@app.name@ .
+COPY --from=graalvm /home/app/@app.name@ .
 ENTRYPOINT ["./@app.name@"]

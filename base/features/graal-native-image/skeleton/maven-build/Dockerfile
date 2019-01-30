@@ -1,16 +1,16 @@
 FROM maven:3.6.0-jdk-8-alpine as builder
-COPY  . /root/app/
-WORKDIR /root/app
+COPY  . /home/app/
+WORKDIR /home/app
 RUN mvn install
 
 FROM oracle/graalvm-ce:1.0.0-rc11 as graalvm
-COPY --from=builder /root/app/ /home/app/
+COPY --from=builder /home/app/ /home/app/
 WORKDIR /home/app
-RUN java -cp target/@app.name@-0.1.jar \
+RUN java -cp target/@app.name@-*.jar \
             io.micronaut.graal.reflect.GraalClassLoadingAnalyzer \
             reflect.json
 RUN native-image --no-server \
-                 --class-path target/@app.name@-0.1.jar \
+                 --class-path target/@app.name@-*.jar \
                  -H:ReflectionConfigurationFiles=/home/app/reflect.json \
                  -H:EnableURLProtocols=http \
                  -H:IncludeResources='logback.xml|application.yml|META-INF/services/*.*' \
