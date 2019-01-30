@@ -17,6 +17,11 @@ dependencyManagement {
     }
 }
 
+configurations {
+	// for dependencies that are needed for development only
+	developmentOnly 
+}
+
 dependencies {
 @dependencies@
 }
@@ -25,4 +30,5 @@ shadowJar {
     mergeServiceFiles()
 }
 
+run.classpath += configurations.developmentOnly
 run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1')
