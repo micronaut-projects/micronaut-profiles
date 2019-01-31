@@ -10,7 +10,7 @@ Resources:
     Properties:
       Handler: @app.group@.StreamLambdaHandler::handleRequest
       Runtime: java8
-      CodeUri: target/@app.name@-0.1.jar
+      CodeUri: target/@app.name@-0.1-lambda-package.zip
       MemorySize: 512
       Policies: AWSLambdaBasicExecutionRole
       Timeout: 15
