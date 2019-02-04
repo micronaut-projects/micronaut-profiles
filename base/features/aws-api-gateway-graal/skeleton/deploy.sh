@@ -1,0 +1,6 @@
+docker build . -t @app.name@
+mkdir build
+docker run --rm --entrypoint cat @app.name@  /home/application/function.zip > build/function.zip
+aws lambda create-function --function-name @app.name@ \
+--zip-file fileb://build/function.zip --handler function.handler --runtime provided \
+--role arn:aws:iam::881337894647:role/lambda_basic_execution

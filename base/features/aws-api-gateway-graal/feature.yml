@@ -1,0 +1,8 @@
+description: Creates an AWS API Gateway Proxy Lambda with Graal Native Image
+features:
+    dependent:
+      - graal-native-image
+      - aws-api-gateway
+dependencies:
+  - scope: compile
+    coords: io.micronaut.aws:micronaut-function-aws-custom-runtime

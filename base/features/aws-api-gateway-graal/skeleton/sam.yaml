@@ -1,17 +1,17 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: AWS @project.className@ API - @app.group@::@app.name@
+Description: AWS Serverless Micronaut API - my.service::my-service
 Globals:
   Api:
     EndpointConfiguration: REGIONAL
 Resources:
-  @project.className@Function:
+  MyServiceFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: @app.group@.StreamLambdaHandler::handleRequest
-      Runtime: java8
-      CodeUri: target/@app.name@-0.1-lambda-package.zip
-      MemorySize: 512
+      Handler: example.StreamLambdaHandler::handleRequest
+      Runtime: provided
+      CodeUri: build/function.zip
+      MemorySize: 128
       Policies: AWSLambdaBasicExecutionRole
       Timeout: 15
       Events:
@@ -22,8 +22,8 @@ Resources:
             Method: any
 
 Outputs:
-  @project.className@Api:
+  MyServiceApi:
     Description: URL for application
     Value: !Sub 'https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/ping'
     Export:
-      Name: @project.className@Api
+      Name: MyServiceApi
