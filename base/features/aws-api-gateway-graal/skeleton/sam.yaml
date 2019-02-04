@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: AWS Serverless Micronaut API - my.service::my-service
+Description: AWS Serverless Micronaut API - @defaultPackage@::@app.name@
 Globals:
   Api:
     EndpointConfiguration: REGIONAL
