@@ -1,0 +1,7 @@
+description: Creates AWS Lambda function using Kotlin
+features:
+    dependent:
+      - kotlin
+dependencies:
+  - scope: compile
+    coords: io.micronaut.aws:micronaut-function-aws-alexa

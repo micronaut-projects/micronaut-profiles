@@ -1,0 +1,4 @@
+description: Creates Spock test for AWS function
+features:
+    dependent:
+      - spock
