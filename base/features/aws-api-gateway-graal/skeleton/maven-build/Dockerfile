@@ -27,7 +27,7 @@ CMD ["/usr/lib/graalvm/bin/native-image"]
 FROM graalvm
 COPY --from=builder /home/application/ /home/application/
 WORKDIR /home/application
-RUN /usr/lib/graalvm/bin/java -cp target/@app.name@-*.jar io.micronaut.graal.reflect.GraalClassLoadingAnalyzer
+RUN /usr/lib/graalvm/bin/java -cp target/@app.name@-*.jar io.micronaut.graal.reflect.GraalClassLoadingAnalyzer target/reflect.json
 RUN /usr/lib/graalvm/bin/native-image --no-server \
              --class-path target/@app.name@-*.jar \
              -H:ReflectionConfigurationFiles=src/main/resources/reflect.json,target/reflect.json \

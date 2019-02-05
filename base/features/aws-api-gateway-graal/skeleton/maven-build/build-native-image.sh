@@ -1,5 +1,5 @@
 ./mvnw package
-java -cp target/@app.name@-*.jar io.micronaut.graal.reflect.GraalClassLoadingAnalyzer
+java -cp target/@app.name@-*.jar io.micronaut.graal.reflect.GraalClassLoadingAnalyzer target/reflect.json
 native-image --no-server \
              --class-path target/@app.name@-*.jar \
              -H:ReflectionConfigurationFiles=src/main/resources/reflect.json,target/reflect.json \
