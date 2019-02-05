@@ -1,7 +1,7 @@
-FROM gradle:5.1.1-jdk-alpine as builder
-COPY --chown=gradle:gradle . /home/application
+FROM maven:3.6.0-jdk-8-slim as builder
+COPY . /home/application
 WORKDIR /home/application
-RUN gradle build --no-daemon
+RUN mvn package
 
 FROM amazonlinux:2017.03.1.20170812 as graalvm
 # install graal to amazon linux.
@@ -13,7 +13,7 @@ RUN yum install -y gcc gcc-c++ libc6-dev  zlib1g-dev curl bash zlib zlib-devel z
     && rm -rf /var/cache/yum
 
 
-ENV GRAAL_VERSION 1.0.0-rc11
+ENV GRAAL_VERSION 1.0.0-rc12
 ENV GRAAL_FILENAME graalvm-ce-${GRAAL_VERSION}-linux-amd64.tar.gz
 
 RUN curl -4 -L https://github.com/oracle/graal/releases/download/vm-${GRAAL_VERSION}/${GRAAL_FILENAME} -o /tmp/${GRAAL_FILENAME}
@@ -30,7 +30,7 @@ WORKDIR /home/application
 RUN /usr/lib/graalvm/bin/java -cp target/@app.name@-*.jar io.micronaut.graal.reflect.GraalClassLoadingAnalyzer
 RUN /usr/lib/graalvm/bin/native-image --no-server \
              --class-path target/@app.name@-*.jar \
-             -H:ReflectionConfigurationFiles=src/main/resources/reflect.json,build/reflect.json \
+             -H:ReflectionConfigurationFiles=src/main/resources/reflect.json,target/reflect.json \
              -H:EnableURLProtocols=http \
              -H:IncludeResources="logback.xml|application.yml|META-INF/services/*.*" \
              -H:Name=server \
