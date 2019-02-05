@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: AWS @project.className@ API - @app.group@::@app.name@
+Globals:
+  Api:
+    EndpointConfiguration: REGIONAL
+Resources:
+  @project.className@Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: @app.group@.StreamLambdaHandler::handleRequest
+      Runtime: java8
+      CodeUri: target/@app.name@-0.1-lambda-package.zip
+      MemorySize: 512
+      Policies: AWSLambdaBasicExecutionRole
+      Timeout: 15
+      Events:
+        GetResource:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: any
+
+Outputs:
+  @project.className@Api:
+    Description: URL for application
+    Value: !Sub 'https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/ping'
+    Export:
+      Name: @project.className@Api
