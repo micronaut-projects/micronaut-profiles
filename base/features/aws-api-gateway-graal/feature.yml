@@ -2,7 +2,13 @@ description: Creates an AWS API Gateway Proxy Lambda with Graal Native Image
 features:
     dependent:
       - graal-native-image
-      - aws-api-gateway
+skeleton:
+  excludes:
+    - src/main/resources/logback.xml      
 dependencies:
   - scope: compile
     coords: io.micronaut.aws:micronaut-function-aws-custom-runtime
+    excludes:
+      - group: com.fasterxml.jackson.module
+        module: jackson-module-afterburner
+
