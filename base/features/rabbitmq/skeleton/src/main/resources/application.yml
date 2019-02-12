@@ -1,5 +1,2 @@
-rabbitmq:
-    uri: amqp://user:pass@host:10000/vhost
-    requestedFrameMax: 10
-    requestedChannelMax: 10
-    connectionTimeout: 5000
+#rabbitmq:
+#    uri: amqp://localhost:5672
