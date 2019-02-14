@@ -18,8 +18,8 @@ dependencyManagement {
 }
 
 configurations {
-	// for dependencies that are needed for development only
-	developmentOnly 
+    // for dependencies that are needed for development only
+    developmentOnly 
 }
 
 dependencies {
