@@ -8,7 +8,7 @@ Resources:
   MyServiceFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: example.StreamLambdaHandler::handleRequest
+      Handler: not.used.in.provided.runtime
       Runtime: provided
       CodeUri: build/function.zip
       MemorySize: 128
