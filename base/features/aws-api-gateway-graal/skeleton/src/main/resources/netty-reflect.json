@@ -1,0 +1,19 @@
+[
+  {
+    "name": "io.netty.channel.socket.nio.NioServerSocketChannel",
+    "methods": [
+      { "name": "<init>", "parameterTypes": [] }
+    ]
+  },
+  {
+    "name": "java.util.LinkedHashMap",
+    "methods": [
+      { "name": "<init>", "parameterTypes": [] }
+    ]
+  },
+  {
+    "name": "java.util.ArrayList",
+    "allPublicMethods": true,
+    "allDeclaredConstructors": true
+  }
+]

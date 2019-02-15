@@ -11,4 +11,9 @@ dependencies:
     excludes:
       - group: com.fasterxml.jackson.module
         module: jackson-module-afterburner
+  - scope: compile
+    coords: io.micronaut.aws:micronaut-function-aws-api-proxy
+    excludes:
+      - group: com.fasterxml.jackson.module
+        module: jackson-module-afterburner
 

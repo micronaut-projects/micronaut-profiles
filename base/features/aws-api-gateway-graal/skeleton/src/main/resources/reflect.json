@@ -42,4 +42,8 @@
   "name" : "com.amazonaws.serverless.proxy.model.MultiValuedTreeMap",
   "allPublicMethods" : true,
   "allDeclaredConstructors" : true
+}, {
+  "name" : "io.micronaut.http.client.ServiceHttpClientCondition",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
 }]
