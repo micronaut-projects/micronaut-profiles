@@ -1,3 +1,4 @@
+#!/bin/sh
 ./mvnw package
 java -cp target/@app.name@-*.jar io.micronaut.graal.reflect.GraalClassLoadingAnalyzer
 native-image --no-server \

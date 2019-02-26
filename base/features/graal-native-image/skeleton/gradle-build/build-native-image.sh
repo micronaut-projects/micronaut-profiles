@@ -1,3 +1,4 @@
+#!/bin/sh
 ./gradlew assemble
 java -cp build/libs/@app.name@-*.jar io.micronaut.graal.reflect.GraalClassLoadingAnalyzer
 native-image --no-server \
