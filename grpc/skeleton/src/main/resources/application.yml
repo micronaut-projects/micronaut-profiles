@@ -1,4 +1,5 @@
 micronaut:
   application:
     name: @app.name@
-    
+jackson:
+    module-scan: false    

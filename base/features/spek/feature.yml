@@ -4,10 +4,10 @@ features:
       - kotlin
 dependencies:
   - scope: testCompile
-    coords: org.junit.jupiter:junit-jupiter-api:5.1.0
+    coords: org.junit.jupiter:junit-jupiter-api
   - scope: testCompile
     coords: org.jetbrains.spek:spek-api:1.1.5
   - scope: testRuntime
-    coords: org.junit.jupiter:junit-jupiter-engine:5.1.0
+    coords: org.junit.jupiter:junit-jupiter-engine
   - scope: testRuntime
     coords: org.jetbrains.spek:spek-junit-platform-engine:1.1.5

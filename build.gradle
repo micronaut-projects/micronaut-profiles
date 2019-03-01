@@ -20,7 +20,7 @@ subprojects {
     micronautPublish {
         userOrg = "micronaut"
         repo = "profiles"
-        publish = false
+        publish = true
         user = sonatypeOssUsername
         key = sonatypeOssPassword
         githubSlug = 'micronaut-projects/micronaut-profiles'

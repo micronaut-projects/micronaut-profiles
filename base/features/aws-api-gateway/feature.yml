@@ -1,0 +1,12 @@
+description: Adds support for AWS API Gateway
+dependencies:
+  - scope: compile
+    coords: io.micronaut.aws:micronaut-function-aws-api-proxy
+  - scope: runtime
+    coords: 'org.apache.logging.log4j:log4j-core:2.8.2'
+  - scope: runtime
+    coords: 'org.apache.logging.log4j:log4j-api:2.8.2'
+  - scope: runtime
+    coords: 'org.apache.logging.log4j:log4j-slf4j-impl:2.8.2'
+  - scope: runtime
+    coords: 'com.amazonaws:aws-lambda-java-log4j2:1.1.0'

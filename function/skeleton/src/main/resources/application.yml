@@ -1,0 +1,5 @@
+micronaut:
+    function:
+        name: @project.name@
+jackson:
+    module-scan: false

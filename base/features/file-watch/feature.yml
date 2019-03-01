@@ -2,7 +2,4 @@ description: Adds automatic restarts and file watch
 dependencies:
   - scope: provided
     os: osx
-    coords: io.methvin:directory-watcher
-  - scope: provided
-    os: osx
-    coords: net.java.dev.jna:jna
+    coords: io.micronaut:micronaut-runtime-osx

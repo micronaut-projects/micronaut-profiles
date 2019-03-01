@@ -1,8 +1,10 @@
-description: Adds support for the JUnit testing framework
+description: Adds support for the JUnit 5 testing framework
 dependencies:
   - scope: testCompile
-    coords: junit:junit:4.12
+    coords: org.junit.jupiter:junit-jupiter-api
+  - scope: testRuntime
+    coords: org.junit.jupiter:junit-jupiter-engine
   - scope: testCompile
+    coords: io.micronaut.test:micronaut-test-junit5
+  - scope: testAnnotationProcessor
     coords: io.micronaut:micronaut-inject-java
-  - scope: testCompile
-    coords: org.hamcrest:hamcrest-all:1.3

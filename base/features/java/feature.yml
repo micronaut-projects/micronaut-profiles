@@ -9,13 +9,11 @@ build:
         - net.ltgt.apt-idea:0.21
 dependencies:
   - scope: build
-    coords: net.ltgt.gradle:gradle-apt-plugin:0.15
+    coords: net.ltgt.gradle:gradle-apt-plugin:0.20
   - scope: annotationProcessor
     coords: io.micronaut:micronaut-inject-java
   - scope: annotationProcessor
     coords: io.micronaut:micronaut-validation
-  - scope: compileOnly
-    coords: io.micronaut:micronaut-inject-java
   - scope: compile
     coords: io.micronaut:micronaut-inject
   - scope: compile

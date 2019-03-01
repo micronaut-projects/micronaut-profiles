@@ -3,7 +3,7 @@ mainClassName = "@defaultPackage@.Application"
 
 ext {
     protocVersion="3.5.1"
-    grpcVersion="1.17.1"
+    grpcVersion="1.18.0"
 }
 
 sourceSets {

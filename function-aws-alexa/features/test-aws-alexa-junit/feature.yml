@@ -1,0 +1,4 @@
+description: Creates JUnit test for AWS function
+features:
+    dependent:
+      - junit

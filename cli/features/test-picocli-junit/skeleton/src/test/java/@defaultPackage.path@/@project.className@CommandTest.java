@@ -6,9 +6,9 @@ import io.micronaut.context.env.Environment;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class @project.className@CommandTest {
 
@@ -22,7 +22,7 @@ public class @project.className@CommandTest {
             PicocliRunner.run(@project.className@Command.class, ctx, args);
 
             // @project.name@
-            assertTrue(baos.toString(), baos.toString().contains("Hi!"));
+            assertTrue(baos.toString().contains("Hi!"));
         }
     }
 }

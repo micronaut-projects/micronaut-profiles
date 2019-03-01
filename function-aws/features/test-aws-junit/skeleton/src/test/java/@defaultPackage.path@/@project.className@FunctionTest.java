@@ -1,20 +1,19 @@
 package @defaultPackage@;
 
-import io.micronaut.context.ApplicationContext;
-import io.micronaut.runtime.server.EmbeddedServer;
-import org.junit.Test;
+import io.micronaut.test.annotation.MicronautTest;
+import org.junit.jupiter.api.Test;
+import javax.inject.Inject;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@MicronautTest
 public class @project.className@FunctionTest {
+
+    @Inject
+    @project.className@Client client;
 
     @Test
     public void testFunction() throws Exception {
-        EmbeddedServer server = ApplicationContext.run(EmbeddedServer.class);
-
-        @project.className@Client client = server.getApplicationContext().getBean(@project.className@Client.class);
-
         assertEquals(client.index().blockingGet(), "@project.name@");
-        server.stop();
     }
 }
