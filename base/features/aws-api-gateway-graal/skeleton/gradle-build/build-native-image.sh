@@ -1,9 +1,8 @@
 #!/bin/sh
 GRAALVM_HOME=${GRAALVM_HOME:-/usr/lib/graalvm}
-${GRAALVM_HOME}/bin/java -cp build/libs/@app.name@-*.jar io.micronaut.graal.reflect.GraalClassLoadingAnalyzer
 ${GRAALVM_HOME}/bin/native-image --no-server \
              --class-path build/libs/@app.name@-*.jar \
-             -H:ReflectionConfigurationFiles=src/main/resources/reflect.json,src/main/resources/netty-reflect.json,build/reflect.json \
+             -H:ReflectionConfigurationFiles=build/classes/@sourceLanguage@/main/META-INF/reflect.json \
              -H:EnableURLProtocols=http \
              -H:IncludeResources="logback.xml|application.yml" \
              -H:Name=server \

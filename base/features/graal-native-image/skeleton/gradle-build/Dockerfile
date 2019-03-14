@@ -1,4 +1,4 @@
-FROM oracle/graalvm-ce:1.0.0-rc11 as graalvm
+FROM oracle/graalvm-ce:1.0.0-rc13 as graalvm
 COPY . /home/app/@app.name@
 WORKDIR /home/app/@app.name@
 RUN ./build-native-image.sh

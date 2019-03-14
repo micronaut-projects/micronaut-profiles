@@ -1,6 +1,6 @@
 description: Allows Building a Native Image
 dependencies:
-  - scope: runtime
+  - scope: annotationProcessor
     coords: io.micronaut:micronaut-graal
   - scope: compileOnly
     coords: com.oracle.substratevm:svm
