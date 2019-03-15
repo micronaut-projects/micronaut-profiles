@@ -15,6 +15,7 @@ Which will add the function deployment ZIP file to `build/function.zip`. You can
 ```bash
 $ docker build . -t @app.name@
 $ ./sam-local.sh
+$ curl http://localhost:3000/ping
 ```
 
 Or you can deploy it to AWS via the console or CLI:

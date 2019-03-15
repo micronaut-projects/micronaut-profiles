@@ -14,6 +14,6 @@ if [ "${ROLE_ARN}" == "" ]; then
     exit 1
 fi
 
-aws lambda create-function --function-name my-app \
+aws lambda create-function --function-name @app.name@ \
 --zip-file fileb://build/function.zip --handler function.handler --runtime provided \
 --role ${ROLE_ARN}
