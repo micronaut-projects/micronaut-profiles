@@ -1,4 +1,4 @@
-package my.app;
+package @defaultPackage@;
 
 import java.io.IOException;
 import org.slf4j.Logger;
