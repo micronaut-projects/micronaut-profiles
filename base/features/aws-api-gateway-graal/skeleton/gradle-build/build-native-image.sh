@@ -4,6 +4,6 @@ ${GRAALVM_HOME}/bin/native-image --no-server \
              --class-path build/libs/@app.name@-*.jar \
              -H:IncludeResources="logback.xml|application.yml" \
              -H:Name=server \
-             -H:Class=io.micronaut.function.aws.runtime.MicronautLambdaRuntime 
+             -H:Class=io.micronaut.function.aws.runtime.MicronautLambdaRuntime \
              -H:-AllowVMInspection 
 
