@@ -27,7 +27,7 @@ CMD ["/usr/lib/graalvm/bin/native-image"]
 FROM graalvm
 COPY --from=builder /home/application/ /home/application/
 WORKDIR /home/application
-RUN /home/application/build-native-image.sh
+RUN /usr/lib/graalvm/bin/native-image --no-server -cp @jarPath@ 
 RUN chmod 755 bootstrap
 RUN chmod 755 server
 RUN zip -j function.zip bootstrap server 
