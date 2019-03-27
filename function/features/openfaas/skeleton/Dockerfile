@@ -10,7 +10,7 @@ RUN chmod +x /usr/bin/fwatchdog
 
 USER app
 
-ENV fprocess="java -noverify -XX:TieredStopAtLevel=1 -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -jar Handler.jar"
+ENV fprocess="java -Dcom.sun.management.jmxremote -noverify -XX:TieredStopAtLevel=1 -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -jar Handler.jar"
 
 HEALTHCHECK --interval=1s CMD [ -e /tmp/.lock ] || exit 1
 

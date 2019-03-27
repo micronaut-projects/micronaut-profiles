@@ -32,4 +32,4 @@ shadowJar {
 
 run.classpath += configurations.developmentOnly
 test.classpath += configurations.developmentOnly
-run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1')
+run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote')
