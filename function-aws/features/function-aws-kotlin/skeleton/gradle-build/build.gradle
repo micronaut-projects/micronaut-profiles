@@ -1,4 +1,4 @@
-mainClassName = "io.micronaut.function.executor.FunctionApplication"
+mainClassName = "@defaultPackage@.@project.className@FunctionKt"
 applicationDefaultJvmArgs = [""]
 
 jar {
@@ -7,14 +7,15 @@ jar {
     }
 }
 
-if (new File("${System.getProperty("user.home")}/.aws/credentials").exists()) {
+if(new File("${System.getProperty("user.home")}/.aws/credentials").exists()) {
     task deploy(type: jp.classmethod.aws.gradle.lambda.AWSLambdaMigrateFunctionTask, dependsOn: shadowJar) {
         functionName = "@project.name@"
-        handler = "io.micronaut.function.aws.MicronautRequestStreamHandler"
+        handler = "@defaultPackage@.@project.className@Function::execute"
         role = "arn:aws:iam::${aws.accountId}:role/lambda_basic_execution"
         runtime = com.amazonaws.services.lambda.model.Runtime.Java8
         zipFile = shadowJar.archivePath
-        memorySize = 256
+        memorySize = 192
         timeout = 60
     }
+
 }
