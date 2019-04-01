@@ -10,7 +10,7 @@ jar {
 if(new File("${System.getProperty("user.home")}/.aws/credentials").exists()) {
     task deploy(type: jp.classmethod.aws.gradle.lambda.AWSLambdaMigrateFunctionTask, dependsOn: shadowJar) {
         functionName = "@project.name@"
-        handler = "@defaultPackage@.@project.className@Function::execute"
+        handler = "@defaultPackage@.@project.className@Function::apply"
         role = "arn:aws:iam::${aws.accountId}:role/lambda_basic_execution"
         runtime = com.amazonaws.services.lambda.model.Runtime.Java8
         zipFile = shadowJar.archivePath
