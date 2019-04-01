@@ -9,7 +9,6 @@ skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*", "**/*.sh"]
     binaryExtensions: ['png','gif','jpg','jpeg','ico','icns','pdf','zip','jar','class']
 repositories:
-    - "mavenLocal()"
     - "mavenCentral()"
 jvmArgs:
     - -noverify
