@@ -14,6 +14,8 @@ public class @project.className@FunctionTest {
 
     @Test
     public void testFunction() throws Exception {
-        assertEquals(client.index().blockingGet(), "@project.name@");
+    	@project.className@ body = new @project.className@();
+    	body.setName("@project.name@");
+        assertEquals("@project.name@", client.execute(body).blockingGet().getName());
     }
 }

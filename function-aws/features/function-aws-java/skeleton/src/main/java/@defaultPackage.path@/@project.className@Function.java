@@ -1,14 +1,16 @@
 package @defaultPackage@;
 
 import io.micronaut.function.executor.FunctionInitializer;
-import javax.inject.Inject;
-import javax.inject.Singleton;
+import io.micronaut.function.FunctionBean;
+import javax.inject.*;
 import java.io.IOException;
+import java.util.function.Function;
 
-@Singleton
-public class @project.className@Function extends FunctionInitializer {
+@FunctionBean("@project.name@")
+public class @project.className@Function extends FunctionInitializer implements Function<@project.className@, @project.className@> {
 
-    public @project.className@ execute(@project.className@ msg) {
+    @Override
+    public @project.className@ apply(@project.className@ msg) {
          return msg;
     }
 
@@ -18,7 +20,7 @@ public class @project.className@Function extends FunctionInitializer {
      */
     public static void main(String...args) throws IOException {
         @project.className@Function function = new @project.className@Function();
-        function.run(args, (context)-> function.execute(context.get(@project.className@.class)));
+        function.run(args, (context)-> function.apply(context.get(@project.className@.class)));
     }    
 }
 

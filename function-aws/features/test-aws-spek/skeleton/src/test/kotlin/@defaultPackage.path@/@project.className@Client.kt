@@ -8,6 +8,6 @@ import javax.inject.Named
 interface @project.className@Client {
 
     @Named("@project.name@")
-    fun index(): Single<String>
+    fun execute(body : @project.className@): Single<@project.className@>
 
 }

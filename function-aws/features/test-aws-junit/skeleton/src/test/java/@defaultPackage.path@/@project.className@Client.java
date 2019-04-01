@@ -9,6 +9,6 @@ import javax.inject.Named;
 public interface @project.className@Client {
 
     @Named("@project.name@")
-    Single<String> index();
+    Single<@project.className@> execute(@project.className@ body);
 
 }

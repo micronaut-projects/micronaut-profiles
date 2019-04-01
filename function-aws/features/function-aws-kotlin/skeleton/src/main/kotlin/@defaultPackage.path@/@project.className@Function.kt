@@ -1,12 +1,14 @@
 package @defaultPackage@;
 
 import io.micronaut.function.executor.FunctionInitializer
-import javax.inject.Singleton
+import io.micronaut.function.FunctionBean;
+import javax.inject.*;
+import java.util.function.Function;
 
-@Singleton
-class @project.className@Function : FunctionInitializer() {
+@FunctionBean("@project.name@")
+class @project.className@Function : FunctionInitializer(), Function<@project.className@, @project.className@> {
 
-    fun execute(msg : @project.className@) : @project.className@ {
+    override fun apply(msg : @project.className@) : @project.className@ {
          return msg
     }   
 }
@@ -17,5 +19,5 @@ class @project.className@Function : FunctionInitializer() {
  */
 fun main(args : Array<String>) { 
     val function = @project.className@Function()
-    function.run(args, { context -> function.execute(context.get(@project.className@::class.java))})
+    function.run(args, { context -> function.apply(context.get(@project.className@::class.java))})
 }
