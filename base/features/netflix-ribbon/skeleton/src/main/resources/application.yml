@@ -1,3 +1,3 @@
 ribbon:
-    VipAddress: test
-    ServerListRefreshInterval: 2000
+  VipAddress: test
+  ServerListRefreshInterval: 2000

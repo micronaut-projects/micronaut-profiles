@@ -1,8 +1,8 @@
 micronaut:
-    metrics:
+  metrics:
+    enabled: true
+    export:
+      atlas:
         enabled: true
-        export:
-            atlas:
-                enabled: true
-                uri: http://localhost:7101/api/v1/publish
-                step: PT1M
+        uri: http://localhost:7101/api/v1/publish
+        step: PT1M

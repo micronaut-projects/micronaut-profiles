@@ -1,2 +1,2 @@
 redis:
-    uri: redis://localhost
+  uri: redis://localhost
