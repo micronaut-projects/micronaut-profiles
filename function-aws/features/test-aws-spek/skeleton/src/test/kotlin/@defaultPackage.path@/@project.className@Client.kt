@@ -1,6 +1,7 @@
 package @defaultPackage@
 
 import io.micronaut.function.client.FunctionClient
+import io.micronaut.http.annotation.Body
 import io.reactivex.Single
 import javax.inject.Named
 
@@ -8,6 +9,6 @@ import javax.inject.Named
 interface @project.className@Client {
 
     @Named("@project.name@")
-    fun execute(body : @project.className@): Single<@project.className@>
+    fun apply(@Body body : @project.className@): Single<@project.className@>
 
 }

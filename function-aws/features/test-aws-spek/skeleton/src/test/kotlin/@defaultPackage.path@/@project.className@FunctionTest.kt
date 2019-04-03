@@ -16,10 +16,10 @@ class @project.className@FunctionTest: Spek({
 
         it("should return '@project.name@'") {
             val body = @project.className@()
-            body.name = "newfunc"
+            body.name = "@project.name@"
             assertEquals(
                 "@project.name@", 
-                client.execute(body).blockingGet().name
+                client.apply(body).blockingGet().name
             )
         }
 
