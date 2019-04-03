@@ -19,7 +19,7 @@ class @project.className@FunctionTest: Spek({
             body.name = "newfunc"
             assertEquals(
                 "@project.name@", 
-                client.execute(body).blockingGet().name
+                client.apply(body).blockingGet().name
             )
         }
 
