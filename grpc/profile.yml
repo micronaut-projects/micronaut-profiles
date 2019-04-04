@@ -10,6 +10,7 @@ features:
               priority: 2
     required:
       - annotation-api
+      - shadow
 build:
     plugins:
         - com.google.protobuf:0.8.5    

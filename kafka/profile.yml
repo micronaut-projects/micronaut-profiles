@@ -10,6 +10,7 @@ features:
               priority: 2
     required:
       - annotation-api
+      - shadow
       - kafka
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]

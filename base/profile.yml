@@ -17,7 +17,6 @@ jvmArgs:
 build:
     plugins:
         - io.spring.dependency-management:1.0.6.RELEASE
-        - com.github.johnrengelman.shadow:4.0.2
         - application
 dependencies:
   - scope: runtime
