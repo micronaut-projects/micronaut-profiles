@@ -1,0 +1,24 @@
+description: Creates a Kotlin application
+features:
+    dependent:
+      - spek
+build:
+    plugins:
+        - org.jetbrains.kotlin.jvm:1.3.21
+        - org.jetbrains.kotlin.kapt:1.3.21
+        - org.jetbrains.kotlin.plugin.allopen:1.3.21
+dependencies:
+  - scope: compile
+    coords: org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}
+  - scope: compile
+    coords: org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}
+  - scope: compile
+    coords: io.micronaut:micronaut-runtime
+  - scope: kapt
+    coords: io.micronaut:micronaut-inject-java
+  - scope: kapt
+    coords: io.micronaut:micronaut-validation    
+  - scope: kaptTest
+    coords: io.micronaut:micronaut-inject-java
+  - scope: runtime
+    coords: com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8

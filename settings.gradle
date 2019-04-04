@@ -1,5 +1,6 @@
 include 'base'
 include 'cli'
+include 'configuration'
 include 'profile'
 include 'service'
 include 'federation'
