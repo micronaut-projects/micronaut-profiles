@@ -1,6 +1,6 @@
 micronaut:
-    metrics:
+  metrics:
+    enabled: true
+    export:
+      cloudwatch:
         enabled: true
-        export:
-            cloudwatch:
-                enabled: true
