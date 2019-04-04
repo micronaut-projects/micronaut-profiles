@@ -1,4 +1,0 @@
-
-shadowJar {
-    mergeServiceFiles()
-}

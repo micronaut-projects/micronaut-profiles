@@ -17,7 +17,7 @@ features:
               priority: 2
     required:
         - annotation-api
-        - shadow
+        - application
         - http-server
         - http-client
 skeleton:

@@ -3,4 +3,4 @@ description: The function profile
 features:
     required:
       - annotation-api
-      - shadow
+      - application
