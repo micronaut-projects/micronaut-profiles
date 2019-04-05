@@ -17,6 +17,7 @@ features:
               priority: 2
     required:
         - annotation-api
+        - application
         - http-server
         - http-client
 skeleton:
