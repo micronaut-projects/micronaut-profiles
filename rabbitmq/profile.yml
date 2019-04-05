@@ -1,0 +1,19 @@
+description: The RabbitMQ messaging profile
+features:
+    oneOf:
+        languages:
+            - feature: groovy
+              priority: 0
+            - feature: kotlin
+              priority: 1
+            - feature: java
+              priority: 2
+    required:
+      - annotation-api
+      - rabbitmq
+skeleton:
+    executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
+jvmArgs:
+  - -noverify
+  - -XX:TieredStopAtLevel=1
+  - -Dcom.sun.management.jmxremote
