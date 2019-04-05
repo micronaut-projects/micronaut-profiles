@@ -9,6 +9,7 @@ features:
             - feature: java
               priority: 2
     required:
+      - application
       - picocli
 dependencies:
 - scope: compile
