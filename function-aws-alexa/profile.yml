@@ -1,6 +1,7 @@
 description: The function profile for AWS Lambda
 features:
     required:
+      - application
       - annotation-api
     defaults:
         - function-aws-java
