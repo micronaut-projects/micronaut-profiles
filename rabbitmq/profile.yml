@@ -12,6 +12,7 @@ features:
       - annotation-api
       - application
       - rabbitmq
+      - logback
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
 jvmArgs:

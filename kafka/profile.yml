@@ -12,6 +12,7 @@ features:
       - annotation-api
       - application
       - kafka
+      - logback
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
 jvmArgs:

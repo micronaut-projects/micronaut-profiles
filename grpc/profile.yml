@@ -11,6 +11,7 @@ features:
     required:
       - annotation-api
       - application
+      - logback
 build:
     plugins:
         - com.google.protobuf:0.8.5    

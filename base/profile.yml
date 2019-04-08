@@ -5,6 +5,7 @@ features:
       - java
     required:
       - annotation-api
+      - logback
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*", "**/*.sh"]
     binaryExtensions: ['png','gif','jpg','jpeg','ico','icns','pdf','zip','jar','class']
@@ -17,6 +18,3 @@ jvmArgs:
 build:
     plugins:
         - io.spring.dependency-management:1.0.6.RELEASE
-dependencies:
-  - scope: runtime
-    coords: ch.qos.logback:logback-classic:1.2.3
