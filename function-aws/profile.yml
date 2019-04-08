@@ -1,6 +1,7 @@
 description: The function profile for AWS Lambda
 features:
     required:
+      - application
       - annotation-api
     defaults:
         - function-aws-java
@@ -13,6 +14,8 @@ build:
         - com.github.johnrengelman.shadow:4.0.2        
         - jp.classmethod.aws.lambda:0.38
 dependencies:
+  - scope: excludes
+    coords: ch.qos.logback:logback-classic:*
   - scope: runtime
     coords: com.amazonaws:aws-lambda-java-log4j2:1.0.0
   - scope: runtime
