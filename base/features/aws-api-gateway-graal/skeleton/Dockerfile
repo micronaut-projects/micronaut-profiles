@@ -13,7 +13,7 @@ RUN yum install -y gcc gcc-c++ libc6-dev  zlib1g-dev curl bash zlib zlib-devel z
     && rm -rf /var/cache/yum
 
 
-ENV GRAAL_VERSION 1.0.0-rc14
+ENV GRAAL_VERSION 1.0.0-rc15
 ENV GRAAL_FILENAME graalvm-ce-${GRAAL_VERSION}-linux-amd64.tar.gz
 
 RUN curl -4 -L https://github.com/oracle/graal/releases/download/vm-${GRAAL_VERSION}/${GRAAL_FILENAME} -o /tmp/${GRAAL_FILENAME}
