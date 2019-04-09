@@ -1,3 +1,4 @@
+#!/bin/sh
 set -e
 
 rm -rf ~/.m2/repository/io/micronaut/profiles
