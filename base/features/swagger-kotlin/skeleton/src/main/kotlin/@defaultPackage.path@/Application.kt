@@ -5,7 +5,7 @@ import io.swagger.v3.oas.annotations.*
 import io.swagger.v3.oas.annotations.info.*
 
 @OpenAPIDefinition(
-    info = @Info(
+    info = Info(
             title = "@app.name@",
             version = "0.0"
     )
