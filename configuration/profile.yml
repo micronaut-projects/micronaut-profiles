@@ -10,7 +10,6 @@ features:
               priority: 2
     required:
         - annotation-api
-        - http-client
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*", "**/*.sh"]
 jvmArgs:
