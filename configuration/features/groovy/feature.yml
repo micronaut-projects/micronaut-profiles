@@ -1,0 +1,16 @@
+description: Creates a Groovy application
+features:
+    dependent:
+      - spock
+build:
+    plugins:
+        - groovy
+dependencies:
+  - scope: compileOnly
+    coords: io.micronaut:micronaut-inject-groovy
+  - scope: compile
+    coords: io.micronaut:micronaut-runtime-groovy
+  - scope: compile
+    coords: io.micronaut:micronaut-validation    
+  - scope: testCompile
+    coords: io.micronaut:micronaut-inject-groovy
