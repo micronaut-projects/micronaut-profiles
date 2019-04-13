@@ -18,7 +18,7 @@ class ${className}Spec extends Specification {
     @Inject
     EmbeddedServer embeddedServer
 
-    @Shared @AutoCleanup
+    @AutoCleanup
     RxHttpClient client
 
     void setup() {
