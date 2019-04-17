@@ -1,6 +1,5 @@
 task buildZip(type: Zip) {
-  from compileJava
-  from processResources
+  from sourceSets.main.output
   into('lib') {
     from(configurations.compileClasspath)
   }
