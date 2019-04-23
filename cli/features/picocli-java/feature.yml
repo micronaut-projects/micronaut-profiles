@@ -3,6 +3,8 @@ features:
     dependent:
       - java
       - picocli
+filesToDelete:
+  - src/main/java/**/Application.java
 dependencies:
   - scope: compile
     coords: io.micronaut:micronaut-runtime
