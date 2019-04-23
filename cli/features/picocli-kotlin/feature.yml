@@ -3,6 +3,8 @@ features:
     dependent:
       - kotlin
       - picocli
+filesToDelete:
+  - src/main/kotlin/**/Application.kt
 dependencies:
   - scope: compile
     coords: io.micronaut:micronaut-runtime

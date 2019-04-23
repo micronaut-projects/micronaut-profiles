@@ -3,6 +3,8 @@ features:
     dependent:
       - groovy
       - picocli
+filesToDelete:
+  - src/main/groovy/**/Application.groovy
 dependencies:
   - scope: compile
     coords: io.micronaut:micronaut-runtime
