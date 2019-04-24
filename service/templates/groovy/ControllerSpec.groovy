@@ -7,7 +7,6 @@ import io.micronaut.http.client.RxHttpClient
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.HttpStatus
 import spock.lang.AutoCleanup
-import spock.lang.Shared
 import spock.lang.Specification
 
 import javax.inject.Inject
