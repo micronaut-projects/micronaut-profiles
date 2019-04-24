@@ -1,5 +1,6 @@
 ${packageName ? 'package ' + packageName : ''}
 
+import io.micronaut.http.client.annotation.Client
 import io.micronaut.runtime.server.EmbeddedServer
 import io.micronaut.test.annotation.MicronautTest
 import io.micronaut.http.client.RxHttpClient
@@ -18,12 +19,9 @@ class ${className}Spec extends Specification {
     @Inject
     EmbeddedServer embeddedServer
 
-    @Shared @AutoCleanup
+    @AutoCleanup @Inject @Client("/")
     RxHttpClient client
 
-    void setup() {
-        client = embeddedServer.applicationContext.createBean(RxHttpClient, embeddedServer.getURL())
-    }
 
 
     void "test index"() {
