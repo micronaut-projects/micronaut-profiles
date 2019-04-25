@@ -3,9 +3,6 @@ features:
     dependent:
       - java
       - picocli
-skeleton:
-  excludes:
-    - src/main/java/**/Application.java
 dependencies:
   - scope: compile
     coords: io.micronaut:micronaut-runtime

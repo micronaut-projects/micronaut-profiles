@@ -3,9 +3,6 @@ features:
     dependent:
       - kotlin
       - picocli
-skeleton:
-  excludes:
-    - src/main/kotlin/**/Application.kt
 dependencies:
   - scope: compile
     coords: io.micronaut:micronaut-runtime

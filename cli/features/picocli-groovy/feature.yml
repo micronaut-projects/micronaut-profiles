@@ -3,9 +3,6 @@ features:
     dependent:
       - groovy
       - picocli
-skeleton:
-  excludes:
-    - src/main/groovy/**/Application.groovy
 dependencies:
   - scope: compile
     coords: io.micronaut:micronaut-runtime
