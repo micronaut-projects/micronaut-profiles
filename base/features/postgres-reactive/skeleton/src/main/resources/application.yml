@@ -1,9 +1,9 @@
 postgres:
   reactive:
     client:
-    port: 5432
-    host: localhost
-    database: @app.name@
-    # user: user
-    # password: password
-    # maxSize: 5
+      port: 5432
+      host: localhost
+      database: @app.name@
+#      user: user
+#      password: password
+#      maxSize: 5
