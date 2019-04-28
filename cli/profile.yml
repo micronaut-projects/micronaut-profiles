@@ -16,6 +16,8 @@ dependencies:
   coords: io.micronaut:micronaut-runtime
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
+    excludes:
+      - 'src/main/**/Application.*'
 jvmArgs:
     - -noverify
     - -XX:TieredStopAtLevel=1
