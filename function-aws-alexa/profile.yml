@@ -1,4 +1,4 @@
-description: The function profile for AWS Lambda
+description: The function profile for AWS Alexa-Lambda
 features:
     required:
       - application
