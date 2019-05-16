@@ -1,6 +1,7 @@
-FROM oracle/graalvm-ce:1.0.0-rc15 as graalvm
+FROM oracle/graalvm-ce:19.0.0 as graalvm
 COPY . /home/app/@app.name@
 WORKDIR /home/app/@app.name@
+RUN gu install native-image
 RUN native-image --no-server -cp @jarPath@
 
 FROM frolvlad/alpine-glibc
