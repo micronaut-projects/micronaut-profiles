@@ -1,0 +1,8 @@
+micronaut:
+  metrics:
+    enabled: true
+    export:
+      azuremonitor:
+        enabled: true
+        instrumentationKey: ${AZUREMONITOR_INSTRUMENTATION_KEY}
+        step: PT1M

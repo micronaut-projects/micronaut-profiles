@@ -1,0 +1,8 @@
+micronaut:
+  metrics:
+    enabled: true
+    export:
+      wavefront:
+        enabled: true
+        apiToken: ${WAVEFRONT_API_TOKEN}
+        step: PT1M

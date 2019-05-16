@@ -1,0 +1,7 @@
+micronaut:
+  metrics:
+    enabled: true
+    export:
+      influx:
+        enabled: true
+        step: PT1M

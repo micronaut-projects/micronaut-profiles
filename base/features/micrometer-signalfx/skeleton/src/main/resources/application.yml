@@ -1,0 +1,8 @@
+micronaut:
+  metrics:
+    enabled: true
+    export:
+      signalfx:
+        enabled: true
+        accessToken: ${SIGNALFX_API_TOKEN}
+        step: PT1M

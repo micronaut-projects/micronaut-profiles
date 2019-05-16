@@ -1,0 +1,7 @@
+micronaut:
+  metrics:
+    enabled: true
+    export:
+      humio:
+        enabled: true
+        step: PT1M

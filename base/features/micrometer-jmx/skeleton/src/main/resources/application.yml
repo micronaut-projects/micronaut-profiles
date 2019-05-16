@@ -1,0 +1,7 @@
+micronaut:
+  metrics:
+    enabled: true
+    export:
+      jmx:
+        enabled: true
+        step: PT1M

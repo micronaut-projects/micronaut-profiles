@@ -1,0 +1,9 @@
+description: Adds support for Micrometer metrics (w/ AppOptics reporter)
+features:
+    dependent:
+      - management
+dependencies:
+    - scope: compile
+      coords: io.micronaut.configuration:micronaut-micrometer-core
+    - scope: compile
+      coords: io.micronaut.configuration:micronaut-micrometer-registry-appoptics
