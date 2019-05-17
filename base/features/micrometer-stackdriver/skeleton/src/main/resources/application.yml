@@ -1,0 +1,8 @@
+micronaut:
+  metrics:
+    enabled: true
+    export:
+      stackdriver:
+        enabled: true
+        projectId: ${STACKDRIVER_PROJECT_ID}
+        step: PT1M

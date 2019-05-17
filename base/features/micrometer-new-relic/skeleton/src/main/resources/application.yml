@@ -1,0 +1,9 @@
+micronaut:
+  metrics:
+    enabled: true
+    export:
+      newrelic:
+        enabled: true
+        apiKey: ${NEWRELIC_API_KEY}
+        accountId: ${NEWRELIC_ACCOUNT_ID}
+        step: PT1M

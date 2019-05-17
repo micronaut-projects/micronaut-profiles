@@ -1,0 +1,8 @@
+micronaut:
+  metrics:
+    enabled: true
+    export:
+      datadog:
+        apiKey: ${DATADOG_APIKEY}
+        enabled: true
+        step: PT1M

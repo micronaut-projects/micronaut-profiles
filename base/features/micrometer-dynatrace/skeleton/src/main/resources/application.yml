@@ -1,0 +1,10 @@
+micronaut:
+  metrics:
+    enabled: true
+    export:
+      dynatrace:
+        enabled: true
+        apiToken: ${DYNATRACE_DEVICE_API_TOKEN}
+        uri: ${DYNATRACE_DEVICE_URI}
+        deviceId: ${DYNATRACE_DEVICE_ID}
+        step: PT1M
