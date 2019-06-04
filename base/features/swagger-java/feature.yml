@@ -4,6 +4,6 @@ features:
       - java
 dependencies:
   - scope: annotationProcessor
-    coords: io.micronaut.configuration:micronaut-openapi
+    coords: io.micronaut.configuration:micronaut-openapi:1.1.1
   - scope: compile
     coords: io.swagger.core.v3:swagger-annotations
