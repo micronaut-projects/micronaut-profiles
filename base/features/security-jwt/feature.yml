@@ -1,4 +1,4 @@
 description: Adds support for JWT (JSON Web Token) based Authentication
 dependencies:
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut:micronaut-security-jwt

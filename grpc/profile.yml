@@ -22,5 +22,5 @@ jvmArgs:
   - -XX:TieredStopAtLevel=1
   - -Dcom.sun.management.jmxremote
 dependencies:
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut.grpc:micronaut-grpc-runtime

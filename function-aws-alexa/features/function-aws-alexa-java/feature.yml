@@ -3,7 +3,7 @@ features:
     dependent:
       - java
 dependencies:
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut.aws:micronaut-function-aws-alexa
   - scope: testAnnotationProcessor
     coords: io.micronaut:micronaut-inject-java

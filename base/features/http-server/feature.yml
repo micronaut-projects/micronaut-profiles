@@ -1,5 +1,5 @@
 description: Adds support for running a Netty server
 dependencies:
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut:micronaut-http-server-netty
 

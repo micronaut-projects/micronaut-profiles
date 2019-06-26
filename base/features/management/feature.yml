@@ -1,4 +1,4 @@
 description: Adds support for management endpoints
 dependencies:
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut:micronaut-management

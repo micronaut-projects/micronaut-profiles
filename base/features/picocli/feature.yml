@@ -1,6 +1,6 @@
 description: Adds support for command line parsing (http://picocli.info)
 dependencies:
-  - scope: compile
+  - scope: implementation
     coords: info.picocli:picocli
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut.configuration:micronaut-picocli

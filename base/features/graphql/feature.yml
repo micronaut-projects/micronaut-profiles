@@ -1,4 +1,4 @@
 description: Adds support for GraphQL in the application
 dependencies:
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut.graphql:micronaut-graphql

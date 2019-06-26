@@ -11,18 +11,17 @@ repositories {
 @repositories@
 }
 
-dependencyManagement {
-    imports {
-        mavenBom 'io.micronaut:micronaut-bom:@version@'
-    }
-}
-
 configurations {
     // for dependencies that are needed for development only
     developmentOnly 
 }
 
 dependencies {
+    implementation enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
+    compileOnly enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
+    annotationProcessor enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
+    testAnnotationProcessor enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
+
 @dependencies@
 }
 

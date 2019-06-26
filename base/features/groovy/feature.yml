@@ -8,9 +8,9 @@ build:
 dependencies:
   - scope: compileOnly
     coords: io.micronaut:micronaut-inject-groovy
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut:micronaut-runtime-groovy
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut:micronaut-validation    
   - scope: testCompile
     coords: io.micronaut:micronaut-inject-groovy

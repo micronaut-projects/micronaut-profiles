@@ -5,5 +5,5 @@ features:
 dependencies:
   - scope: annotationProcessor
     coords: io.micronaut.configuration:micronaut-openapi
-  - scope: compile
+  - scope: implementation
     coords: io.swagger.core.v3:swagger-annotations

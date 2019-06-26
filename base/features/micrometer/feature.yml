@@ -3,5 +3,5 @@ features:
     dependent:
       - management
 dependencies:
-    - scope: compile
+    - scope: implementation
       coords: io.micronaut.configuration:micronaut-micrometer-core

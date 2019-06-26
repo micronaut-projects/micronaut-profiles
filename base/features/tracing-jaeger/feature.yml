@@ -1,6 +1,6 @@
 description: Adds support for distributed tracing with Jaeger (https://www.jaegertracing.io)
 dependencies:
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut:micronaut-tracing
-  - scope: runtime
+  - scope: runtimeOnly
     coords: io.jaegertracing:jaeger-thrift

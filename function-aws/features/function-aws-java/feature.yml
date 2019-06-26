@@ -3,7 +3,7 @@ features:
     dependent:
       - java
 dependencies:
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut:micronaut-function-aws
   - scope: testCompile
     coords: io.micronaut:micronaut-inject-java
