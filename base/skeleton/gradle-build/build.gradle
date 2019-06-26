@@ -20,6 +20,7 @@ dependencies {
     implementation enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
     compileOnly enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
     annotationProcessor enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
+    testAnnotationProcessor enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
 
 @dependencies@
 }
