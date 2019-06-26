@@ -15,6 +15,3 @@ jvmArgs:
     - -noverify
     - -XX:TieredStopAtLevel=1
     - -Dcom.sun.management.jmxremote
-build:
-    plugins:
-        - io.spring.dependency-management:1.0.6.RELEASE
