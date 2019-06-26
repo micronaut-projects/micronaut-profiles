@@ -1,5 +1,5 @@
 description: Facilitates creating an executable JVM application and adds support for creating fat/uber JARs
 build:
     plugins:
-        - com.github.johnrengelman.shadow:4.0.2
+        - com.github.johnrengelman.shadow:5.0.0
         - application
