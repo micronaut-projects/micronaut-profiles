@@ -4,5 +4,5 @@ features:
       - groovy
       - picocli
 dependencies:
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut:micronaut-runtime

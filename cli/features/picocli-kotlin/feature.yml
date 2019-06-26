@@ -4,7 +4,7 @@ features:
       - kotlin
       - picocli
 dependencies:
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut:micronaut-runtime
   - scope: testCompile
     coords: io.micronaut:micronaut-inject-java

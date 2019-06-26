@@ -1,4 +1,4 @@
 description: Adds Logback Logging
 dependencies:
-  - scope: runtime
+  - scope: runtimeOnly
     coords:  ch.qos.logback:logback-classic:1.2.3

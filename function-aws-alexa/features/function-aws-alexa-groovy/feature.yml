@@ -3,7 +3,7 @@ features:
     dependent:
       - groovy
 dependencies:
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut.aws:micronaut-function-aws-alexa  
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut:micronaut-function-groovy

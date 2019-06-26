@@ -3,5 +3,5 @@ features:
     dependent:
       - groovy
 dependencies:
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut:micronaut-function-groovy

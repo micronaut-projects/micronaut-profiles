@@ -12,9 +12,9 @@ dependencies:
     coords: io.micronaut:micronaut-inject-java
   - scope: annotationProcessor
     coords: io.micronaut:micronaut-validation
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut:micronaut-inject
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut:micronaut-validation    
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut:micronaut-runtime

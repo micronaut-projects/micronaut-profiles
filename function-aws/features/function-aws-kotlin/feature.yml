@@ -3,5 +3,5 @@ features:
     dependent:
       - kotlin
 dependencies:
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut:micronaut-function-aws

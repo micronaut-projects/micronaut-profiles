@@ -6,13 +6,13 @@ features:
 dependencies:
   - scope: developmentOnly
     coords: io.micronaut:micronaut-http-server-netty          
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut.aws:micronaut-function-aws-api-proxy
-  - scope: runtime
+  - scope: runtimeOnly
     coords: 'org.apache.logging.log4j:log4j-core:2.8.2'
-  - scope: runtime
+  - scope: runtimeOnly
     coords: 'org.apache.logging.log4j:log4j-api:2.8.2'
-  - scope: runtime
+  - scope: runtimeOnly
     coords: 'org.apache.logging.log4j:log4j-slf4j-impl:2.8.2'
-  - scope: runtime
+  - scope: runtimeOnly
     coords: 'com.amazonaws:aws-lambda-java-log4j2:1.1.0'

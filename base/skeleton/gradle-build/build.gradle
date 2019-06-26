@@ -17,7 +17,7 @@ configurations {
 }
 
 dependencies {
-    compile enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
+    implementation enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
     compileOnly enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
     annotationProcessor enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
 

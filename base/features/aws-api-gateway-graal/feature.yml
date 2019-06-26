@@ -6,12 +6,12 @@ skeleton:
   excludes:
     - src/main/resources/logback.xml      
 dependencies:
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut.aws:micronaut-function-aws-custom-runtime
     excludes:
       - group: com.fasterxml.jackson.module
         module: jackson-module-afterburner
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut.aws:micronaut-function-aws-api-proxy
     excludes:
       - group: com.fasterxml.jackson.module

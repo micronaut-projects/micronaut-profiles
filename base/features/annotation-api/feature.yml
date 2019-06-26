@@ -2,5 +2,5 @@ description: Adds Java annotation API
 java:
   min: 9
 dependencies:
-  - scope: compile
+  - scope: implementation
     coords: javax.annotation:javax.annotation-api

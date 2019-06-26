@@ -1,6 +1,6 @@
 description: Adds support for the Neo4j Bolt Driver
 dependencies:
-  - scope: compile        
+  - scope: implementation
     coords: io.micronaut.configuration:micronaut-neo4j-bolt
   - scope: testRuntime
     coords: org.neo4j.test:neo4j-harness
