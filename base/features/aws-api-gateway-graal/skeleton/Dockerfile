@@ -27,9 +27,9 @@ CMD ["/usr/lib/graalvm/bin/native-image"]
 FROM graalvm
 COPY --from=builder /home/application/ /home/application/
 WORKDIR /home/application
-RUN /usr/lib/graalvm/bin/native-image --no-server -cp @jarPath@ 
+RUN /usr/lib/graalvm/bin/native-image --initialize-at-build-time=com.amazonaws.serverless.proxy.model --no-server -cp @jarPath@
 RUN chmod 755 bootstrap
 RUN chmod 755 server
-RUN zip -j function.zip bootstrap server 
+RUN zip -j function.zip bootstrap server
 EXPOSE 8080
 ENTRYPOINT ["/home/application/server"]
