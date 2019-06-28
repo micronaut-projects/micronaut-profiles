@@ -12,5 +12,7 @@ dependencies:
     coords: io.micronaut:micronaut-inject-groovy
   - scope: testCompile
     coords: io.micronaut.test:micronaut-test-spock
+  - scope: testCompile
+    coords: io.micronaut.test:micronaut-test-junit5
   - scope: testRuntimeOnly
     coords: org.junit.vintage:junit-vintage-engine:5.3.0

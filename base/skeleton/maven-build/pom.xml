@@ -8,6 +8,8 @@
   <properties>
     <micronaut.version>@version@</micronaut.version>
     <jdk.version>@jdkversion@</jdk.version>
+    <maven.compiler.target>${jdk.version}</maven.compiler.target>
+    <maven.compiler.source>${jdk.version}</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -62,8 +64,6 @@
           <executable>java</executable>
           <arguments>
 @arguments@
-            <argument>-classpath</argument>
-            <classpath/>
             <argument>${exec.mainClass}</argument>
           </arguments>
         </configuration>

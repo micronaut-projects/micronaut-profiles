@@ -1,4 +1,8 @@
 <project>
+  <properties>
+    <junit-platform.version>1.2.0</junit-platform.version>
+    <jupiter.version>5.2.0</jupiter.version>
+  </properties>
   <pluginRepositories>
     <pluginRepository>
       <id>bintray</id>
@@ -17,7 +21,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.7.0</version>
+        <version>3.8.0</version>
       </plugin>
       <plugin>
         <groupId>org.codehaus.gmavenplus</groupId>
@@ -26,13 +30,45 @@
         <executions>
           <execution>
             <goals>
+              <goal>addSources</goal>
               <goal>addTestSources</goal>
+              <goal>generateStubs</goal>
+              <goal>compile</goal>
               <goal>generateTestStubs</goal>
               <goal>compileTests</goal>
+              <goal>removeStubs</goal>
               <goal>removeTestStubs</goal>
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.0</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-surefire-provider</artifactId>
+            <version>${junit-platform.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${jupiter.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>${jupiter.version}</version>
+          </dependency>
+        </dependencies>
+
+        <configuration>
+          <detail>true</detail>
+          <includes>
+            <include>%regex[.*]</include>
+          </includes>
+        </configuration>
       </plugin>
     </plugins>
   </build>

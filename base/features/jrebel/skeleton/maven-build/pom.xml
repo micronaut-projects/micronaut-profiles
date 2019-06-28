@@ -33,8 +33,6 @@
 @arguments@
                 <!-- TODO: Replace with agent path from JRebel installation; see documentation -->
                 <argument>-agentpath:~/bin/jrebel/lib/jrebel6/lib/libjrebel64.dylib</argument>
-                <argument>-classpath</argument>
-                <classpath />
                 <argument>${exec.mainClass}</argument>
               </arguments>
             </configuration>
