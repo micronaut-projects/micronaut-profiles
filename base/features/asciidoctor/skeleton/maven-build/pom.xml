@@ -5,6 +5,7 @@
     <properties>
         <asciidoctor.maven.plugin.version>2.0.0-RC.1</asciidoctor.maven.plugin.version>
         <asciidoctorj.version>2.0.0</asciidoctorj.version>
+        <asciidoctorj.diagram.version>1.5.16</asciidoctorj.diagram.version>
         <jruby.version>9.2.7.0</jruby.version>
     </properties>
 
@@ -21,9 +22,17 @@
                         <artifactId>asciidoctorj</artifactId>
                         <version>${asciidoctorj.version}</version>
                     </dependency>
+                    <dependency>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctorj-diagram</artifactId>
+                        <version>${asciidoctorj.diagram.version}</version>
+                    </dependency>
                 </dependencies>
                 <configuration>
                     <sourceDirectory>src/docs/asciidoc</sourceDirectory>
+                    <requires>
+                        <require>asciidoctor-diagram</require>
+                    </requires>
                     <!-- Attributes common to all output formats -->
                     <attributes>
                         <endpoint-url>http://example.org</endpoint-url>

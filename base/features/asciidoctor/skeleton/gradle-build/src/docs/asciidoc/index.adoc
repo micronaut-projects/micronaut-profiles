@@ -1,5 +1,23 @@
 = The Title
+author@email.email
+
+Write a short introduction of your project
 
 == Subtitle
+
+You can orgnaize the documentation into section
+
+Also you can use diagrams using `diagram` block
+
+[plantuml]
+----
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: another authentication Response
+----
+
+
 
 
