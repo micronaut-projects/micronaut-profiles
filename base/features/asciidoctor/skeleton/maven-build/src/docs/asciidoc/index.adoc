@@ -1,13 +1,23 @@
-= The Title
+= Your Project
 author@email.email
 
-Write a short introduction of your project
+Write a short introduction about your project
 
-== Subtitle
+== Build
 
-You can orgnaize the documentation into section
+Explain what it requires and how to build the project. For example:
 
-Also you can use diagrams using `diagram` block
+This project requires Java 8 (min) and you can build it executing the following command:
+
+[source,console]
+----
+./gradlew build
+----
+
+== Architecture
+
+When you document your architecture you can use different `diagrams` blocks as
+for example `plantuml`
 
 [plantuml]
 ----
@@ -18,6 +28,9 @@ Alice -> Bob: Another authentication Request
 Alice <-- Bob: another authentication Response
 ----
 
+== Implementation
 
+Remember you can include piece of code extracted from your project using the `include` directive
 
+    include::{sourcedir}/com/mycompany/service/MyService.java[tags=init]
 
