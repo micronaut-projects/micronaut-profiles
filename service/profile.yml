@@ -16,6 +16,7 @@ features:
             - feature: jdbc-dbcp
               priority: 2
     required:
+        - file-watch
         - annotation-api
         - application
         - http-server
