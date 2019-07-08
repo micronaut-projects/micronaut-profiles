@@ -49,6 +49,8 @@
         <version>1.6.0</version>
         <configuration>
           <executable>java</executable>
+          <argument>-classpath</argument>
+          <classpath/>          
           <arguments>
             <argument>-noverify</argument>
             <argument>-XX:TieredStopAtLevel=1</argument>

@@ -62,6 +62,8 @@
         <version>1.6.0</version>
         <configuration>
           <executable>java</executable>
+          <argument>-classpath</argument>
+          <classpath/>          
           <arguments>
 @arguments@
             <argument>${exec.mainClass}</argument>
