@@ -3,7 +3,7 @@ FROM openjdk:8-jre-alpine
 RUN addgroup -S app && adduser -S -g app app
 
 WORKDIR /app
-COPY build/libs/*.jar /app/Handler.jar
+COPY @jarPath@ /app/Handler.jar
 
 ADD https://github.com/openfaas/faas/releases/download/0.11.0/fwatchdog /usr/bin
 RUN chmod +x /usr/bin/fwatchdog
