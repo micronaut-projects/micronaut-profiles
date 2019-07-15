@@ -61,10 +61,10 @@
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.6.0</version>
         <configuration>
-          <executable>java</executable>
-          <argument>-classpath</argument>
-          <classpath/>          
+          <executable>java</executable>      
           <arguments>
+             <argument>-classpath</argument>
+             <classpath/>                       
 @arguments@
             <argument>${exec.mainClass}</argument>
           </arguments>
