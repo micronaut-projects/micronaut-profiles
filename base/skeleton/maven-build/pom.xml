@@ -11,6 +11,7 @@
     <maven.compiler.target>${jdk.version}</maven.compiler.target>
     <maven.compiler.source>${jdk.version}</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 
   <repositories>
@@ -61,10 +62,10 @@
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.6.0</version>
         <configuration>
-          <executable>java</executable>      
+          <executable>java</executable>
           <arguments>
              <argument>-classpath</argument>
-             <classpath/>                       
+             <classpath/>
 @arguments@
             <argument>${exec.mainClass}</argument>
           </arguments>
