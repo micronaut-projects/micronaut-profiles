@@ -1,8 +1,10 @@
 <project>
   <properties>
-    <junit-platform.version>1.2.0</junit-platform.version>
-    <jupiter.version>5.2.0</jupiter.version>
+    <!-- JUnit 5 requires Surefire and Failsafe version 2.22.0 or higher -->
+    <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+    <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
   </properties>
+
   <pluginRepositories>
     <pluginRepository>
       <id>bintray</id>
@@ -18,11 +20,36 @@
   </pluginRepositories>
 
   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${maven-surefire-plugin.version}</version>
+          <configuration>
+            <detail>true</detail>
+            <includes>
+              <include>%regex[.*]</include>
+            </includes>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <version>${maven-failsafe-plugin.version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>integration-test</goal>
+                <goal>verify</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
     <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.0</version>
-      </plugin>
       <plugin>
         <groupId>org.codehaus.gmavenplus</groupId>
         <artifactId>gmavenplus-plugin</artifactId>
@@ -42,35 +69,6 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.22.0</version>
-        <dependencies>
-          <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-surefire-provider</artifactId>
-            <version>${junit-platform.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${jupiter.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-            <version>${jupiter.version}</version>
-          </dependency>
-        </dependencies>
-
-        <configuration>
-          <detail>true</detail>
-          <includes>
-            <include>%regex[.*]</include>
-          </includes>
-        </configuration>
-      </plugin>
     </plugins>
   </build>
-
 </project>
