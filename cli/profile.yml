@@ -11,6 +11,7 @@ features:
     required:
       - application
       - picocli
+      - logback
 dependencies:
 - scope: implementation
   coords: io.micronaut:micronaut-runtime
