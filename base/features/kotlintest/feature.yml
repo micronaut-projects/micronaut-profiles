@@ -1,0 +1,11 @@
+description: Adds support for the KotlinTest testing framework
+features:
+    dependent:
+      - kotlin
+dependencies:
+  - scope: testCompile
+    coords: io.micronaut.test:micronaut-test-kotlintest
+  - scope: testCompile
+    coords: io.mockk:mockk:1.9.3
+  - scope: testCompile
+    coords: io.kotlintest:kotlintest-runner-junit5:3.3.2

@@ -29,19 +29,25 @@ lang = lang ?: SupportedLanguage.findValue(config.sourceLanguage).orElse(sniffPr
 
 def testFramework = config.testFramework
 String testConvention = "Test"
+String templateFile = "Test"
 
 if (testFramework == "spock") {
     testConvention = "Spec"
+    templateFile = "Spec"
     lang = SupportedLanguage.groovy
 } else if (testFramework == "junit") {
     lang = SupportedLanguage.java
 } else if (testFramework == "spek") {
     lang = SupportedLanguage.kotlin
+    templateFile = "Spek"
+} else if (testFramework == "kotlintest") {
+    lang = SupportedLanguage.kotlin
 } else if (lang == SupportedLanguage.groovy) {
     testConvention = "Spec"
+    templateFile = "Spec"
 }
 
-render template: template("${lang}/${testConvention}.${lang.extension}"),
+render template: template("${lang}/${templateFile}.${lang.extension}"),
         destination: file("src/test/${lang}/${artifactPath}${testConvention}.${lang.extension}"),
         model: model,
         overwrite: overwrite
