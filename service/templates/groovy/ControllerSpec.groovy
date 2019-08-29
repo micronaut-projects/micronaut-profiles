@@ -8,20 +8,18 @@ import io.micronaut.http.HttpResponse
 import io.micronaut.http.HttpStatus
 import spock.lang.AutoCleanup
 import spock.lang.Specification
+import spock.lang.Shared
 
 import javax.inject.Inject
-
 
 @MicronautTest
 class ${className}Spec extends Specification {
 
-    @Inject
+    @Shared @Inject
     EmbeddedServer embeddedServer
 
-    @AutoCleanup @Inject @Client("/")
+    @Shared @AutoCleanup @Inject @Client("/")
     RxHttpClient client
-
-
 
     void "test index"() {
         given:
