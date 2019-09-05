@@ -1,6 +1,6 @@
 <project>
   <properties>
-    <kotlinVersion>1.3.21</kotlinVersion>
+    <kotlinVersion>1.3.50</kotlinVersion>
   </properties>
   <build>
     <plugins>
