@@ -1,0 +1,6 @@
+ehcache:
+  caches:
+    my-cache:
+      enabled: true
+
+
