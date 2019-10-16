@@ -1,3 +1,3 @@
 #!/bin/sh
 set -euo pipefail
-./server
+./server -Djava.library.path=$(pwd)
