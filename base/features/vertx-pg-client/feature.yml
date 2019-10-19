@@ -1,0 +1,4 @@
+description: Add support for the Reactive Postgres Client in the application
+dependencies:
+    - scope: implementation
+      coords: io.micronaut.configuration:micronaut-vertx-pg-client

@@ -1,0 +1,9 @@
+vertx:
+  mysql:
+    client:
+      port: 3306
+      host: the-host
+      database: the-db
+      user: test
+      password: test
+      maxSize: 5
