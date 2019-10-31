@@ -31,6 +31,7 @@ RUN /usr/lib/graalvm/bin/gu install native-image
 RUN /usr/lib/graalvm/bin/native-image --no-server -cp @jarPath@ 
 RUN chmod 755 bootstrap
 RUN chmod 755 server
-RUN zip -j function.zip bootstrap server 
+RUN cp /usr/lib/graalvm/jre/lib/amd64/libsunec.so libsunec.so
+RUN zip -j function.zip bootstrap server libsunec.so
 EXPOSE 8080
 ENTRYPOINT ["/home/application/server"]
