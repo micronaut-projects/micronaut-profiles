@@ -33,20 +33,21 @@ render template: template("${lang}/Controller.${lang.extension}"),
         overwrite: overwrite
 
 def testFramework = config.testFramework
+String testFrameworkExtension = ""
 String testConvention = "Test"
 
-if (testFramework == "spock") {
+if (testFramework == "spock" || lang == SupportedLanguage.groovy) {
     testConvention = "Spec"
     lang = SupportedLanguage.groovy
-} else if (testFramework == "junit") {
-    lang = SupportedLanguage.java
-} else if (testFramework == "spek") {
+}
+if (testFramework == "spek") {
     lang = SupportedLanguage.kotlin
-} else if (lang == SupportedLanguage.groovy) {
-    testConvention = "Spec"
+}
+if (lang == SupportedLanguage.kotlin && (testFramework == "junit" || testFramework == "spek" )) {
+    testFrameworkExtension = testFramework.capitalize()
 }
 
-render template: template("${lang}/Controller${testConvention}.${lang.extension}"),
+render template: template("${lang}/Controller${testConvention}${testFrameworkExtension}.${lang.extension}"),
         destination: file("src/test/${lang}/${artifactPath}${testConvention}.${lang.extension}"),
         model: model,
         overwrite: overwrite
