@@ -1,4 +1,5 @@
 hazelcast:
-  instanceName: "my-cache"
-  network:
-    addresses: ['127.0.0.1:5701']
+  client:  
+    instanceName: "my-cache"
+    network:
+      addresses: ['127.0.0.1:5701']
