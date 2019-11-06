@@ -1,6 +1,7 @@
 <project>
   <properties>
     <kotlinVersion>1.3.50</kotlinVersion>
+    <micronautDataVersion>1.0.0.M4</micronautDataVersion>
   </properties>
   <build>
     <plugins>

@@ -1,0 +1,10 @@
+description: Adds support for Micronaut Data JDBC
+dependencies:
+  - scope: annotationProcessor
+    coords: io.micronaut.data:micronaut-data-processor:${micronautDataVersion}
+  - scope: implementation
+    coords: io.micronaut.data:micronaut-data-jdbc:${micronautDataVersion}
+  - scope: runtimeOnly
+    coords: io.micronaut.configuration:micronaut-jdbc-tomcat
+  - scope: runtimeOnly
+    coords: com.h2database:h2
