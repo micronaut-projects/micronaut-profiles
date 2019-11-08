@@ -4,8 +4,8 @@
 @Parameters(paramLabel = "REPOSITORY-NAME", description = 'The name of the repository to create')
 @Field String repositoryName
 
-@Option(names = ['-e', '--entityType'], description = 'Specify custom entity type - Defaults to repository name')
-@Field String entityType
+@Option(names = ['-p', '--package'], description = 'Specify custom package location')
+@Field String customPackage
 
 @Option(names = ['-i', '--idType'], description = 'Specify custom id type - Defaults to Long')
 @Field String idType
@@ -29,20 +29,39 @@ private SupportedLanguage sniffProjectLanguage() {
     }
 }
 
+def idCheck = ["Integer", "Long", "String"]
 def model = model(repositoryName).forConvention("Repository")
 
 Map modelMap = model.asMap()
-modelMap.put("entityType", entityType ?: model.trimConvention(model.simpleName, "Repository"))
-modelMap.put("idType", idType ?: "Long")
+modelMap.put("entityType", model.trimConvention(model.simpleName, "Repository"))
 
-String artifactPath = "${model.packagePath}/${model.className}"
+// Check that specified id type will be imported by default
+if (idType) {
+    if (idCheck.contains(idType)) {
+        modelMap.put("idType", idType)
+    } else {
+        throw new RuntimeException("Code generation does not support that id type - Please use a standard id type for generation")
+    }
+} else {
+    modelMap.put("idType", "Long")
+}
+
+// Set custom package
+if (customPackage) {
+    modelMap.put("packagePath", customPackage)
+    modelMap.put("packageName", customPackage.replace('/' as char, '.' as char))
+    modelMap.put("fullName", "${modelMap.packageName}.${model.className}".toString())
+}
+
+String artifactPath = "${modelMap.packagePath}/${model.className}"
 lang = lang ?: SupportedLanguage.findValue(config.sourceLanguage).orElse(sniffProjectLanguage())
 overwrite = overwrite as Boolean ?: false
 
-println config
+println modelMap
+println artifactPath
 
-render(
-        template("${lang}/Repository.${lang.extension}"),
+
+render( template("${lang}/Repository.${lang.extension}"),
         file("src/main/${lang}/${artifactPath}.${lang.extension}"),
         modelMap,
         overwrite
@@ -62,7 +81,8 @@ if (testFramework == "spock") {
     testConvention = "Spec"
 }
 
-render template: template("${lang}/${testConvention}.${lang.extension}"),
-        destination: file("src/test/${lang}/${artifactPath}${testConvention}.${lang.extension}"),
-        model: model,
-        overwrite: overwrite
+render( template("${lang}/${testConvention}.${lang.extension}"),
+        file("src/test/${lang}/${artifactPath}${testConvention}.${lang.extension}"),
+        modelMap,
+        overwrite
+)
