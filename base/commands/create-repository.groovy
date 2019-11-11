@@ -1,20 +1,14 @@
 @Command(name = 'create-repository', description = 'Creates a repository and associated test')
 @PicocliScript GroovyScriptCommand me
 
-@Parameters(paramLabel = "REPOSITORY-NAME", description = 'The name of the repository to create')
+@Parameters(index="0", paramLabel = "REPOSITORY-NAME", description = 'The name of the repository to create')
 @Field String repositoryName
 
-@Option(names = ['-p', '--package'], description = 'Specify custom package location')
-@Field String customPackage
-
-@Option(names = ['-i', '--idType'], description = 'Specify custom id type - Defaults to Long')
-@Field String idType
-
-@Option(names = ['-a', '--annotationType'], description = 'Specify annotation type - Defaults to JPA')
+@Parameters(index="1", paramLabel = "REPOSITORY-TYPE", description = 'The type [JPA, JDBC] of the repository to create')
 @Field String annotationType
 
-@Option(names = ['-rt', '--repositoryType'], description = 'Specify repository type - Defaults to CrudRepository<E, ID>')
-@Field String repositoryType
+@Option(names = ['-i', '--idType'], description = 'Specify custom id type [Integer, Long, String] or full package name [ie. com.corp.Book] - Defaults to Long')
+@Field String idType
 
 @Option(names = ['-f', '--force'], description = 'Whether to overwrite existing files')
 @Field boolean overwrite
@@ -39,6 +33,7 @@ def model = model(repositoryName).forConvention("Repository")
 
 Map modelMap = model.asMap()
 modelMap.put("entityType", model.trimConvention(model.simpleName, "Repository"))
+modelMap.put("idTypeImport", "")
 
 /** ====================================================================================================================
  * Check that specified id type will be imported by default
@@ -46,7 +41,10 @@ modelMap.put("entityType", model.trimConvention(model.simpleName, "Repository"))
 def idTypeCheck = ["Integer", "Long", "String"]
 
 if (idType) {
-    if (idTypeCheck.contains(idType)) {
+    if (idType.contains('.')) {
+        modelMap.put("idTypeImport", "import " + idType)
+        modelMap.put("idType", idType)
+    } else if (idTypeCheck.contains(idType)) {
         modelMap.put("idType", idType)
     } else {
         throw new RuntimeException("Code generation not supported for the specified id type.")
@@ -56,20 +54,12 @@ if (idType) {
 }
 
 /** ====================================================================================================================
- * Set custom package
- * ================================================================================================================== */
-if (customPackage) {
-    modelMap.put("packagePath", customPackage)
-    modelMap.put("packageName", customPackage.replace('/' as char, '.' as char))
-    modelMap.put("fullName", "${modelMap.packageName}.${model.className}".toString())
-}
-
-/** ====================================================================================================================
  * Set annotation by repository type
  * ================================================================================================================== */
 def annotationTypeCheck = ["jpa", "jdbc"]
 
 if (annotationType) {
+    println annotationType
     if (annotationTypeCheck.contains(annotationType.toLowerCase())) {
         if (annotationType.equalsIgnoreCase("jpa")) {
             modelMap.put("annotationType", "@Repository")
@@ -81,41 +71,8 @@ if (annotationType) {
         throw new RuntimeException("Code generation not supported for the specified annotation type.")
     }
 } else {
-    annotationType = "jpa"
     modelMap.put("annotationType", "@Repository")
 }
-
-/** ====================================================================================================================
- * Set repository type
- * ================================================================================================================== */
-def repositoryTypeCheck = ["AsyncCrudRepository", "CrudRepository", "JpaRepository", "PageableRepository", "ReactiveStreamsCrudRepository"]
-
-if (repositoryType) {
-    if (repositoryTypeCheck.contains(repositoryType)) {
-        modelMap.put("repositoryType", repositoryType)
-        if (repositoryType == "AsyncCrudRepository") {
-            modelMap.put("repositoryImport", "import io.micronaut.data.repository.async.AsyncCrudRepository")
-        } else if (repositoryType == "CrudRepository") {
-            modelMap.put("repositoryImport", "import io.micronaut.data.repository.CrudRepository")
-        } else if (repositoryType == "JpaRepository") {
-            if (annotationType == "jpa") {
-                modelMap.put("repositoryImport", "import io.micronaut.data.jpa.repository.JpaRepository")
-            } else {
-                throw new RuntimeException("JpaRepository only supported on projects with jpa support.")
-            }
-        } else if (repositoryType == "PageableRepository") {
-            modelMap.put("repositoryImport", "import io.micronaut.data.repository.PageableRepository")
-        } else if (repositoryType == "ReactiveStreamsCrudRepository") {
-            modelMap.put("repositoryImport", "import io.micronaut.data.repository.reactive.ReactiveStreamsCrudRepository")
-        }
-    } else {
-        throw new RuntimeException("Code generation not supported for the specified repository type.")
-    }
-} else {
-    modelMap.put("repositoryType", "CrudRepository")
-    modelMap.put("repositoryImport", "import io.micronaut.data.repository.CrudRepository")
-}
-
 
 String artifactPath = "${modelMap.packagePath}/${model.className}"
 lang = lang ?: SupportedLanguage.findValue(config.sourceLanguage).orElse(sniffProjectLanguage())
