@@ -4,21 +4,17 @@ import io.micronaut.http.HttpStatus
 import io.micronaut.http.client.RxHttpClient
 import org.junit.jupiter.api.Assertions.assertEquals
 import io.micronaut.context.ApplicationContext
-import io.micronaut.context.env.Environment
 import io.micronaut.runtime.server.EmbeddedServer
-import org.jetbrains.spek.api.Spek
-import org.jetbrains.spek.api.dsl.given
-import org.jetbrains.spek.api.dsl.it
-import org.jetbrains.spek.api.dsl.on
 import org.junit.jupiter.api.Assertions.assertTrue
+import org.spekframework.spek2.style.specification.describe
+import org.spekframework.spek2.Spek
 
-object ${className}Test : Spek({
+object ${className}Spec : Spek({
 
-    given("an application context") {
-        val ctx = ApplicationContext.run(Environment.TEST)
+    describe("an application context") {
+        var embeddedServer : EmbeddedServer = ApplicationContext.run(EmbeddedServer::class.java)
 
-        on("embedded server retrieval") {
-            val embeddedServer = ctx.getBean(EmbeddedServer::class.java)
+        context("embedded server retrieval") {
 
             it("should be running") {
                 assertTrue(embeddedServer.isRunning())
@@ -26,11 +22,10 @@ object ${className}Test : Spek({
         }
     }
 
-    given("/${propertyName}") {
-        val ctx = ApplicationContext.run(Environment.TEST)
+    describe("/${propertyName}") {
+        var embeddedServer : EmbeddedServer = ApplicationContext.run(EmbeddedServer::class.java)
 
-        on("client retrieval") {
-            val embeddedServer = ctx.getBean(EmbeddedServer::class.java)
+        context("client retrieval") {
             val client: RxHttpClient = embeddedServer.applicationContext.createBean(RxHttpClient::class.java, embeddedServer.url)
 
             it("responds on endpoints /${propertyName}") {
