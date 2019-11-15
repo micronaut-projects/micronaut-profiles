@@ -97,6 +97,12 @@ if (lang == SupportedLanguage.kotlin) {
     }
 }
 
+if (lang == SupportedLanguage.java) {
+    if (testFramework == "spock") {
+        lang = SupportedLanguage.groovy // allow the groovy block to handle
+    }
+}
+
 if (lang == SupportedLanguage.groovy) {
     if (testFramework != "junit") {
         testConvention = "Spec"
