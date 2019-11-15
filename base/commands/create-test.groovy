@@ -36,6 +36,8 @@ String testConvention = "Test"
 if (lang == SupportedLanguage.kotlin) {
     if (testFramework == "spek" || testFramework == "junit") {
         testConvention = testFramework.capitalize()
+    } else if (testFramework == "spock") {
+        lang = SupportedLanguage.groovy // allow the groovy block to handle
     }
 }
 
