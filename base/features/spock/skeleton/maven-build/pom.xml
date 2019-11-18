@@ -19,6 +19,16 @@
     </pluginRepository>
   </pluginRepositories>
 
+  <dependencies>
+    <!-- This is only required when running spock tests using maven -->
+    <!-- Version is 5.4.2 as the latest 5.5.2 does not recognize spock tests for some reason -->
+    <dependency>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
+      <version>5.4.2</version>
+    </dependency>
+  </dependencies>
+
   <build>
     <pluginManagement>
       <plugins>
