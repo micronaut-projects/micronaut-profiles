@@ -32,21 +32,33 @@ render template: template("${lang}/Controller.${lang.extension}"),
         model: model,
         overwrite: overwrite
 
+/** ====================================================================================================================
+ * Determine which tests to generate
+ * ================================================================================================================== */
 def testFramework = config.testFramework
 String testConvention = "Test"
 
-if (testFramework == "spock") {
-    testConvention = "Spec"
-    lang = SupportedLanguage.groovy
-} else if (testFramework == "junit") {
-    lang = SupportedLanguage.java
-} else if (testFramework == "spek") {
-    lang = SupportedLanguage.kotlin
-} else if (lang == SupportedLanguage.groovy) {
-    testConvention = "Spec"
+if (lang == SupportedLanguage.kotlin) {
+    if (testFramework == "spek" || testFramework == "junit") {
+        testConvention = testFramework.capitalize()
+    } else if (testFramework == "spock") {
+        lang = SupportedLanguage.groovy // allow the groovy block to handle
+    }
 }
 
-render template: template("${lang}/Controller${testConvention}.${lang.extension}"),
+if (lang == SupportedLanguage.java) {
+    if (testFramework == "spock") {
+        lang = SupportedLanguage.groovy // allow the groovy block to handle
+    }
+}
+
+if (lang == SupportedLanguage.groovy) {
+    if (testFramework != "junit") {
+        testConvention = "Spec"
+    }
+}
+
+render template: template("${lang}/${testConvention}.${lang.extension}"),
         destination: file("src/test/${lang}/${artifactPath}${testConvention}.${lang.extension}"),
         model: model,
         overwrite: overwrite

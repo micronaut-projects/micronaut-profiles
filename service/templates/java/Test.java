@@ -1,6 +1,5 @@
 ${packageName ? 'package ' + packageName + ';' : ''}
 
-import io.micronaut.context.ApplicationContext;
 import io.micronaut.http.HttpStatus;
 import io.micronaut.http.client.RxHttpClient;
 import io.micronaut.runtime.server.EmbeddedServer;

@@ -27,27 +27,33 @@ def model = model(testName)
 String artifactPath = "${model.packagePath}/${model.className}"
 lang = lang ?: SupportedLanguage.findValue(config.sourceLanguage).orElse(sniffProjectLanguage())
 
+/** ====================================================================================================================
+ * Determine which tests to generate
+ * ================================================================================================================== */
 def testFramework = config.testFramework
 String testConvention = "Test"
-String templateFile = "Test"
 
-if (testFramework == "spock") {
-    testConvention = "Spec"
-    templateFile = "Spec"
-    lang = SupportedLanguage.groovy
-} else if (testFramework == "junit") {
-    lang = SupportedLanguage.java
-} else if (testFramework == "spek") {
-    lang = SupportedLanguage.kotlin
-    templateFile = "Spek"
-} else if (testFramework == "kotlintest") {
-    lang = SupportedLanguage.kotlin
-} else if (lang == SupportedLanguage.groovy) {
-    testConvention = "Spec"
-    templateFile = "Spec"
+if (lang == SupportedLanguage.kotlin) {
+    if (testFramework == "spek" || testFramework == "junit") {
+        testConvention = testFramework.capitalize()
+    } else if (testFramework == "spock") {
+        lang = SupportedLanguage.groovy // allow the groovy block to handle
+    }
 }
 
-render template: template("${lang}/${templateFile}.${lang.extension}"),
+if (lang == SupportedLanguage.java) {
+    if (testFramework == "spock") {
+        lang = SupportedLanguage.groovy // allow the groovy block to handle
+    }
+}
+
+if (lang == SupportedLanguage.groovy) {
+    if (testFramework != "junit") {
+        testConvention = "Spec"
+    }
+}
+
+render template: template("${lang}/${testConvention}.${lang.extension}"),
         destination: file("src/test/${lang}/${artifactPath}${testConvention}.${lang.extension}"),
         model: model,
         overwrite: overwrite

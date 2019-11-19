@@ -35,17 +35,31 @@ render template: template("${lang}/Service.${lang.extension}"),
         overwrite: overwrite
 
 // TODO: Test support
-// def testFramework = config.testFramework
-// String testConvention = "Test"
-
-// if (testFramework == "spock") {
-//     testConvention = "Spec"
-//     lang = SupportedLanguage.groovy
-// } else if (testFramework == "junit") {
-//     lang = SupportedLanguage.java
-// } else if (lang == SupportedLanguage.groovy) {
-//     testConvention = "Spec"
-// }
+///** ====================================================================================================================
+// * Determine which tests to generate
+// * ================================================================================================================== */
+//def testFramework = config.testFramework
+//String testConvention = "Test"
+//
+//if (lang == SupportedLanguage.kotlin) {
+//    if (testFramework == "spek" || testFramework == "junit") {
+//        testConvention = testFramework.capitalize()
+//    } else if (testFramework == "spock") {
+//        lang = SupportedLanguage.groovy // allow the groovy block to handle
+//    }
+//}
+//
+//if (lang == SupportedLanguage.java) {
+//    if (testFramework == "spock") {
+//        lang = SupportedLanguage.groovy // allow the groovy block to handle
+//    }
+//}
+//
+//if (lang == SupportedLanguage.groovy) {
+//    if (testFramework != "junit") {
+//        testConvention = "Spec"
+//    }
+//}
 
 // render template: template("${lang}/Service${testConvention}.${lang.extension}"),
 //         destination: file("src/test/${lang}/${artifactPath}${testConvention}.${lang.extension}"),
