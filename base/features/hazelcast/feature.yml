@@ -1,0 +1,4 @@
+description: Adds support for Hazelcast (https://hazelcast.org)
+dependencies:
+  - scope: implementation
+    coords: io.micronaut.cache:micronaut-cache-hazelcast
