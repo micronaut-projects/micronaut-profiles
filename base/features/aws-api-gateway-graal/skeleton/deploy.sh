@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 docker build . -t @app.name@
 mkdir -p build
 docker run --rm --entrypoint cat @app.name@  /home/application/function.zip > build/function.zip
