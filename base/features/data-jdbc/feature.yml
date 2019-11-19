@@ -1,0 +1,6 @@
+description: Adds support for Micronaut Data JDBC
+dependencies:
+  - scope: annotationProcessor
+    coords: io.micronaut.data:micronaut-data-processor
+  - scope: implementation
+    coords: io.micronaut.data:micronaut-data-jdbc

@@ -1,0 +1,9 @@
+description: Adds support for Micronaut Data Hibernate/JPA
+features:
+  dependent:
+    - jdbc-tomcat
+dependencies:
+  - scope: annotationProcessor
+    coords: io.micronaut.data:micronaut-data-processor
+  - scope: implementation
+    coords: io.micronaut.data:micronaut-data-hibernate-jpa
