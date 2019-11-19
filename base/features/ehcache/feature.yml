@@ -1,0 +1,4 @@
+description: Adds support for Ehcache (https://www.ehcache.org/)
+dependencies:
+  - scope: implementation
+    coords: io.micronaut.cache:micronaut-cache-ehcache
