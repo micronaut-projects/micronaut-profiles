@@ -11,7 +11,7 @@ skeleton:
 
 build:
     plugins:
-        - com.github.johnrengelman.shadow:5.0.0 
+        - com.github.johnrengelman.shadow:5.2.0
         - jp.classmethod.aws.lambda:0.39
 dependencies:
   - scope: excludes
