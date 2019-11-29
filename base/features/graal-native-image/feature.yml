@@ -1,6 +1,6 @@
-description: Allows Building a Native Image
+description: Allows Building a Native Image for Java
 dependencies:
   - scope: annotationProcessor
     coords: io.micronaut:micronaut-graal
   - scope: compileOnly
-    coords: com.oracle.substratevm:svm
+    coords: org.graalvm.nativeimage:svm
