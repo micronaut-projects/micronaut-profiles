@@ -1,5 +1,5 @@
 
-mainClassName = "@defaultPackage@.Application"
+mainClassName = "@mainClass@"
 
 ext {
     protocVersion="3.5.1"
