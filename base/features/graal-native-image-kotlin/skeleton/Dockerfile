@@ -3,7 +3,6 @@ FROM oracle/graalvm-ce:19.3.0-java8 as graalvm
 COPY . /home/app/@app.name@
 WORKDIR /home/app/@app.name@
 RUN gu install native-image
-RUN yum install -y libstdc++-static
 RUN native-image --no-server --static -cp @jarPath@
 
 FROM frolvlad/alpine-glibc
