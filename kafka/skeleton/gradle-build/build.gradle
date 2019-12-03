@@ -1,2 +1,2 @@
 
-mainClassName = "@defaultPackage@.Application"
+mainClassName = "@mainClassName@"

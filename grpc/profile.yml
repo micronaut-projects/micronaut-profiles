@@ -24,3 +24,4 @@ jvmArgs:
 dependencies:
   - scope: implementation
     coords: io.micronaut.grpc:micronaut-grpc-runtime
+mainClassName: "@defaultPackage@.Application"

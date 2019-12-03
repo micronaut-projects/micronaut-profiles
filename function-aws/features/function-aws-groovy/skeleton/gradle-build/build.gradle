@@ -1,4 +1,4 @@
-mainClassName = "@defaultPackage@.@project.className@Function"
+mainClassName = "@mainClassName@"
 applicationDefaultJvmArgs = [""]
 
 jar {
