@@ -14,7 +14,7 @@ features:
       - logback
 build:
     plugins:
-        - com.google.protobuf:0.8.5    
+        - com.google.protobuf:0.8.10
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
 jvmArgs:
