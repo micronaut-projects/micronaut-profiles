@@ -5,3 +5,6 @@ features:
 dependencies:
   - scope: implementation
     coords: io.micronaut:micronaut-function-aws
+mainClassName: io.micronaut.function.executor.FunctionApplication
+
+# Previous value of mainClassName was "@defaultPackage@.@project.className@FunctionKt"

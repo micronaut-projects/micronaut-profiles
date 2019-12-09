@@ -20,3 +20,4 @@ dependencies:
     coords: com.amazonaws:aws-lambda-java-log4j2:1.0.0
   - scope: runtimeOnly
     coords: org.apache.logging.log4j:log4j-slf4j-impl:2.9.1
+mainClassName: "@defaultPackage@.Application"

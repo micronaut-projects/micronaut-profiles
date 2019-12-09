@@ -7,3 +7,6 @@ dependencies:
     coords: io.micronaut:micronaut-function-aws
   - scope: testCompile
     coords: io.micronaut:micronaut-inject-java
+mainClassName: io.micronaut.function.executor.FunctionApplication
+
+# Previous value of mainClassName was  "@defaultPackage@.@project.className@Function"

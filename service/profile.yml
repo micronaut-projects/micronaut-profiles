@@ -27,3 +27,4 @@ jvmArgs:
     - -noverify
     - -XX:TieredStopAtLevel=1
     - -Dcom.sun.management.jmxremote
+mainClassName: "@defaultPackage@.Application"

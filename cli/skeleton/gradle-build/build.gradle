@@ -1,4 +1,4 @@
-mainClassName = "@defaultPackage@.@project.className@Command"
+mainClassName = "@mainClassName@"
 
 jar {
     manifest {

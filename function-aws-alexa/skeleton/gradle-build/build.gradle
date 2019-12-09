@@ -1,4 +1,4 @@
-mainClassName = "io.micronaut.function.executor.FunctionApplication"
+mainClassName = "@mainClassName@"
 applicationDefaultJvmArgs = [""]
 
 jar {

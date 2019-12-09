@@ -1,3 +1,4 @@
 description: A profile for creating new Micronaut profiles
 skeleton:
   executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
+mainClassName: "@defaultPackage@.Application"
