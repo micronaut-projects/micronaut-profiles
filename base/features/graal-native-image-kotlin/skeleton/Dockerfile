@@ -5,7 +5,7 @@ WORKDIR /home/app/@app.name@
 RUN gu install native-image
 RUN native-image --no-server --static -cp @jarPath@
 
-FROM scratch
+FROM frolvlad/alpine-glibc
 EXPOSE 8080
 COPY --from=graalvm /home/app/@app.name@/@app.name@ /app/@app.name@
 ENTRYPOINT ["/app/@app.name@", "-Djava.library.path=/app"]
