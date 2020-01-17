@@ -1,4 +1,7 @@
 description: Adds support for Micronaut Data JDBC
+features:
+  dependent:
+    - jdbc-tomcat
 dependencies:
   - scope: annotationProcessor
     coords: io.micronaut.data:micronaut-data-processor
