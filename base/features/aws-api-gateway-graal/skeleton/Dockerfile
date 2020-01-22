@@ -3,7 +3,7 @@ COPY --chown=gradle:gradle . /home/application
 WORKDIR /home/application
 RUN gradle build --no-daemon
 
-FROM amazonlinux:2017.03.1.20170812 as graalvm
+FROM amazonlinux:2018.03.0.20191219.0 as graalvm
 # install graal to amazon linux.
 ENV LANG=en_US.UTF-8
 
