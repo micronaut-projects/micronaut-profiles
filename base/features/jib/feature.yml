@@ -1,4 +1,4 @@
 description: Adds support for Jib builds
 build:
     plugins:
-        - com.google.cloud.tools.jib:0.9.9
+        - com.google.cloud.tools.jib:1.8.0
