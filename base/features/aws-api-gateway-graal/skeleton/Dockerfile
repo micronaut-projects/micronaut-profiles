@@ -1,4 +1,4 @@
-FROM gradle:5.1.1-jdk-alpine as builder
+FROM gradle:5.3.1-jdk-alpine as builder
 COPY --chown=gradle:gradle . /home/application
 WORKDIR /home/application
 RUN gradle build --no-daemon
@@ -13,10 +13,11 @@ RUN yum install -y gcc gcc-c++ libc6-dev  zlib1g-dev curl bash zlib zlib-devel z
     && rm -rf /var/cache/yum
 
 
-ENV GRAAL_VERSION 19.2.1
-ENV GRAAL_FILENAME graalvm-ce-linux-amd64-${GRAAL_VERSION}.tar.gz
+ENV GRAAL_VERSION 19.3.1
+ENV JDK_VERSION java8
+ENV GRAAL_FILENAME graalvm-ce-${JDK_VERSION}-linux-amd64-${GRAAL_VERSION}.tar.gz
 
-RUN curl -4 -L https://github.com/oracle/graal/releases/download/vm-${GRAAL_VERSION}/graalvm-ce-linux-amd64-${GRAAL_VERSION}.tar.gz -o /tmp/${GRAAL_FILENAME}
+RUN curl -4 -L https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAAL_VERSION}/graalvm-ce-${JDK_VERSION}-linux-amd64-${GRAAL_VERSION}.tar.gz -o /tmp/${GRAAL_FILENAME}
 
 RUN tar -zxvf /tmp/${GRAAL_FILENAME} -C /tmp \
     && mv /tmp/graalvm-ce-${GRAAL_VERSION} /usr/lib/graalvm
@@ -31,7 +32,6 @@ RUN /usr/lib/graalvm/bin/gu install native-image
 RUN /usr/lib/graalvm/bin/native-image --no-server -cp @jarPath@ 
 RUN chmod 755 bootstrap
 RUN chmod 755 server
-RUN cp /usr/lib/graalvm/jre/lib/amd64/libsunec.so libsunec.so
-RUN zip -j function.zip bootstrap server libsunec.so
+RUN zip -j function.zip bootstrap server
 EXPOSE 8080
 ENTRYPOINT ["/home/application/server"]
