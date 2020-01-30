@@ -1,4 +1,4 @@
-description: Allows Building a Native Image for Java
+description: Allows Building a GraalVM Native Image
 dependencies:
   - scope: annotationProcessor
     coords: io.micronaut:micronaut-graal
