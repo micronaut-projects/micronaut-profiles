@@ -1,9 +1,0 @@
-description: Allows Building a Native Image for Kotlin
-features:
-  dependent:
-    - kotlin
-dependencies:
-  - scope: kapt
-    coords: io.micronaut:micronaut-graal
-  - scope: compileOnly
-    coords: org.graalvm.nativeimage:svm
