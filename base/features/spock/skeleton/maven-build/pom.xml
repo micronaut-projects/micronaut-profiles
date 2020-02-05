@@ -3,6 +3,8 @@
     <!-- JUnit 5 requires Surefire and Failsafe version 2.22.0 or higher -->
     <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
     <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
+    <junit-platform.version>1.2.0</junit-platform.version>
+    <jupiter.version>5.2.0</jupiter.version>    
   </properties>
 
   <pluginRepositories>
@@ -32,6 +34,23 @@
               <include>%regex[.*]</include>
             </includes>
           </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>org.junit.platform</groupId>
+              <artifactId>junit-platform-surefire-provider</artifactId>
+              <version>${junit-platform.version}</version>
+            </dependency>
+            <dependency>
+              <groupId>org.junit.jupiter</groupId>
+              <artifactId>junit-jupiter-engine</artifactId>
+              <version>${jupiter.version}</version>
+            </dependency>
+            <dependency>
+              <groupId>org.junit.vintage</groupId>
+              <artifactId>junit-vintage-engine</artifactId>
+              <version>${jupiter.version}</version>
+            </dependency>
+          </dependencies>                 
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
