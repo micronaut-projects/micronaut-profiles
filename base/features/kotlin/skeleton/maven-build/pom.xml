@@ -9,6 +9,7 @@
         <groupId>org.jetbrains.kotlin</groupId>
         <version>${kotlinVersion}</version>
         <configuration>
+          <jvmTarget>${jdk.version}</jvmTarget>
           <compilerPlugins>
             <plugin>all-open</plugin>
           </compilerPlugins>
@@ -84,8 +85,8 @@
         <version>3.7.0</version>
         <configuration>
           <proc>none</proc>
-          <source>1.8</source>
-          <target>1.8</target>
+          <source>${jdk.version}</source>
+          <target>${jdk.version}</target>
         </configuration>
         <executions>
           <!-- Replacing default-compile as it is treated specially by maven -->
