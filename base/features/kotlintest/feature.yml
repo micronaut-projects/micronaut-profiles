@@ -1,7 +1,9 @@
 description: Adds support for the KotlinTest testing framework
 features:
-    dependent:
-      - kotlin
+  excludes:
+    - junit
+  dependent:
+    - kotlin
 dependencies:
   - scope: testCompile
     coords: io.micronaut.test:micronaut-test-kotlintest

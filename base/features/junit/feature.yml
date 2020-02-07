@@ -1,4 +1,8 @@
 description: Adds support for the JUnit 5 testing framework
+features:
+  excludes:
+    - spock
+    - kotlintest
 dependencies:
   - scope: testCompile
     coords: org.junit.jupiter:junit-jupiter-api
