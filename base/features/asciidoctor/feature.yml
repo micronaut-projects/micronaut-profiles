@@ -1,4 +1,4 @@
 description: Adds Asciidoctor documentation
 build:
     plugins:
-        - org.asciidoctor.jvm.convert:3.0.0-alpha.2
+        - org.asciidoctor.jvm.convert:3.1.0
