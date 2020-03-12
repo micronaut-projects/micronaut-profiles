@@ -1,0 +1,7 @@
+description: Adds support for Tomcat
+features:
+  excludes:
+    - http-server
+dependencies:
+  - scope: implementation
+    coords: io.micronaut.servlet:micronaut-http-server-tomcat
