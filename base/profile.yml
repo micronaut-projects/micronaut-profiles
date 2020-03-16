@@ -2,6 +2,7 @@ abstract: true
 description: The base profile
 features:
     defaults:
+      - http-server
       - java
     required:
       - annotation-api

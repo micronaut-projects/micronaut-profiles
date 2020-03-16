@@ -1,0 +1,7 @@
+description: Adds support for Undertow
+features:
+  excludes:
+    - http-server
+dependencies:
+  - scope: implementation
+    coords: io.micronaut.servlet:micronaut-http-server-undertow

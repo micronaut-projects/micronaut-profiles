@@ -15,6 +15,15 @@ features:
               priority: 1
             - feature: jdbc-dbcp
               priority: 2
+        server:
+            - feature: http-server
+              priority: 0
+            - feature: jetty-server
+              priority: 1
+            - feature: tomcat-server
+              priority: 2
+            - feature: undertow-server
+              priority: 3
     required:
         - annotation-api
         - application
