@@ -18,11 +18,11 @@ features:
         server:
             - feature: http-server
               priority: 0
-            - feature: jetty
+            - feature: jetty-server
               priority: 1
-            - feature: tomcat
+            - feature: tomcat-server
               priority: 2
-            - feature: undertow
+            - feature: undertow-server
               priority: 3
     required:
         - annotation-api
