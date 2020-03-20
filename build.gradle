@@ -21,8 +21,8 @@ subprojects {
         userOrg = "micronaut"
         repo = "profiles"
         publish = true
-        user = sonatypeOssUsername
-        key = sonatypeOssPassword
+        user = System.getenv("BINTRAY_USER")
+        key = System.getenv("BINTRAY_KEY")
         githubSlug = 'micronaut-projects/micronaut-profiles'
         license {
             name = 'Apache-2.0'

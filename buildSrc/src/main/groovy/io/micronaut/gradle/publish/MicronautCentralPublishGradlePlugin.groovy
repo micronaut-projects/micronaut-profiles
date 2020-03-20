@@ -179,8 +179,8 @@ BINTRAY_KEY=key
             }
         }
 
-        def publishUsername = System.getenv('PUBLISHING_USERNAME') ?: project.hasProperty('publishingUsername') ? project.publishingUsername : ''
-        def publishPassword = System.getenv("PUBLISHING_PASSWORD") ?: project.hasProperty('publishingPassword') ? project.publishingPassword : ''
+        def publishUsername = System.getenv('BINTRAY_USER') ?: project.hasProperty('publishingUsername') ? project.publishingUsername : ''
+        def publishPassword = System.getenv("BINTRAY_KEY") ?: project.hasProperty('publishingPassword') ? project.publishingPassword : ''
 
         project.plugins.apply(BintrayPlugin)
 

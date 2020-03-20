@@ -34,7 +34,7 @@ class MicronautProfilePublishGradlePlugin extends MicronautCentralPublishGradleP
 
     @Override
     protected String getDefaultSnapshotRepo() {
-        "https://oss.sonatype.org/content/repositories/snapshots"
+        "https://oss.jfrog.org/artifactory/oss-snapshot-local"
     }
 
     @Override
