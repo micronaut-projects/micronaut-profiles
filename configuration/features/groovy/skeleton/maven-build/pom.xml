@@ -52,7 +52,6 @@
           <argument>-classpath</argument>
           <classpath/>          
           <arguments>
-            <argument>-noverify</argument>
             <argument>-XX:TieredStopAtLevel=1</argument>
             <argument>-Dcom.sun.management.jmxremote</argument>
             <argument>${exec.mainClass}</argument>

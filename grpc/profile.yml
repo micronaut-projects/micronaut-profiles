@@ -18,7 +18,6 @@ build:
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
 jvmArgs:
-  - -noverify
   - -XX:TieredStopAtLevel=1
   - -Dcom.sun.management.jmxremote
 dependencies:

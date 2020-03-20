@@ -13,6 +13,5 @@ skeleton:
 repositories:
     - "mavenCentral()"
 jvmArgs:
-    - -noverify
     - -XX:TieredStopAtLevel=1
     - -Dcom.sun.management.jmxremote
