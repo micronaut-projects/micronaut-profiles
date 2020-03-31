@@ -25,5 +25,7 @@ class ${className}Test(ctx: ApplicationContext): StringSpec({
 
         // "the response is succesful"
         response.status shouldBe HttpStatus.OK
+
+        client.close()
     }
 })

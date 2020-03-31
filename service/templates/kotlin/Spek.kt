@@ -31,6 +31,8 @@ object ${className}Spec : Spek({
             it("responds on endpoints /${propertyName}") {
                 assertEquals(HttpStatus.OK, client.toBlocking().exchange("/${propertyName}", String::class.java).status())
             }
+
+            client.close()
         }
     }
 })
