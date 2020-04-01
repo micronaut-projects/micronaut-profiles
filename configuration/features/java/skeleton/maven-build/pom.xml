@@ -12,11 +12,8 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.7.0</version>
           <configuration>
-            <compilerArgs>
-              <arg>-parameters</arg>
-            </compilerArgs>
+            <useIncrementalCompilation>false</useIncrementalCompilation>
             <annotationProcessorPaths>
 @annotationProcessorPaths@
             </annotationProcessorPaths>
@@ -28,9 +25,6 @@
                 <goal>testCompile</goal>
               </goals>
               <configuration>
-                <compilerArgs>
-                  <arg>-parameters</arg>
-                </compilerArgs>
                 <annotationProcessorPaths>
 @annotationProcessorPaths@
                 </annotationProcessorPaths>
