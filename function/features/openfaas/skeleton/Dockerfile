@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-alpine
+FROM openjdk:14-alpine
 
 RUN addgroup -S app && adduser -S -g app app
 
@@ -10,7 +10,7 @@ RUN chmod +x /usr/bin/fwatchdog
 
 USER app
 
-ENV fprocess="java -Dcom.sun.management.jmxremote -noverify -XX:TieredStopAtLevel=1 -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -jar Handler.jar"
+ENV fprocess="java -Dcom.sun.management.jmxremote -Xmx128m -XX:TieredStopAtLevel=1 -jar Handler.jar"
 
 HEALTHCHECK --interval=1s CMD [ -e /tmp/.lock ] || exit 1
 
