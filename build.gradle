@@ -15,7 +15,7 @@ subprojects {
     apply plugin: 'io.micronaut.profile-publish'
 
     group 'io.micronaut.profiles'
-    version "2.0.0.M2"
+    version "2.0.0.BUILD-SNAPSHOT"
 
     micronautPublish {
         userOrg = "micronaut"
