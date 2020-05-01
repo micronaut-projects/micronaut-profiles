@@ -12,7 +12,7 @@ skeleton:
 build:
     plugins:
         - com.github.johnrengelman.shadow:5.2.0
-        - jp.classmethod.aws.lambda:0.39
+        - jp.classmethod.aws.lambda:0.41
 dependencies:
   - scope: runtimeOnly
     coords: com.amazonaws:aws-lambda-java-log4j2:1.0.0
